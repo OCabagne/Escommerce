@@ -1,5 +1,5 @@
 <?php
-
+// hola
 class Cliente extends Usuario
 {
     public function __construct()
