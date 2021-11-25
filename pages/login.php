@@ -1,5 +1,5 @@
 <?php
-    sesion_start();
+    session_start();
     require '..\class\db.php';
 
     if( isset( $_SESSION['user_id'] ) ){
@@ -39,7 +39,7 @@
 
     <?php
         if( $_POST ){
-            echo "<p>" . $msg . "</p>"
+            echo "<p>" . $msg . "</p>";
         }
     ?>
 
