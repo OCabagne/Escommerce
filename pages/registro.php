@@ -13,7 +13,7 @@
         </span>
         <hr><!---LINEA DE ADORNO DEBAJO REGSITRO-->
     </div><br>
-    <form action="#" method="#">
+    <form action="test.php" method="get">
         <input type="text" name="rfc" placeholder="Escribe aqui tu rfc" maxlength="13" required>
         <input type="text" name="nombreUsuario" placeholder="escribe aqui tu nombre de usuario" maxlength="100"
         required>
@@ -24,7 +24,7 @@
         <input type="radio" name="tipoUsuario" value="vendedor">
         <label>despues</label>
         <input type="radio" name="tipoUsuario" value="cliente" checked>
-        <button type="submit">registrarme</button>
+        <button type="submit" name="reg">registrarme</button>
     </form>
 </body>
 </html>
