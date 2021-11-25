@@ -1,4 +1,4 @@
-:root{
+:root {
     /*Colores Secundarios*/
     --azul-oscuro: #0071B3;
     --azul-oscuro-2: #0076BA;
@@ -20,7 +20,34 @@
     --acento-desire: #eb3b5a;
 }
 
-.bg-secundario{
+.nav-link{
+    color: var(--negro);
+}
+
+.nav-link:hover, .nav-link:focus{
+    color: var(--azul-oscuro);
+}
+
+.bg-secundario {
     background-color: var(--acento-desire) !important;
     color: var(--blanco);
+}
+
+.btn-outline-principal {
+    color: var(--azul);
+    border-color: var(--azul);
+}
+
+.btn-outline-principal:hover {
+    color: #fff;
+    background-color: var(--azul-oscuro-2);
+    border-color: var(--azul-oscuro-2);
+}
+
+.btn-check:checked+.btn-outline-principal:focus,
+.btn-check:active+.btn-outline-principal:focus,
+.btn-outline-principal:active:focus,
+.btn-outline-principal.active:focus,
+.btn-outline-principal.dropdown-toggle.show:focus {
+    background-color: var(--azul-claro);
 }
