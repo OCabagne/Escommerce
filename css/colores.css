@@ -1,0 +1,26 @@
+:root{
+    /*Colores Secundarios*/
+    --azul-oscuro: #0071B3;
+    --azul-oscuro-2: #0076BA;
+    --azul: #0091E6;
+    --azul-claro: #57B1E6;
+    --fondo-azul-claro: #D1EEFF;
+
+    /*Neutrales*/
+    --negro: #1D1F1F;
+    --neutro-1: #5D5F5F;
+    --neutro-2: #B6B8B8;
+    --neutro-3: #E3E3E3;
+    --neutro-4: #F4F4F5;
+    --blanco: #FFFFFF;
+
+    /*Para acentuar*/
+    --acento-naranja: #E68300;
+    --acento-naranja-2: #FF9C19;
+    --acento-desire: #eb3b5a;
+}
+
+.bg-secundario{
+    background-color: var(--acento-desire) !important;
+    color: #fff;
+}
