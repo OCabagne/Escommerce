@@ -22,5 +22,5 @@
 
 .bg-secundario{
     background-color: var(--acento-desire) !important;
-    color: #fff;
+    color: var(--blanco);
 }
