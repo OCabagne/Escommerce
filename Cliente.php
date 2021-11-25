@@ -1,10 +1,13 @@
 <?php
-// hola
 
+require("db.php");
+// hola
 //modificación de Somebody
 
 class Cliente extends Usuario
 {
+    private $dataBase = new database();
+
     public function __construct()
     {
         $this->tipo = "Cliente";
