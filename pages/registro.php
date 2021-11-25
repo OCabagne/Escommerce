@@ -1,3 +1,19 @@
+<?php
+    require '..\class\db.php';
+    if( $_POST ){
+        $rfc = $_POST['rfc'];
+        $nombre = $_POST['nombre'];
+        $usuario = $_POST['nombreUsuario'];
+        $email = $_POST['email'];
+        $contra = $_POST['password'];
+        $tipo = $_POST['tipoUsuario']
+        $db = new database();
+        $connect = $db->conectar();
+        $msg = $connect->signup( $rfc, $nombre, $usuario, $correo, password_hash( $password, PASSWORD_BCRYPT ), $tipo );
+
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,11 +29,18 @@
         </span>
         <hr><!---LINEA DE ADORNO DEBAJO REGSITRO-->
     </div><br>
-    <form action="test.php" method="get">
-        <input type="text" name="rfc" placeholder="Escribe aqui tu rfc" maxlength="13" required>
-        <input type="text" name="nombreUsuario" placeholder="escribe aqui tu nombre de usuario" maxlength="100"
-        required>
-        <input type="text" name="password" placeholder="escribe aqui tu contraseña" maxlength="100" required>
+
+    <?php
+        if( $_POST ){
+            echo "<p>" . $msg . "</p>"
+        }
+    ?>
+
+    <form action="registro.php" method="post">
+        <input type="text" name="rfc" placeholder="Escribe aquí tu rfc" maxlength="13" required>
+        <input type="text" name="nombre" placeholder="Escribe aquí tu nombre" maxlength="150" required>
+        <input type="text" name="nombreUsuario" placeholder="Escribe aqupi tu nombre de usuario" maxlength="100" required>
+        <input type="text" name="password" placeholder="Escribe aquí tu contraseña" maxlength="100" required>
         <input type="email" name="email" placeholder="example@example.com" maxlength="200" required>
         <label for="tipoUsuario">Desea comenzar siendo vendedor</label><br>
         <label>si</label>

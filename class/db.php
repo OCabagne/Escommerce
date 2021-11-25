@@ -59,7 +59,7 @@ class database
         $cnx = new database();
         $connect = $cnx->conectar();
 
-        $query = "INSERT INTO usuario ( rfc, nombre, usuario, correo, tipo ) VALUES ( " . $id_usuario . ", " . $nombre_usuario . ", " . $usuario_usuario . ", " . $email_usuario . ", " .  $contra_usuario . ");";
+        $query = "INSERT INTO usuario ( rfc, nombre, usuario, correo, contraseña ) VALUES ( " . $id_usuario . ", " . $nombre_usuario . ", " . $usuario_usuario . ", " . $email_usuario . ", " .  $contra_usuario . ");";
         $exec = mysqli_query( $connect, $query );
         // $exec es true si la consulta fue exitosa, se evalúa en el siguiente if
         if( $exec ){
