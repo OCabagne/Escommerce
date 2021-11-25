@@ -1,16 +1,17 @@
 <?php
-    require '..\class\db.php';
+    //require '\Escommerce\class\db.php';
+    require $_SERVER['DOCUMENT_ROOT'].'/Escommerce/class/db.php';
+
     if( $_POST ){
         $rfc = $_POST['rfc'];
         $nombre = $_POST['nombre'];
         $usuario = $_POST['nombreUsuario'];
         $email = $_POST['email'];
         $contra = $_POST['password'];
-        $tipo = $_POST['tipoUsuario']
+        $tipo = $_POST['tipoUsuario'];
         $db = new database();
-        $connect = $db->conectar();
-        $msg = $connect->signup( $rfc, $nombre, $usuario, $correo, password_hash( $password, PASSWORD_BCRYPT ), $tipo );
-
+        //$connect = $db->conectar();       // El método conectar únicamente se usa dentro de db por seguridad de acceso. Los demás métodos son los que van a llamarlo de forma interna.
+        $msg = $db->signup( $rfc, $nombre, $usuario, $correo, password_hash( $password, PASSWORD_BCRYPT ), $tipo );
     }
 ?>
 
@@ -32,7 +33,7 @@
 
     <?php
         if( $_POST ){
-            echo "<p>" . $msg . "</p>"
+            echo "<p>" . $msg . "</p>";
         }
     ?>
 
