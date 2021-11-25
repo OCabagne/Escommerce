@@ -41,6 +41,35 @@ class database
         $query = "DELETE * FROM producto WHERE idProducto = " + $id_producto + ";";
         $exec = mysqli_query($connect, $query);
     }
+
+    public function login( $email_usuario )
+    {
+        $cnx = new database();
+        $connect = $cnx->conectar();
+
+        $query = "SELECT * FROM usuario WHERE email = " . $email_usuario . ";";
+        $exec = mysqli_query( $connect, $query );
+
+        return $exec;
+
+    }
+
+    public function signup( $id_usuario, $nombre_usuario, $usuario_usuario, $email_usuario, $contra_usuario ) // Tambien puede ser llamada "crearUsuario"
+    {
+        $cnx = new database();
+        $connect = $cnx->conectar();
+
+        $query = "INSERT INTO usuario ( rfc, nombre, usuario, correo, contraseña ) VALUES ( " . $id_usuario . ", " . $nombre_usuario . ", " . $usuario_usuario . ", " . $email_usuario . ", " .  $contra_usuario . ");";
+        $exec = mysqli_query( $connect, $query );
+        // $exec es true si la consulta fue exitosa, se evalúa en el siguiente if
+        if( $exec ){
+            $msg = "Creado con éxito";
+        }else{
+            $msg = "Error al crear";
+        }
+        return $msg;
+    }
+
 }
 
 ?>
