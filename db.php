@@ -24,6 +24,15 @@ class database
         $exec = mysqli_query($connect, $query);
     }
 
+    public function buscarProducto($id_producto)
+    {
+        $cnx = new database();
+        $connect = $cnx->conectar();
+        
+        $query = "SELECT nombreProducto FROM producto WHERE idProducto = " + $id_producto + ";";
+        $exec = mysqli_query($connect, $query);
+    }
+
     public function eliminarProducto($id_producto)
     {
         $cnx = new database();

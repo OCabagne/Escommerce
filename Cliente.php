@@ -22,6 +22,17 @@ class Cliente extends Usuario
     private function eliminarProducto($id_producto)
     {
         $flag = false;
+        $db = new database();
+        if($db->buscarProducto($id_producto))  // Verificar que existe
+        {
+            //Existe. Seguro quieres eliminar?
+
+            if($db->eliminarProducto($id_producto))
+            {
+                //Eliminado
+                $flag = true;
+            }
+        }
 
         return $flag;
     }
