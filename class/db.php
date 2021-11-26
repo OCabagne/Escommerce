@@ -6,13 +6,11 @@ class database
     private $server = "localhost";
     private $user = "user";
     private $pass = "password";
-    private $db = "database";
+    private $dbName = "database";
     
     public function conectar()
     {  
-        $connect = mysqli_connect($this->server, $this->user, $this->pass, $this->db);
-        
-        return $connect;
+        return mysqli_connect($this->server, $this->user, $this->pass, $this->dbName);
     }
 
     public function getUserName($userId)
@@ -60,7 +58,7 @@ class database
         $connect = $cnx->conectar();
 
         $query = "INSERT INTO usuario ( rfc, nombre, usuario, correo, contraseña ) VALUES ( " . $id_usuario . ", " . $nombre_usuario . ", " . $usuario_usuario . ", " . $email_usuario . ", " .  $contra_usuario . ");";
-        $exec = mysqli_query( $connect, $query );
+        $exec = mysqli_query($connect, $query);
         // $exec es true si la consulta fue exitosa, se evalúa en el siguiente if
         if( $exec ){
             $msg = "Creado con éxito";
