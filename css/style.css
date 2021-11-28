@@ -102,7 +102,6 @@
     }
 
     .nav-colapsada-vertical {
-        border: red dotted 2px;
         position: fixed;
         height: calc(100% - 59px);
         overflow-y: auto;
