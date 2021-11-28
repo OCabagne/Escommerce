@@ -1,16 +1,19 @@
 <?php
-    require '..\class\db.php';
-    if( $_POST ){
+    //require '\Escommerce\class\db.php';
+    require $_SERVER['DOCUMENT_ROOT'].'/Escommerce/class/db.php';
+
+    if( $_POST)
+    {
         $rfc = $_POST['rfc'];
         $nombre = $_POST['nombre'];
         $usuario = $_POST['nombreUsuario'];
         $email = $_POST['email'];
-        $contra = $_POST['password'];
-        $tipo = $_POST['tipoUsuario']
+        $password = $_POST['password'];
+        $tipo = $_POST['tipoUsuario'];
         $db = new database();
-        $connect = $db->conectar();
-        $msg = $connect->signup( $rfc, $nombre, $usuario, $correo, password_hash( $password, PASSWORD_BCRYPT ), $tipo );
-
+        echo $rfc;
+        //$connect = $db->conectar();       // El método conectar únicamente se usa dentro de db por seguridad de acceso. Los demás métodos son los que van a llamarlo de forma interna.
+        echo $db->signup( $rfc, $nombre, $usuario, $email, password_hash( $password, PASSWORD_BCRYPT ), $tipo );
     }
 ?>
 
@@ -25,16 +28,10 @@
 <body>
     <div>
         <span>
-            <p>registro</p>
+            <p>Registro</p>
         </span>
         <hr><!---LINEA DE ADORNO DEBAJO REGSITRO-->
     </div><br>
-
-    <?php
-        if( $_POST ){
-            echo "<p>" . $msg . "</p>"
-        }
-    ?>
 
     <form action="registro.php" method="post">
         <input type="text" name="rfc" placeholder="Escribe aquí tu rfc" maxlength="13" required>
