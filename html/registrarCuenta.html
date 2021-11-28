@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/registro.css">
+    <script src="../js/bootstrap.js"></script>
+    <script defer src="../js/app.js"></script>
+    <title>Registro</title>
+</head>
+
+<body>
+
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-xl-9 mx-auto">
+                    <div class="card flex-row my-5 border-0 shadow rounded-3 overflow-hidden">
+                        <div class="card-img-left d-none d-md-flex">
+                            <!-- Background image for card set in CSS! -->
+                        </div>
+                        <div class="card-body p-4 p-sm-5">
+                            <button class="btn" type="button" aria-label="Regresar a inicio">
+                                <a href="index.html"><img src="https://img.icons8.com/windows/32/000000/long-arrow-left.png"/></a>
+                            </button>
+                            <h5 class="card-title text-center mb-5 fw-light fs-5">Registro</h5>
+                            <form>
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" id="floatingInputUsername"
+                                        placeholder="Nombre de usuario" required autofocus>
+                                    <label for="floatingInputUsername">Nombre de usuario</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input type="email" class="form-control" id="floatingInputEmail"
+                                        placeholder="nombre@ejemplo.com">
+                                    <label for="floatingInputEmail">Correo electronico</label>
+                                </div>
+                                <hr>
+                                <div class="form-floating mb-3">
+                                    <input type="password" class="form-control" id="floatingPassword"
+                                        placeholder="Contraseña">
+                                    <label for="floatingPassword">Contraseña</label>
+                                </div>
+
+                                <div class="form-floating mb-3">
+                                    <input type="password" class="form-control" id="floatingPasswordConfirm"
+                                        placeholder="Confirmar contraseña">
+                                    <label for="floatingPasswordConfirm">Confirmar contraseña</label>
+                                </div>
+                                <div class="d-grid mb-2">
+                                    <button class="btn btn-lg btn-primary btn-login fw-bold text-uppercase"
+                                        type="submit">Registrarme</button>
+                                </div>
+                                <a class="d-block text-center mt-2 small" href="login.html">Ya tienes cuenta? Entra aqui!</a>
+                                <hr class="my-4">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</body>
+
+</html>
