@@ -94,6 +94,7 @@
 
     .nav-toggle {
         display: inline;
+        cursor: pointer;
     }
 
     .nav-busqueda {
@@ -103,10 +104,19 @@
     .nav-colapsada-vertical {
         border: red dotted 2px;
         position: fixed;
-        left: 0;
+        height: calc(100% - 59px);
+        overflow-y: auto;
+        left: 100%;
         top: 59px;
         width: 100%;
         font-size: 14px;
         background-color: var(--neutro-4);
+        transition: left 0.3s;
+    }
+
+    .nav-menu-visible{
+        left: 0;
+        display: flex;
+        align-content: flex-start;
     }
 }
