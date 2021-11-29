@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 body{
     background-color: beige;
 }
@@ -63,3 +64,26 @@ input{
 @media(max-width: 899.9px) {
 
 }
+=======
+/*---------- Registro --------------*/
+body {
+    background: #D1EEFF;
+    background: linear-gradient(to right, #D1EEFF, #33AEFF);
+}
+
+.card-img-left {
+    width: 45%;
+    /* Link to your background image using in the property below! */
+    background: scroll center url('../assets/images/pexels-polina.jpg');
+    background-size: cover;
+}
+
+.btn-login {
+    font-size: 0.9rem;
+    letter-spacing: 0.05rem;
+    padding: 0.75rem 1rem;
+}
+/*--------------
+Foto de Polina Zimmerman en Pexels
+--------------------*/
+>>>>>>> 02b95363cbabea8c9a31a536ef3825ff200749ab

@@ -80,20 +80,22 @@
 }
 
 @media(max-width: 768px) {
-    .navbar-brand img{
+    .navbar-brand img {
         width: 60px;
     }
 
-    .navbar{
+    .navbar {
         padding-bottom: 8px;
     }
 
-    .busqueda input, .busqueda button{
+    .busqueda input,
+    .busqueda button {
         font-size: 14px;
     }
 
     .nav-toggle {
         display: inline;
+        cursor: pointer;
     }
 
     .nav-busqueda {
@@ -101,12 +103,41 @@
     }
 
     .nav-colapsada-vertical {
-        border: red dotted 2px;
         position: fixed;
-        left: 0;
+        height: calc(100% - 59px);
+        overflow-y: auto;
+        left: 100%;
         top: 59px;
         width: 100%;
         font-size: 14px;
         background-color: var(--neutro-4);
+        transition: left 0.3s;
     }
+
+    .nav-menu-visible {
+        left: 0;
+        display: flex;
+        align-content: flex-start;
+    }
+}
+
+/* ------- Login ----------------- */
+.login {
+    min-height: 100vh;
+}
+
+.bg-image {
+    background-image: url('../assets/images/pexels-polina.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.login-heading {
+    font-weight: 300;
+}
+
+.btn-login {
+    font-size: 0.9rem;
+    letter-spacing: 0.05rem;
+    padding: 0.75rem 1rem;
 }
