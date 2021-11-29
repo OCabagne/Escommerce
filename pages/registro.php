@@ -23,28 +23,34 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/registro.css">
+    <script src="../js/bootstrap.js"></script>
     <title>Registro E-scommerce</title>
 </head>
 <body>
-    <div>
-        <span>
-            <p>Registro</p>
-        </span>
-        <hr><!---LINEA DE ADORNO DEBAJO REGSITRO-->
-    </div><br>
-
+    <div class="reg-cabecera">
+        <div class="clearfix">
+            <a class="navbar-brand logo reg-cabeza" href="../html/index.html"><img src="../assets/images/LogoProyecto.png"
+                        alt="Logo E-scommerce"></a>
+            <strong><p class="reg-cabeza-nombre">registro</p></strong>
+        </div>
+    </div>
+    <hr><!---LINEA DE ADORNO DEBAJO REGSITRO-->
     <form action="registro.php" method="post">
         <input type="text" name="rfc" placeholder="Escribe aquí tu rfc" maxlength="13" required>
         <input type="text" name="nombre" placeholder="Escribe aquí tu nombre" maxlength="150" required>
-        <input type="text" name="nombreUsuario" placeholder="Escribe aqupi tu nombre de usuario" maxlength="100" required>
+        <input type="text" name="nombreUsuario" placeholder="Escribe aquí tu nombre de usuario" maxlength="100" required>
         <input type="text" name="password" placeholder="Escribe aquí tu contraseña" maxlength="100" required>
         <input type="email" name="email" placeholder="example@example.com" maxlength="200" required>
-        <label for="tipoUsuario">Desea comenzar siendo vendedor</label><br>
-        <label>si</label>
-        <input type="radio" name="tipoUsuario" value="vendedor">
-        <label>despues</label>
-        <input type="radio" name="tipoUsuario" value="cliente" checked>
-        <button type="submit" name="reg">registrarme</button>
+        <div class="class-boton-radio"><p>Desea comenzar siendo vendedor</p></div>
+        <div id="id-radio">
+            <label>si</label>
+            <input type="radio" class="input-radio" name="tipoUsuario" value="vendedor">
+            <label>después</label>
+            <input type="radio" class="input-radio" name="tipoUsuario" value="cliente" checked>
+        </div>
+        <div class="class-boton-radio"><button type="submit" class="boton-radio" name="reg">registrarme</button></div>
     </form>
 </body>
 </html>
