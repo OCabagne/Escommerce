@@ -20,6 +20,87 @@
     --acento-desire: #eb3b5a;
 }
 
+/* Default CSS
+/*----------------------------------------*/
+
+html,
+body {
+	height: 100%;
+    font-family: 'Montserrat', sans-serif;
+	-webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 0;
+	color: #111111;
+	font-weight: 400;
+	font-family: "Montserrat", sans-serif;
+}
+
+h1 {
+	font-size: 70px;
+}
+
+h2 {
+	font-size: 36px;
+}
+
+h3 {
+	font-size: 30px;
+}
+
+h4 {
+	font-size: 24px;
+}
+
+h5 {
+	font-size: 18px;
+}
+
+h6 {
+	font-size: 16px;
+}
+
+p {
+	font-size: 14px;
+	font-family: "Montserrat", sans-serif;
+	color: #666666;
+	font-weight: 400;
+	line-height: 24px;
+	margin: 0 0 15px 0;
+}
+
+input:focus,
+select:focus,
+button:focus,
+textarea:focus {
+	outline: none;
+}
+
+a:hover,
+a:focus {
+	text-decoration: none;
+	outline: none;
+}
+
+ul,
+ol {
+	padding: 0;
+	margin: 0;
+}
+
+nav{
+    height: 90px;
+}
+
+
+/*--------------- Navbar -----------------------*/
+
 .nav-link {
     color: var(--negro);
 }
@@ -27,6 +108,16 @@
 .nav-link:hover,
 .nav-link:focus {
     color: var(--azul-oscuro);
+}
+
+.navbar .nav-colapsada-vertical div ul li a {
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #111111;
+    font-weight: 500;
+    display: block;
+    padding: 2px 0;
+    position: relative;
 }
 
 .bg-secundario {
@@ -69,7 +160,40 @@
 }
 
 .busqueda {
-    max-width: 70%;
+    max-width: 95%;
+}
+.nav-busqueda{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 8px;
+}
+
+.logo{
+    width: 100px;
+    padding: auto;
+    margin: 0;
+}
+
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.navbar-collapse ul{
+    height: 29px;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-top: 3px;
+}
+
+.nav-borde{
+    border-right: solid var(--azul-oscuro-2) 1px;
+}
+
+.logo a img{
+    height: 64px;
+    width: 100%;
 }
 
 .nav-toggle {
@@ -79,18 +203,26 @@
     display: none;
 }
 
-@media(max-width: 768px) {
+@media(max-width: 990px) {
+    nav{
+        height: 60px;
+    }
+
     .navbar-brand img {
         width: 60px;
     }
 
-    .navbar {
-        padding-bottom: 8px;
+    .navbar-collapse ul{
+        height: fit-content;
+    }
+
+    .nav-borde{
+        border: none;
     }
 
     .busqueda input,
     .busqueda button {
-        font-size: 14px;
+        font-size: 13px;
     }
 
     .nav-toggle {
@@ -107,10 +239,10 @@
         height: calc(100% - 59px);
         overflow-y: auto;
         left: 100%;
-        top: 59px;
+        top: 60px;
         width: 100%;
         font-size: 14px;
-        background-color: var(--neutro-4);
+        background-color: var(--fondo-azul-claro);
         transition: left 0.3s;
     }
 
@@ -118,6 +250,12 @@
         left: 0;
         display: flex;
         align-content: flex-start;
+    }
+}
+
+@media(max-width: 1059px) {
+    .navbar .nav-texto .nav-colapsada-vertical div ul li a{
+        font-size: 12px;
     }
 }
 
@@ -141,3 +279,14 @@
     letter-spacing: 0.05rem;
     padding: 0.75rem 1rem;
 }
+
+
+/*----- PRUEBAS -------*/
+
+.borde{
+    border: red dotted 2px;
+}
+
+
+
+/*---------------------*/
