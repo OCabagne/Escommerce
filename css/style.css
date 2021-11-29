@@ -161,7 +161,13 @@ nav{
 
 .busqueda {
     max-width: 95%;
+    margin-bottom: 5px;
 }
+
+.busqueda input, .busqueda button{
+    font-size: 14px;
+}
+
 .nav-busqueda{
     display: flex;
     justify-content: center;
@@ -286,7 +292,5 @@ nav{
 .borde{
     border: red dotted 2px;
 }
-
-
 
 /*---------------------*/
