@@ -1,3 +1,26 @@
+<?php
+    session_start();
+    require '..\class\db.php';
+
+    if( isset( $_SESSION['user_id'] ) )
+    {
+        header( 'Location: ../html/index.html' );
+    }
+
+    if( isset($_POST) ){
+        $ema = htmlspecialchars($_POST['correo']);
+        $contr = htmlspecialchars($_POST['contra']);
+        $db = new database();
+        $connect = $db->conectar();
+        $usuario = $connect->login( $ema, password_hash( $contr, PASSWORD_BCRYPT ) );
+        if( count( $usuario ) > 0 && password_verify( $contr, $usuario['contraUsuario'] ) ){
+            $_SESSION['user_id'] = $results['rfc'];
+            $message = "Bienvenido ". $results['nombreUsuario'];
+            header( 'Location: ../html/index.html' );
+        }
+
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,14 +49,14 @@
                                 </button>
                                 <h3 class="login-heading mb-4">Bienvenido de regreso!</h3>
                                 <!-- Sign In Form -->
-                                <form>
+                                <form action="login.php" method="POST">
                                     <div class="form-floating mb-3">
-                                        <input type="email" class="form-control" id="floatingInput"
+                                        <input type="email" name="correo" class="form-control" id="floatingInput"
                                             placeholder="nombre@ejemplo.com">
                                         <label for="floatingInput">Correo electronico</label>
                                     </div>
                                     <div class="form-floating mb-3">
-                                        <input type="password" class="form-control" id="floatingPassword"
+                                        <input type="password" name="contra" class="form-control" id="floatingPassword"
                                             placeholder="Contraseña">
                                         <label for="floatingPassword">Contraseña</label>
                                     </div>
