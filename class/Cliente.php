@@ -23,7 +23,7 @@ class Cliente extends Usuario
     {
         $flag = false;
         $db = new database();
-        if($db->buscarProducto($id_producto))  // Verificar que existe
+        if($db->confirmarProducto($id_producto))  // Verificar que existe
         {
             //Existe. Seguro quieres eliminar?
 
