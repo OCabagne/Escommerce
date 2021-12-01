@@ -77,12 +77,15 @@ class database
     {
         $cnx = new database();
         $connect = $cnx->conectar();
-
-        $query = "SELECT * FROM usuario WHERE email = " . $email_usuario . ";";
-        $exec = mysqli_query( $connect, $query );
-
-        $cnx->desconectar($connect);
-        return $exec;
+        if($connect != false)
+        {
+            $query = "SELECT * FROM usuario WHERE email = " . $email_usuario . ";";
+            $exec = mysqli_query( $connect, $query);
+            $row = mysqli_fetch_array($exec); // Obtenemos las columnas resultantes de la consulta
+    
+            $cnx->desconectar($connect);
+            return $row;
+        }
     }
 
     public function signup( $id_usuario, $nombre_usuario, $usuario_usuario, $email_usuario, $contra_usuario ) // Tambien puede ser llamada "crearUsuario"
