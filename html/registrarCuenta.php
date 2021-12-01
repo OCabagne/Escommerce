@@ -1,3 +1,22 @@
+<?php
+    //require '\Escommerce\class\db.php';
+    require $_SERVER['DOCUMENT_ROOT'].'/Escommerce/class/db.php';
+
+    if( isset( $_POST) )
+    {
+        $rfc = htmlspecialchars($_POST['rfc']);
+        $usuario = htmlspecialchars($_POST['nombreUsuario']);
+        $email = htmlspecialchars($_POST['correo']);
+        $password = htmlspecialchars($_POST['contraUsuario']);
+        $tipo = "cliente";
+        $db = new database();
+        //echo $rfc;
+        //$connect = $db->conectar();       // El método conectar únicamente se usa dentro de db por seguridad de acceso. Los demás métodos son los que van a llamarlo de forma interna.
+        //echo $db->signup( $rfc, $nombre, $usuario, $email, password_hash( $password, PASSWORD_BCRYPT ), $tipo );
+        $salida = $db->signup( $rfc,$usuario, $email, $password, $tipo );
+        $db->desconectar($db);
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,6 +34,7 @@
 <body>
 
     <body>
+        <header><?php echo $salida ?></header>
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 col-xl-9 mx-auto">
@@ -27,20 +47,20 @@
                                 <a href="index.html"><img src="https://img.icons8.com/windows/32/000000/long-arrow-left.png"/></a>
                             </button>
                             <h5 class="card-title text-center mb-5 fw-light fs-5">Registro</h5>
-                            <form>
+                            <form action="registrarCuenta.php" method="post">
                                 <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" id="floatingInputUsername"
+                                    <input type="text" name="nombreUsuario" class="form-control" id="floatingInputUsername"
                                         placeholder="Nombre de usuario" required autofocus>
                                     <label for="floatingInputUsername">Nombre de usuario</label>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input type="email" class="form-control" id="floatingInputEmail"
+                                    <input type="email" name="correo" class="form-control" id="floatingInputEmail"
                                         placeholder="nombre@ejemplo.com">
                                     <label for="floatingInputEmail">Correo electronico</label>
                                 </div>
                                 <hr>
                                 <div class="form-floating mb-3">
-                                    <input type="password" class="form-control" id="floatingPassword"
+                                    <input type="password" name="contraUsuario" class="form-control" id="floatingPassword"
                                         placeholder="Contraseña">
                                     <label for="floatingPassword">Contraseña</label>
                                 </div>
