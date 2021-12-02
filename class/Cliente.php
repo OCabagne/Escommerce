@@ -13,13 +13,13 @@ class Cliente extends Usuario
         $this->tipo = "Cliente";
     }
 
-    private function agregarProducto($id_producto)
+    private function agregarProducto($id_producto)  // Agregar AL CARRITO
     {
         $flag = false;
 
         return $flag;
     }
-    private function eliminarProducto($id_producto)
+    private function eliminarProducto($id_producto) // Eliminar DEL CARRITO
     {
         $flag = false;
         $db = new database();
