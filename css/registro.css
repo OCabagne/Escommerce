@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 body{
     background-color: beige;
 }
@@ -64,11 +63,11 @@ input{
 @media(max-width: 899.9px) {
 
 }
-=======
+
 /*---------- Registro --------------*/
 body {
     background: #D1EEFF;
-    background: linear-gradient(to right, #D1EEFF, #33AEFF);
+    background: linear-gradient(to right, #e9f4fb, #D1EEFF);
 }
 
 .card-img-left {
@@ -83,7 +82,13 @@ body {
     letter-spacing: 0.05rem;
     padding: 0.75rem 1rem;
 }
+
+.accordion-body{
+    max-width: inherit;
+}
+
+
 /*--------------
 Foto de Polina Zimmerman en Pexels
 --------------------*/
->>>>>>> 02b95363cbabea8c9a31a536ef3825ff200749ab
+
