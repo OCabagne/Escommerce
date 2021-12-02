@@ -1,29 +1,3 @@
-<?php
-    session_start();
-    require $_SERVER['DOCUMENT_ROOT'].'/Escommerce/class/db.php';
-
-    if( isset( $_SESSION['user_id'] ) )
-    {
-        header( 'Location: ../html/index.html' );
-    }
-
-    if(isset($_POST))
-    {
-        $ema = htmlspecialchars($_POST['correo']);
-        $contr = htmlspecialchars($_POST['contra']);
-        $db = new database();
-        //$connect = $db->conectar();
-        //$usuario = $connect->login($ema, password_hash($contr, PASSWORD_BCRYPT));
-        $usuario = $db->login($ema);
-        if(count($usuario) > 0 && password_verify( $contr, $usuario['contraUsuario']))
-        {
-            $_SESSION['user_id'] = $results['rfc'];
-            $message = "Bienvenido ". $results['nombreUsuario'];
-            header( 'Location: ../html/index.html' );
-        }
-
-    }
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -78,7 +52,32 @@
             </div>
         </div>
     </div>
+    <?php
+        session_start();
+        require $_SERVER['DOCUMENT_ROOT'].'/Escommerce/class/db.php';
 
+        if( isset( $_SESSION['user_id'] ) )
+        {
+            header( 'Location: ../html/index.html' );
+        }
+
+        if(isset($_POST))
+        {
+            $ema = htmlspecialchars($_POST['correo']);
+            $contr = htmlspecialchars($_POST['contra']);
+            $db = new database();
+            //$connect = $db->conectar();
+            //$usuario = $connect->login($ema, password_hash($contr, PASSWORD_BCRYPT));
+            $usuario = $db->login($ema);
+            if(count($usuario) > 0 && password_verify( $contr, $usuario['contraUsuario']))
+            {
+                $_SESSION['user_id'] = $results['rfc'];
+                $message = "Bienvenido ". $results['nombreUsuario'];
+                header( 'Location: ../html/index.html' );
+            }
+
+        }
+    ?>
 </body>
 
 </html>

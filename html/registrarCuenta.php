@@ -1,22 +1,3 @@
-<?php
-    //require '\Escommerce\class\db.php';
-    require $_SERVER['DOCUMENT_ROOT'].'/Escommerce/class/db.php';
-
-    if( isset( $_POST) )
-    {
-        $rfc = htmlspecialchars($_POST['rfc']);
-        $usuario = htmlspecialchars($_POST['nombreUsuario']);
-        $email = htmlspecialchars($_POST['correo']);
-        $password = htmlspecialchars($_POST['contraUsuario']);
-        $tipo = "cliente";
-        $db = new database();
-        //echo $rfc;
-        //$connect = $db->conectar();       // El método conectar únicamente se usa dentro de db por seguridad de acceso. Los demás métodos son los que van a llamarlo de forma interna.
-        //echo $db->signup( $rfc, $nombre, $usuario, $email, password_hash( $password, PASSWORD_BCRYPT ), $tipo );
-        $salida = $db->signup( $rfc,$usuario, $email, $password, $tipo );
-        //$db->desconectar($db);
-    }
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,9 +13,26 @@
 </head>
 
 <body>
-
     <body>
-        <header><?php echo $salida ?></header>
+        <?php
+            //require '\Escommerce\class\db.php';
+            require $_SERVER['DOCUMENT_ROOT'].'/Escommerce/class/db.php';
+
+            if( isset( $_POST) )
+            {
+                $rfc = htmlspecialchars($_POST['rfc']);
+                $usuario = htmlspecialchars($_POST['nombreUsuario']);
+                $email = htmlspecialchars($_POST['correo']);
+                $password = htmlspecialchars($_POST['contraUsuario']);
+                $tipo = "cliente";
+                $db = new database();
+                //echo $rfc;
+                //$connect = $db->conectar();       // El método conectar únicamente se usa dentro de db por seguridad de acceso. Los demás métodos son los que van a llamarlo de forma interna.
+                //echo $db->signup( $rfc, $nombre, $usuario, $email, password_hash( $password, PASSWORD_BCRYPT ), $tipo );
+                $salida = $db->signup( $rfc,$usuario, $email, $password, $tipo );
+                //$db->desconectar($db);
+            }
+        ?>
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 col-xl-9 mx-auto">
