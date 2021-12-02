@@ -95,6 +95,99 @@ class database
         $cnx->desconectar($connect);
     }
 
+    public function agregarProducto($idCategoria, $precio, $marca, $modelo, $caract)
+    {
+        $cnx = new database();  // Conexión con DB
+        $connect = $cnx->conectar();
+        if($connect != false)
+        {
+            $query = "INSERT INTO producto(idCategoria, precio, marca, modelo, caracteristicas) VALUES (".$idCategoria.",".$precio.",".$marca.",".$modelo.",".$caract.");";
+            $exec = mysqli_query($connect, $query); // Ejecución del query
+            $row = mysqli_fetch_array($exec); // Obtenemos las columnas resultantes de la consulta
+
+            $cnx->desconectar($connect);   // Desconexión de DB
+            return $row; // Regresamos Row. Es false si no se pudo ejecutar
+        }
+    }
+
+    public function editarProducto($id_producto, $idCategoria, $precio, $marca, $modelo, $caract)
+    {
+        $cnx = new database();  // Instancia de db
+        $connect = $cnx->conectar();    // Nos conectamos a la base de datos y guardamos el objeto mysqli retornado en connect.
+        if($connect != false)   // if para cachar el caso de error de conexión.
+        {
+            $query = "UPDATE producto SET idCategoria = '".$idCategoria."', precio = '".$precio."', marca = '".$marca."', modelo = '".$modelo."', caracteristicas = '".$caract."' WHERE idProducto = ".$id_producto.";";
+            $exec = mysqli_query($connect, $query); // Ejecución del query
+
+            $cnx->desconectar($connect);   // Desconexión de DB
+            return $exec;
+        }
+    }
+
+    public function obtenerIDventa()    //Genera un nuevo idVenta y lo regresa
+    {
+        $cnx = new database();  // Instancia de db
+        $connect = $cnx->conectar();    // Nos conectamos a la base de datos y guardamos el objeto mysqli retornado en connect.
+        if($connect != false)   // if para cachar el caso de error de conexión.
+        {
+            //
+            // CÓDIGO
+            //
+    
+            $cnx->desconectar($connect);    // Desconectamos de la base de datos.
+            //Si van a seguir haciendo algo, pero ya no necesitan consultas, va a partir de aquí.
+        }
+    }
+
+    public function comprarProducto($id_producto, $idVenta)
+    {
+        $cnx = new database();  // Instancia de db
+        $connect = $cnx->conectar();    // Nos conectamos a la base de datos y guardamos el objeto mysqli retornado en connect.
+        if($connect != false)   // if para cachar el caso de error de conexión.
+        {
+            $query = "INSERT INTO venta (idVenta, idProducto) VALUES (".$idVenta.", ".$id_producto.");";
+            $exec = mysqli_query($connect, $query);
+            $cnx->desconectar($connect);    // Desconectamos de la base de datos.
+            if($exec)
+            {
+                return "Comprado";
+            }
+            else
+            {
+                return "Error";
+            }
+        }
+    }
+
+    public function confirmarUsuario($id_usuario)
+    {
+        $cnx = new database();
+        $connect = $cnx->conectar();
+        if($connect != false)
+        {           
+            $query = "SELECT nombreUsuario FROM usuario WHERE rfc = " . $id_usuario . ";";
+            $exec = mysqli_query($connect, $query);
+
+            $cnx->desconectar($connect);
+            return $exec;
+        }
+    }
+
+    public function buscarUsuario($campo, $id_usuario)
+    {
+        $cnx = new database();  // Conexión con DB
+        $connect = $cnx->conectar();
+        if($connect != false)
+        {
+            $query = "SELECT " . $campo . " FROM usuario WHERE rfc = " . $id_usuario . ";";
+            $exec = mysqli_query($connect, $query); // Ejecución del query
+            $row = mysqli_fetch_array($exec); // Obtenemos las columnas resultantes de la consulta
+
+            $cnx->desconectar($connect);   // Desconexión de DB
+            return $row[0]; // Regresamos la primer colúmna de la busqueda (debería ser solo una, pero por precaución se especifica)
+        }
+    }
+
     public function login( $email_usuario )
     {
         $cnx = new database();
@@ -142,21 +235,6 @@ class database
 
             $cnx->desconectar($connect);   // Desconexión de DB
             return $row; // Regresamos el resultado de la consulta
-        }
-    }
-
-    public function agregarProducto($idCategoria, $precio, $marca, $modelo, $caract)
-    {
-        $cnx = new database();  // Conexión con DB
-        $connect = $cnx->conectar();
-        if($connect != false)
-        {
-            $query = "INSERT INTO producto(idCategoria, precio, marca, modelo, caracteristicas) VALUES (".$idCategoria.",".$precio.",".$marca.",".$modelo.",".$caract.");";
-            $exec = mysqli_query($connect, $query); // Ejecución del query
-            $row = mysqli_fetch_array($exec); // Obtenemos las columnas resultantes de la consulta
-
-            $cnx->desconectar($connect);   // Desconexión de DB
-            return $row; // Regresamos Row. Es false si no se pudo ejecutar
         }
     }
 }
