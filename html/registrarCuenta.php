@@ -14,7 +14,7 @@
         //$connect = $db->conectar();       // El método conectar únicamente se usa dentro de db por seguridad de acceso. Los demás métodos son los que van a llamarlo de forma interna.
         //echo $db->signup( $rfc, $nombre, $usuario, $email, password_hash( $password, PASSWORD_BCRYPT ), $tipo );
         $salida = $db->signup( $rfc,$usuario, $email, $password, $tipo );
-        $db->desconectar($db);
+        //$db->desconectar($db);
     }
 ?>
 <!DOCTYPE html>
