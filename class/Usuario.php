@@ -32,13 +32,25 @@ class Usuario
 
             $producto = new Producto($id_producto, $nombre, $precio, $caract, $categoria);
 
-            // Método para enviar objetos serializados, Json (?)
+            return json_encode($producto);  // Regresa el objeto producto en formato JSON
         }
     }
     
     public function verPerfil($rfc)
     {
+        $db = new database();
+        if($db->confirmarUsuario($rfc))   // Confirma la existencia del ID
+        {
+            $nombre = $db->buscarUsuario("nombreUsuario", $rfc); // nombre tiene el valor del campo solicitado en String
+            $correo = $db->buscarUsuario("correo", $rfc); 
+            $tipo = $db->buscarUsuario("tipo", $rfc);
+            //$calificacion = $db->buscarProducto("nombreProducto", $id_producto); // Dónde quedó la calificacion?
 
+            $usuario = new Usuario($nombre, $rfc, $correo);
+            $usuario->tipo = $tipo;
+
+            return json_encode($usuario);  // Regresa el objeto producto en formato JSON
+        }
     }
 
     public function verPedido($id_venta)

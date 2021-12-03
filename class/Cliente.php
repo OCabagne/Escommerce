@@ -52,11 +52,20 @@ class Cliente extends Usuario
     {
         
     }
-    private function comprarProducto($carrito)
+    private function comprarProducto($carrito)  // Recibe lista de id_producto en formato JSON
     {
-        $flag = false;
+        $productos = json_decode($carrito);
+        $db =  new database();
+        $idVenta = $db->obtenerIDventa();
+        $i = 0;
+        while($i < count($productos)) // Mientras haya más id's en la lista productos
+        {
+            $id_producto = $productos[$i];  // Obtenemos el siguiente id_producto
+            $db->comprarProducto($id_producto, $idVenta);   // Registramos la compra
+            $i++;
+        }
 
-        return $flag;
+        return "comprado";
     }
 }
 
