@@ -26,7 +26,21 @@ foreign key(rfc) references usuario(rfc) on delete cascade on update cascade,
 foreign key(idCategoria) references categoria(idCategoria) on delete cascade on update
 cascade);
 
+select * from producto;
+
+alter table producto add urlImg varchar(500) not null, add oferta char(3) not null check(oferta in ('si', 'no'));
+
 show tables;
+
+show create table categoria;
+show create table compra;
+show create table pregRes;
+show create table preguntas;
+show create table producto;
+show create table subcategoria;
+show create table usuario;
+show create table vendido;
+show create table venta;
 
 create table vendido (idVenta bigint, idProducto bigint, primary key(idVenta, idProducto),
 foreign key(idVenta) references venta(idVenta) on delete cascade on update cascade,
