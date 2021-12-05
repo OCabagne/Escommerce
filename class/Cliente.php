@@ -16,6 +16,12 @@ class Cliente extends Usuario
     private function agregarProducto($id_producto)  // Agregar AL CARRITO
     {
         $flag = false;
+        $db = new database();
+        if($db->confirmarProducto($id_producto))  // Verificar que existe
+        {
+            //Existe. Seguro quieres eliminar?
+            
+        }
 
         return $flag;
     }
@@ -27,11 +33,6 @@ class Cliente extends Usuario
         {
             //Existe. Seguro quieres eliminar?
 
-            if($db->eliminarProducto($id_producto))
-            {
-                //Eliminado
-                $flag = true;
-            }
         }
 
         return $flag;
@@ -42,16 +43,19 @@ class Cliente extends Usuario
 
         return $flag;
     }
+    
     private function hacerPregunta($id_producto)
     {
         $flag = false;
 
         return $flag;
     }
+
     private function asignarCalificacion($id_producto)
     {
         
     }
+
     private function comprarProducto($carrito)  // Recibe lista de id_producto en formato JSON
     {
         $productos = json_decode($carrito);
