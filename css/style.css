@@ -208,7 +208,7 @@ nav {
 
 .logo a img {
     height: 64px;
-    width: 100%;
+    max-width: 84px;
 }
 
 .nav-toggle {
@@ -216,6 +216,14 @@ nav {
     background-color: none;
     border: none;
     display: none;
+}
+
+.menu-dropdown {
+    display: none;
+}
+
+.menu-dropdown-visible {
+    display: inline-block;
 }
 
 @media(max-width: 990px) {
@@ -251,14 +259,16 @@ nav {
 
     .nav-colapsada-vertical {
         position: fixed;
-        height: calc(100% - 59px);
+        height: calc(100% - 60px);
         overflow-y: auto;
         left: 100%;
         top: 60px;
+        padding-top: 60px;
         width: 100%;
         font-size: 14px;
         background-color: var(--fondo-azul-claro);
         transition: left 0.3s;
+        z-index: 1;
     }
 
     .nav-menu-visible {
@@ -297,9 +307,34 @@ nav {
 
 
 /*----- PRUEBAS -------*/
-
 .borde {
     border: red dotted 2px;
 }
-
 /*---------------------*/
+
+
+/*----- Seccion Descuento -------*/
+.discount__pic img {
+    max-height: 390px;
+}
+
+.descuento {
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.descuento-img {
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+}
+
+
+/*----- Footer ------*/
+.footer {
+    background-color: rgba(0, 108, 170, 0.7);
+    box-shadow: rgba(0, 65, 122, 0.1) 3px 3px 6px 0px inset, rgba(0, 65, 122, 0.1) -3px -3px 6px 1px inset;
+}
+
+.footer .row p,
+.footer .row h6,
+.footer .row ul li a {
+    color: antiquewhite;
+}
