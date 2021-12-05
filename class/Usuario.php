@@ -17,7 +17,7 @@ class Usuario
         $this->tipo = "Cliente";
     }
 
-    public function verProducto($id_producto)
+    public function verProducto($id_producto)   // Consultar los datos de un producto de acuerdo a su id
     {
         $db = new database();
         if($db->confirmarProducto($id_producto))   // Confirma la existencia del ID
@@ -36,7 +36,7 @@ class Usuario
         }
     }
     
-    public function verPerfil($rfc)
+    public function verPerfil($rfc)     // Consultar los datos de otro usuario de acuerdo a su RFC
     {
         $db = new database();
         if($db->confirmarUsuario($rfc))   // Confirma la existencia del ID
@@ -53,14 +53,25 @@ class Usuario
         }
     }
 
-    public function verPedido($id_venta)
+    public function verPedido($id_venta)    // Consultar los productos comprados anteriormente
     {
 
     }
 
-    public function editarPerfil()
+    public function editarPerfil($usuario)  // Editar los datos del perfil personal
     {
-        
+        $producto = json_decode($usuario);
+        $db = new database();
+    }
+
+    public function barraBusqueda($palabra)
+    {
+        $db = new database();
+        $resultado = $db->buscarSimilar($palabra);
+        if($resultado != false) // Si se encontraron resultados
+        {
+            return json_encode($resultado); // Se regresa la lista de id_producto en formato JSON
+        }
     }
 }
 
