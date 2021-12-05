@@ -30,7 +30,7 @@ class database
     private $pass = "password";
     private $dbName = "database";
     
-    public function conectar()
+    private function conectar()
     {  
         $conexion = mysqli_connect($this->server, $this->user, $this->pass, $this->dbName);
         if(mysqli_connect_errno())
@@ -41,7 +41,7 @@ class database
         return $conexion;
     }
 
-    public function desconectar($conexion)
+    private function desconectar($conexion)
     {
         $conexion->close();
     }
@@ -159,7 +159,22 @@ class database
         }
     }
 
-    public function confirmarUsuario($id_usuario)
+    public function verCompra($idVenta) // Obtener los productos vendidos en una sola venta
+    {
+        $cnx = new database();  // Conexión con DB
+        $connect = $cnx->conectar();
+        if($connect != false)
+        {
+            $query = "SELECT idProducto FROM vendido WHERE idVenta = ".$idVenta.";";
+            $exec = mysqli_query($connect, $query); // Ejecución del query
+            $row = mysqli_fetch_array($exec); // Obtenemos las columnas resultantes de la consulta
+
+            $cnx->desconectar($connect);   // Desconexión de DB
+            return $row; // Regresamos el resultado de la consulta
+        }
+    }
+
+    public function confirmarUsuario($id_usuario)   // Verifica que haya un Usuario registrado con el id_usuario
     {
         $cnx = new database();
         $connect = $cnx->conectar();
@@ -223,6 +238,48 @@ class database
         }
     }
 
+    public function editarPerfil($rfc, $nombreUsuario, $correo) // No se puede cambiar RFC, Contraseña ni tipo
+    {
+        $cnx = new database();  // Instancia de db
+        $connect = $cnx->conectar();    // Nos conectamos a la base de datos y guardamos el objeto mysqli retornado en connect.
+        if($connect != false)   // if para cachar el caso de error de conexión.
+        {
+            $query = "UPDATE usuario SET nombreUsuario = '".$nombreUsuario."', correo = '".$correo."' WHERE rfc = ".$rfc.";";
+            $exec = mysqli_query($connect, $query); // Ejecución del query
+
+            $cnx->desconectar($connect);   // Desconexión de DB
+            return $exec;
+        }
+    }
+
+    public function cambiarTipo($rfc, $tipo)
+    {
+        $cnx = new database();  // Instancia de db
+        $connect = $cnx->conectar();    // Nos conectamos a la base de datos y guardamos el objeto mysqli retornado en connect.
+        if($connect != false)   // if para cachar el caso de error de conexión.
+        {
+            $query = "UPDATE usuario SET tipo = '".$tipo."' WHERE rfc = ".$rfc.";";
+            $exec = mysqli_query($connect, $query); // Ejecución del query
+
+            $cnx->desconectar($connect);   // Desconexión de DB
+            return $exec;
+        }
+    }
+
+    public function cambiarContrasena($rfc, $pass)
+    {
+        $cnx = new database();  // Instancia de db
+        $connect = $cnx->conectar();    // Nos conectamos a la base de datos y guardamos el objeto mysqli retornado en connect.
+        if($connect != false)   // if para cachar el caso de error de conexión.
+        {
+            $query = "UPDATE usuario SET contraUsuario = '".$pass."' WHERE rfc = ".$rfc.";";
+            $exec = mysqli_query($connect, $query); // Ejecución del query
+
+            $cnx->desconectar($connect);   // Desconexión de DB
+            return $exec;
+        }
+    }
+
     public function categorias()    // Obtener el listado de categorías registradas
     {
         $cnx = new database();  // Conexión con DB
@@ -235,6 +292,42 @@ class database
 
             $cnx->desconectar($connect);   // Desconexión de DB
             return $row; // Regresamos el resultado de la consulta
+        }
+    }
+
+    public function filtro($idCategoria)    // Busca todos los productos de una categoría
+    {
+        $cnx = new database();  // Conexión con DB
+        $connect = $cnx->conectar();
+        if($connect != false)
+        {
+            $query = "SELECT * FROM producto WHERE idCategoria = ".$idCategoria.";";
+            $exec = mysqli_query($connect, $query); // Ejecución del query
+            $row = mysqli_fetch_array($exec); // Obtenemos las columnas resultantes de la consulta
+
+            $cnx->desconectar($connect);   // Desconexión de DB
+            return $row; // Regresamos el resultado de la consulta
+        }
+    }
+
+    public function buscarSimilar($palabra) //  Herramienta de barra de búsqueda
+    {
+        $cnx = new database();  // Conexión con DB
+        $connect = $cnx->conectar();
+        if($connect != false)
+        {
+            $query = "SELECT idProducto FROM producto WHERE caracteristicas LIKE '%".$palabra."%';";    // Busca coincidencias en la descripción del producto
+                                                                                                        // de acuerdo al texto ingresado en la barra de búsqueda
+            $exec = mysqli_query($connect, $query); // Ejecución del query
+            if($exec)   // Si la búsqueda obtiene resultados
+            {
+                $row = mysqli_fetch_array($exec); // Obtenemos las columnas resultantes de la consulta
+
+                $cnx->desconectar($connect);   // Desconexión de DB
+                return $row; // Regresamos el resultado de la consulta
+            }
+
+            return false;   // Si la búsqueda regresa vacía
         }
     }
 }
