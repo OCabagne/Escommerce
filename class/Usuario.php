@@ -55,16 +55,32 @@ class Usuario
 
     public function verPedido($id_venta)    // Consultar los productos comprados anteriormente
     {
-
+        $db = new database();
+        $productos = $db->verCompra($id_venta); // Obtenemos la tabla de id's de los productos comprados en una sola venta
+        
+        return json_encode($productos); // Regresamos la lista de id's de productos en formato JSON
     }
 
     public function editarPerfil($usuario)  // Editar los datos del perfil personal
     {
         $producto = json_decode($usuario);
         $db = new database();
+        $db->editarPerfil($usuario->rfc, $usuario->nombreUsuario, $usuario->correo);
     }
 
-    public function barraBusqueda($palabra)
+    public function cambiarTipo($rfc, $tipo)    // Cambiar el tipo de perfil (Cliente/Vendedor)
+    {
+        $db = new database();
+        $db->cambiarTipo($rfc, $tipo);
+    }
+
+    public function cambiarContrasena($rfc, $pass)
+    {
+        $db = new database();
+        $db->cambiarContrasena($rfc, $pass);
+    }
+
+    public function barraBusqueda($palabra) // Buscar productos de acuerdo a palabra(s) clave en la descripción
     {
         $db = new database();
         $resultado = $db->buscarSimilar($palabra);
