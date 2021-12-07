@@ -59,7 +59,7 @@
        const infoProducto = {
            imagen: producto.querySelector('.product__item__pic img').src,
            titulo: producto.querySelector('.product__item__text h6 a').innerHTML,
-           precio: producto.querySelector('.product__item__text .product__price').innerHTML,
+           precio: producto.querySelector('.product__item__text .product__price').firstChild.nodeValue,
            cantidad: 1
        }
        if (articulosCarrito.some(producto => producto.titulo === infoProducto.titulo)) {

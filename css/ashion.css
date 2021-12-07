@@ -1006,7 +1006,6 @@ ol {
 	right: -14px;
 	top: 0;
 	content: "";
-	font-family: "FontAwesome";
 }
 
 .breadcrumb__links a i {
@@ -1377,9 +1376,8 @@ ol {
 
 .categories__accordion .card-heading a:after,
 .categories__accordion .card-heading>a.active[aria-expanded=false]:after {
-	content: "";
+	content: url("https://img.icons8.com/ios/12/000000/expand-arrow--v2.png");
 	font-size: 14px;
-	font-family: "FontAwesome";
 	color: #666666;
 	position: absolute;
 	right: 30px;
@@ -1387,9 +1385,8 @@ ol {
 }
 
 .categories__accordion .card-heading.active a:after {
-	content: "";
+	content: url("https://img.icons8.com/ios/12/000000/horizontal-line.png");
 	font-size: 14px;
-	font-family: "FontAwesome";
 	color: #666666;
 	position: absolute;
 	right: 30px;
@@ -1398,9 +1395,8 @@ ol {
 
 .categories__accordion .card-heading a[aria-expanded=true]:after,
 .categories__accordion .card-heading>a.active:after {
-	content: "";
+	content: url("https://img.icons8.com/ios/12/000000/collapse-arrow--v2.png");
 	font-size: 14px;
-	font-family: "FontAwesome";
 	color: #666666;
 	position: absolute;
 	right: 30px;
