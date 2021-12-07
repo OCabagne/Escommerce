@@ -323,6 +323,16 @@ th {
     color: antiquewhite;
 }
 
+
+
+#indexBread{
+    color: var(--acento-desire);
+}
+
+#indexBread img{
+    margin-right: 10px;
+}
+
 /*----- PRUEBAS -------*/
 .borde {
     border: red dotted 2px;
