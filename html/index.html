@@ -51,19 +51,8 @@
             <div class="container-md nav-colapsada-vertical">
                 <div class="navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 nav-borde nav-ul">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Categorias
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">Ropa</a>
-                                <a class="dropdown-item" href="#">Electronica</a>
-                                <a class="dropdown-item" href="#">Hogar</a>
-                                <a class="dropdown-item" href="#">Salud y belleza</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Categor&iacute;as</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Ofertas</a>
@@ -87,10 +76,25 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#">Mis compras</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#"><img
+                        <li class="nav-item carrito">
+                            <a class="nav-link" href="./carrito.html"><img
                                     src="https://img.icons8.com/fluency-systems-regular/22/000000/shopping-cart-loaded.png" /><span
-                                    class="badge bg-secundario">4</span></a>
+                                    class="badge bg-secundario" id="cantidad-carrito"></span></a>
+                            <div id="carrito">
+                                <table id="lista-carrito" class="u-full-width table table-sm .table-responsive-sm .table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Imagen</th>
+                                            <th scope="col">Nombre</th>
+                                            <th scope="col">Precio</th>
+                                            <th scope="col">Cantidad</th>
+                                            <th scope="col">Eliminar</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                                <a href="#" id="vaciar-carrito" class="button u-full-width vacio">Vaciar Carrito</a>
+                            </div>
                         </li>
                     </ul>
                 </div>
@@ -160,7 +164,7 @@
     <!-- Categories Section End -->
 
     <!-- Product Section Begin -->
-    <section class="product spad">
+    <section class="product spad" id="lista-productos">
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-md-4">
@@ -171,11 +175,13 @@
             </div>
             <div class="row property__gallery">
                 <div class="col-lg-3 col-md-4 col-sm-6 mix women">
+                    <!---->
                     <div class="product__item">
                         <div class="product__item__pic set-bg" data-setbg="../assets/images/productos/product-1.jpg">
+                            <img src="../assets/images/productos/product-1.jpg" class="product__item__pic set-bg">
                             <div class="label new">Nuevo</div>
                             <ul class="product__hover">
-                                <li><a href="#"><img
+                                <li><a href="#" class="agregar-carrito"><img class="agregar-carrito"
                                             src="https://img.icons8.com/windows/32/000000/add-shopping-cart.png" /></a>
                                 </li>
                             </ul>
@@ -192,12 +198,14 @@
                             <div class="product__price">$ 59.0</div>
                         </div>
                     </div>
+                    <!---->
                 </div>
                 <div class="col-lg-3 col-md-4 col-sm-6 mix men">
                     <div class="product__item">
                         <div class="product__item__pic set-bg" data-setbg="../assets/images/productos/product-2.jpg">
+                            <img src="../assets/images/productos/product-2.jpg" class="product__item__pic set-bg">
                             <ul class="product__hover">
-                                <li><a href="#"><img
+                                <li><a href="#" class="agregar-carrito"><img class="agregar-carrito"
                                             src="https://img.icons8.com/windows/32/000000/add-shopping-cart.png" /></a>
                                 </li>
                             </ul>
@@ -218,9 +226,10 @@
                 <div class="col-lg-3 col-md-4 col-sm-6 mix accessories">
                     <div class="product__item">
                         <div class="product__item__pic set-bg" data-setbg="../assets/images/productos/product-3.jpg">
+                            <img src="../assets/images/productos/product-3.jpg" class="product__item__pic set-bg">
                             <div class="label stockout">agotado</div>
                             <ul class="product__hover">
-                                <li><a href="#"><img
+                                <li><a href="#" class="agregar-carrito"><img class="agregar-carrito"
                                             src="https://img.icons8.com/windows/32/000000/add-shopping-cart.png" /></a>
                                 </li>
                             </ul>
@@ -241,8 +250,9 @@
                 <div class="col-lg-3 col-md-4 col-sm-6 mix cosmetic">
                     <div class="product__item">
                         <div class="product__item__pic set-bg" data-setbg="../assets/images/productos/product-4.jpg">
+                            <img src="../assets/images/productos/product-4.jpg" class="product__item__pic set-bg">
                             <ul class="product__hover">
-                                <li><a href="#"><img
+                                <li><a href="#" class="agregar-carrito"><img class="agregar-carrito"
                                             src="https://img.icons8.com/windows/32/000000/add-shopping-cart.png" /></a>
                                 </li>
                             </ul>
@@ -263,8 +273,9 @@
                 <div class="col-lg-3 col-md-4 col-sm-6 mix kid">
                     <div class="product__item">
                         <div class="product__item__pic set-bg" data-setbg="../assets/images/productos/product-5.jpg">
+                            <img src="../assets/images/productos/product-5.jpg" class="product__item__pic set-bg">
                             <ul class="product__hover">
-                                <li><a href="#"><img
+                                <li><a href="#" class="agregar-carrito"><img class="agregar-carrito"
                                             src="https://img.icons8.com/windows/32/000000/add-shopping-cart.png" /></a>
                                 </li>
                             </ul>
@@ -285,9 +296,10 @@
                 <div class="col-lg-3 col-md-4 col-sm-6 mix women men kid accessories cosmetic">
                     <div class="product__item sale">
                         <div class="product__item__pic set-bg" data-setbg="../assets/images/productos/product-6.jpg">
+                            <img src="../assets/images/productos/product-6.jpg" class="product__item__pic set-bg">
                             <div class="label sale">Oferta</div>
                             <ul class="product__hover">
-                                <li><a href="#"><img
+                                <li><a href="#" class="agregar-carrito"><img class="agregar-carrito"
                                             src="https://img.icons8.com/windows/32/000000/add-shopping-cart.png" /></a>
                                 </li>
                             </ul>
@@ -308,8 +320,9 @@
                 <div class="col-lg-3 col-md-4 col-sm-6 mix women men kid accessories cosmetic">
                     <div class="product__item">
                         <div class="product__item__pic set-bg" data-setbg="../assets/images/productos/product-7.jpg">
+                            <img src="../assets/images/productos/product-7.jpg" class="product__item__pic set-bg">
                             <ul class="product__hover">
-                                <li><a href="#"><img
+                                <li><a href="#" class="agregar-carrito"><img class="agregar-carrito"
                                             src="https://img.icons8.com/windows/32/000000/add-shopping-cart.png" /></a>
                                 </li>
                             </ul>
@@ -330,9 +343,10 @@
                 <div class="col-lg-3 col-md-4 col-sm-6 mix women men kid accessories cosmetic">
                     <div class="product__item sale">
                         <div class="product__item__pic set-bg" data-setbg="../assets/images/productos/product-8.jpg">
+                            <img src="../assets/images/productos/product-8.jpg" class="product__item__pic set-bg">
                             <div class="label">Oferta</div>
                             <ul class="product__hover">
-                                <li><a href="#"><img
+                                <li><a href="#" class="agregar-carrito"><img class="agregar-carrito"
                                             src="https://img.icons8.com/windows/32/000000/add-shopping-cart.png" /></a>
                                 </li>
                             </ul>
@@ -360,42 +374,48 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-2 col-md-4 col-sm-4 p-0">
-                    <div class="instagram__item set-bg" data-setbg="../assets/images/categorias/banner-categorias/banner-makeup.jpg">
+                    <div class="instagram__item set-bg"
+                        data-setbg="../assets/images/categorias/banner-categorias/banner-makeup.jpg">
                         <div class="instagram__text">
                             <a href="#">Maquillaje</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-4 col-sm-4 p-0">
-                    <div class="instagram__item set-bg" data-setbg="../assets/images/categorias/banner-categorias/banner-skincare.jpg">
+                    <div class="instagram__item set-bg"
+                        data-setbg="../assets/images/categorias/banner-categorias/banner-skincare.jpg">
                         <div class="instagram__text">
                             <a href="#">Skin Care</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-4 col-sm-4 p-0">
-                    <div class="instagram__item set-bg" data-setbg="../assets/images/categorias/banner-categorias/banner-ninos.jpg">
+                    <div class="instagram__item set-bg"
+                        data-setbg="../assets/images/categorias/banner-categorias/banner-ninos.jpg">
                         <div class="instagram__text">
                             <a href="#">Moda para ni&ntilde;os</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-4 col-sm-4 p-0">
-                    <div class="instagram__item set-bg" data-setbg="../assets/images/categorias/banner-categorias/banner-moda.jpg">
+                    <div class="instagram__item set-bg"
+                        data-setbg="../assets/images/categorias/banner-categorias/banner-moda.jpg">
                         <div class="instagram__text">
                             <a href="#">Moda para todos</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-4 col-sm-4 p-0">
-                    <div class="instagram__item set-bg" data-setbg="../assets/images/categorias/banner-categorias/banner-mascotas.jpg">
+                    <div class="instagram__item set-bg"
+                        data-setbg="../assets/images/categorias/banner-categorias/banner-mascotas.jpg">
                         <div class="instagram__text">
                             <a href="#">Para tu mascota</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-4 col-sm-4 p-0">
-                    <div class="instagram__item set-bg" data-setbg="../assets/images/categorias/banner-categorias/banner-hogar.jpg">
+                    <div class="instagram__item set-bg"
+                        data-setbg="../assets/images/categorias/banner-categorias/banner-hogar.jpg">
                         <div class="instagram__text">
                             <a href="#">Decoraci&oacute;n para el hogar</a>
                         </div>
@@ -627,28 +647,28 @@
             <div class="row">
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="services__item">
-                        <img src="https://img.icons8.com/color/48/000000/in-transit--v1.png"/>
+                        <img src="https://img.icons8.com/color/48/000000/in-transit--v1.png" />
                         <h6>Envio Gratis</h6>
                         <p>Para todos los pedidos arriba de $499</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="services__item">
-                        <img src="https://img.icons8.com/color/48/000000/purchase-for-euro.png"/>
+                        <img src="https://img.icons8.com/color/48/000000/purchase-for-euro.png" />
                         <h6>Reembolso garantizado!</h6>
                         <p>Si el producto tiene problemas, se lo cambiamos!</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="services__item">
-                        <img src="https://img.icons8.com/color/48/000000/last-24-hours--v1.png"/>
+                        <img src="https://img.icons8.com/color/48/000000/last-24-hours--v1.png" />
                         <h6>Soporte en linea 24/7</h6>
                         <p>Soporte personalizado</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="services__item">
-                        <img src="https://img.icons8.com/color/48/000000/card-security.png"/>
+                        <img src="https://img.icons8.com/color/48/000000/card-security.png" />
                         <h6>Pago seguro</h6>
                         <p>100% pago seguro</p>
                     </div>

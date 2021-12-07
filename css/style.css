@@ -27,17 +27,14 @@
 }
 
 
-
 /* Default CSS
 /*----------------------------------------*/
-
 html,
 body {
     height: 100%;
     font-family: 'Montserrat', sans-serif;
     -webkit-font-smoothing: antialiased;
 }
-
 h1,
 h2,
 h3,
@@ -49,31 +46,24 @@ h6 {
     font-weight: 400;
     font-family: "Montserrat", sans-serif;
 }
-
 h1 {
     font-size: 70px;
 }
-
 h2 {
     font-size: 36px;
 }
-
 h3 {
     font-size: 30px;
 }
-
 h4 {
     font-size: 24px;
 }
-
 h5 {
     font-size: 18px;
 }
-
 h6 {
     font-size: 16px;
 }
-
 p {
     font-size: 14px;
     font-family: "Montserrat", sans-serif;
@@ -82,42 +72,35 @@ p {
     line-height: 24px;
     margin: 0 0 15px 0;
 }
-
 input:focus,
 select:focus,
 button:focus,
 textarea:focus {
     outline: none;
 }
-
 a:hover,
 a:focus {
     text-decoration: none;
     outline: none;
 }
-
 ul,
 ol {
     padding: 0;
     margin: 0;
 }
-
 nav {
     height: 90px;
 }
 
 
 /*--------------- Navbar -----------------------*/
-
 .nav-link {
     color: var(--negro);
 }
-
 .nav-link:hover,
 .nav-link:focus {
     color: var(--azul-oscuro);
 }
-
 .navbar .nav-colapsada-vertical div ul li a {
     font-size: 14px;
     text-transform: uppercase;
@@ -127,28 +110,23 @@ nav {
     padding: 2px 0;
     position: relative;
 }
-
 .bg-secundario {
     background-color: var(--acento-desire) !important;
     color: var(--blanco);
 }
-
 .btn-outline-principal {
     color: var(--azul);
     border-color: var(--azul);
 }
-
 .btn-outline-principal:hover {
     color: #fff;
     background-color: var(--azul-oscuro-2);
     border-color: var(--azul-oscuro-2);
 }
-
 .btn-check:focus+.btn-outline-principal,
 .btn-outline-principal:focus {
     box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.5);
 }
-
 .btn-check:checked+.btn-outline-principal,
 .btn-check:active+.btn-outline-principal,
 .btn-outline-principal:active,
@@ -158,7 +136,6 @@ nav {
     background-color: #0d6efd;
     border-color: #0d6efd;
 }
-
 .btn-check:checked+.btn-outline-principal:focus,
 .btn-check:active+.btn-outline-principal:focus,
 .btn-outline-principal:active:focus,
@@ -166,97 +143,78 @@ nav {
 .btn-outline-principal.dropdown-toggle.show:focus {
     box-shadow: 0 0 0 0.25rem var(--azul-claro);
 }
-
 .busqueda {
     max-width: 95%;
     margin-bottom: 5px;
 }
-
 .busqueda input,
 .busqueda button {
     font-size: 14px;
 }
-
 .nav-busqueda {
     display: flex;
     justify-content: center;
     padding-bottom: 8px;
 }
-
 .logo {
     width: 100px;
     padding: auto;
     margin: 0;
 }
-
 .navbar {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
 }
-
 .navbar-collapse ul {
     height: 29px;
     padding-right: 10px;
     padding-left: 10px;
     padding-top: 3px;
 }
-
 .nav-borde {
     border-right: solid var(--azul-oscuro-2) 1px;
 }
-
 .logo a img {
     height: 64px;
     max-width: 84px;
 }
-
 .nav-toggle {
     color: var(--negro);
     background-color: none;
     border: none;
     display: none;
 }
-
 .menu-dropdown {
     display: none;
 }
-
 .menu-dropdown-visible {
     display: inline-block;
 }
-
 @media(max-width: 990px) {
     nav {
         height: 60px;
     }
-
     .navbar-brand img {
         width: 60px;
     }
-
     .navbar-collapse ul {
         height: fit-content;
     }
-
     .nav-borde {
         border: none;
     }
-
     .busqueda input,
     .busqueda button {
         font-size: 13px;
     }
-
     .nav-toggle {
         display: inline;
         cursor: pointer;
     }
-
     .nav-busqueda {
         min-width: 576px;
     }
-
     .nav-colapsada-vertical {
         position: fixed;
         height: calc(100% - 60px);
@@ -270,14 +228,12 @@ nav {
         transition: left 0.3s;
         z-index: 1;
     }
-
     .nav-menu-visible {
         left: 0;
         display: flex;
         align-content: flex-start;
     }
 }
-
 @media(max-width: 1059px) {
     .navbar .nav-texto .nav-colapsada-vertical div ul li a {
         font-size: 12px;
@@ -288,53 +244,86 @@ nav {
 .login {
     min-height: 100vh;
 }
-
 .bg-image {
     background-image: url('../assets/images/pexels-polina.jpg');
     background-size: cover;
     background-position: center;
 }
-
 .login-heading {
     font-weight: 300;
 }
-
 .btn-login {
     font-size: 0.9rem;
     letter-spacing: 0.05rem;
     padding: 0.75rem 1rem;
 }
 
-
-/*----- PRUEBAS -------*/
-.borde {
-    border: red dotted 2px;
+/*----- Carrito Index -------*/
+.borrar-curso {
+    border-radius: 50%;
+    padding: 5px 10px;
+    text-decoration: none;
+    font-weight: bold;
 }
-/*---------------------*/
-
+#borrar-curso{
+    color: var(--acento-desire);
+}
+#carrito {
+    display: none;
+}
+.carrito:hover #carrito {
+    display: block;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    z-index: 1;
+    background-color: white;
+    padding: 20px;
+    min-height: 400px;
+    min-width: 300px;
+}
+.vacio {
+    padding: 10px;
+    background-color: var(--acento-desire);
+    text-align: center;
+    border-radius: 10px;
+}
+#vaciar-carrito{
+    color: var(--blanco);
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+td,
+th {
+    padding: 0;   
+    text-align: center; 
+}
 
 /*----- Seccion Descuento -------*/
 .discount__pic img {
     max-height: 390px;
 }
-
 .descuento {
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
-
 .descuento-img {
     box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
 }
-
 
 /*----- Footer ------*/
 .footer {
     background-color: rgba(0, 108, 170, 0.7);
     box-shadow: rgba(0, 65, 122, 0.1) 3px 3px 6px 0px inset, rgba(0, 65, 122, 0.1) -3px -3px 6px 1px inset;
 }
-
 .footer .row p,
 .footer .row h6,
 .footer .row ul li a {
     color: antiquewhite;
+}
+
+/*----- PRUEBAS -------*/
+.borde {
+    border: red dotted 2px;
 }
