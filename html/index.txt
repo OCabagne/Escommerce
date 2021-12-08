@@ -31,6 +31,7 @@
     <link rel="stylesheet" href="../css/ashion.css" type="text/css">
     <link rel="stylesheet" href="../css/bootstrap.css">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/notifications.css">
 </head>
 
 <body>
@@ -43,7 +44,7 @@
     <!--Inicio de barra de navegacion-->
     <nav class="navbar navbar-expand-lg navbar-light bg-sombra">
         <div class="container-md logo">
-            <a href="index.php"><img src="../assets/images/LogoProyecto.png" alt="Logo E-scommerce"></a>
+            <a href="index.html"><img src="../assets/images/LogoProyecto.png" alt="Logo E-scommerce"></a>
         </div>
 
         <div class="nav-texto">
@@ -66,7 +67,7 @@
                             <a class="nav-link" href="./ofertas.html">Ofertas</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./ser-vendedor.html">Vender</a>
+                            <a class="nav-link" href="#">Vender</a>
                         </li>
                     </ul>
 
@@ -77,7 +78,7 @@
                                 <li class="nav-item">
                                     <!--<a class="nav-link" href="/Escommerce/pages/registro.php">Crea tu cuenta</a>-->
                                     <?php
-                                        echo "<p>" . $nombre . "</p>";
+                                        echo "<p>" . $nombre . "</p>"
                                         //print_r( $nombre )
                                     ?>
                                 </li>
@@ -754,6 +755,7 @@
 
     <script src="../js/main.js"></script>
     <script src="../js/app.js"></script>
+    <script src="../js/notifications.js"></script>
 </body>
 
 </html>
