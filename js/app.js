@@ -49,8 +49,26 @@
            const producto = e.target.parentElement.parentElement.parentElement.parentElement.parentElement;
            // Enviamos el curso seleccionado para tomar sus datos
            leerDatosProducto(producto);
-           console.log("producto")
-           console.log(producto)
+
+           window.createNotification({
+               // close on click
+               closeOnClick: true,
+               // displays close button
+               displayCloseButton: false,
+               // nfc-top-left
+               // nfc-bottom-right
+               // nfc-bottom-left
+               positionClass: 'nfc-top-right',
+               // callback
+               onclick: false,
+               // timeout in milliseconds
+               showDuration: 3500,
+               // success, info, warning, error, and none
+               theme: 'success'
+           })({
+               title: 'Producto agregado',
+               message: 'Al carrito exitosamente!'
+           });
        }
    }
 
