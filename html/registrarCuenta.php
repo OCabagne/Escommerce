@@ -1,3 +1,33 @@
+<?php
+    //require '\Escommerce\class\db.php';
+    require $_SERVER['DOCUMENT_ROOT'].'/Escommerce/class/db.php';
+
+    if( isset( $_SESSION['user_id'] ) ){
+        header( "Location: ./index.php" );
+    }
+
+    if( $_POST )
+    {
+        $rfc = htmlspecialchars($_POST['rfc']);
+        $usuario = htmlspecialchars($_POST['nombreUsuario']);
+        $email = htmlspecialchars($_POST['correo']);
+        $password = htmlspecialchars($_POST['contraUsuario']);
+        $pass = htmlspecialchars( $_POST['confContra'] );
+        $tipo = $_POST['tipo'];
+        $msg = "";
+        if( strcmp( $pass, $password ) == 0 ){
+            $db = new database();
+            $msg = $db->signup( $rfc, $usuario, $email, $password, $tipo );    
+        }else{
+            $msg = "Contraseñas no coinciden";
+        }
+        //echo $rfc;
+        //$connect = $db->conectar();       // El método conectar únicamente se usa dentro de db por seguridad de acceso. Los demás métodos son los que van a llamarlo de forma interna.
+        //echo $db->signup( $rfc, $nombre, $usuario, $email, password_hash( $password, PASSWORD_BCRYPT ), $tipo );
+        
+        //$db->desconectar($db);
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,27 +43,6 @@
 </head>
 
 <body>
-    <!--
-        <?php
-            //require '\Escommerce\class\db.php';
-            require $_SERVER['DOCUMENT_ROOT'].'/Escommerce/class/db.php';
-
-            if( isset( $_POST) )
-            {
-                $rfc = htmlspecialchars($_POST['rfc']);
-                $usuario = htmlspecialchars($_POST['nombreUsuario']);
-                $email = htmlspecialchars($_POST['correo']);
-                $password = htmlspecialchars($_POST['contraUsuario']);
-                $tipo = "cliente";
-                $db = new database();
-                //echo $rfc;
-                //$connect = $db->conectar();       // El método conectar únicamente se usa dentro de db por seguridad de acceso. Los demás métodos son los que van a llamarlo de forma interna.
-                //echo $db->signup( $rfc, $nombre, $usuario, $email, password_hash( $password, PASSWORD_BCRYPT ), $tipo );
-                $salida = $db->signup( $rfc,$usuario, $email, $password, $tipo );
-                //$db->desconectar($db);
-            }
-        ?>
-    -->
 
     <!-- Page Preloder -->
     <div id="preloder">
@@ -49,18 +58,23 @@
                     </div>
                     <div class="card-body p-4 p-sm-5">
                         <button class="btn" type="button" aria-label="Regresar a inicio">
-                            <a href="index.html"><img
+                            <a href="index.php"><img
                                     src="https://img.icons8.com/windows/32/000000/long-arrow-left.png" /></a>
                         </button>
                         <h5 class="card-title text-center mb-5 fw-light fs-5">Registro</h5>
+                        <?php 
+                            if( $_POST ){
+                                echo $msg;
+                            }
+                        ?>
                         <form action="registrarCuenta.php" method="post">
-                            <div class="form-floating mb-3">
+                            <!--<div class="form-floating mb-3">
                                 <input type="text" name="nombreUsuario" class="form-control" id="inputNombreUsuario"
                                     placeholder="Nombre de usuario" required autofocus>
                                 <label for="inputNombreUsuario">Nombre de usuario</label>
-                            </div>
+                            </div>-->
                             <div class="form-floating mb-3">
-                                <input type="text" name="nombreCompleto" class="form-control" id="inputNombreCompleto"
+                                <input type="text" name="nombreUsuario" class="form-control" id="inputNombreCompleto"
                                     placeholder="Nombre completo" required autofocus>
                                 <label for="inputNombreCompleto">Nombre completo</label>
                             </div>
@@ -76,13 +90,13 @@
                             </div>
                             <p>¿Desea empezar como vendedor?</p>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="radioSi">
+                                <input class="form-check-input" type="radio" name="tipo" value="vendedor" id="radioSi">
                                 <label class="form-check-label" for="radioSi">
                                     S&iacute;
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="radioNo"
+                                <input class="form-check-input" type="radio" name="tipo" value="cliente" id="radioNo"
                                     checked>
                                 <label class="form-check-label" for="radioNo">
                                     No
@@ -95,7 +109,7 @@
                                 <label for="floatingPassword">Contraseña</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <input type="password" class="form-control" id="floatingPasswordConfirm"
+                                <input type="password" name="confContra" class="form-control" id="floatingPasswordConfirm"
                                     placeholder="Confirmar contraseña">
                                 <label for="floatingPasswordConfirm">Confirmar contraseña</label>
                             </div>
@@ -103,7 +117,7 @@
                                 <button class="btn btn-lg btn-primary btn-login fw-bold text-uppercase"
                                     type="submit">Registrarme</button>
                             </div>
-                            <a class="d-block text-center mt-2 small" href="login.html">Ya tienes cuenta? Entra
+                            <a class="d-block text-center mt-2 small" href="login.php">Ya tienes cuenta? Entra
                                 aqui!</a>
                             <hr class="my-4">
                         </form>

@@ -238,13 +238,13 @@ class database
         }
     }
 
-    public function signup( $id_usuario, $usuario_usuario, $email_usuario, $contra_usuario, $tipo_usuario ) // Tambien puede ser llamada "crearUsuario"
+    public function signup( $id_usuario, $nombre_usuario, $email_usuario, $contra_usuario, $tipo_usuario ) // Tambien puede ser llamada "crearUsuario"
     {
         $cnx = new database();
         $connect = $cnx->conectar();
         if($connect != false)   // if para cachar el caso de error de conexión.
         {
-            $query = "INSERT INTO usuario ( rfc, nombreUsuario, contraUsuario, correo, tipoUser) VALUES ( " . $id_usuario . ", " . $usuario_usuario . ", " . $contra_usuario . ", "  . $email_usuario . ", " . $tipo_usuario . ");";
+            $query = "INSERT INTO usuario ( rfc, nombreUsuario, contraUsuario, correo, tipoUser) VALUES ( '" . $id_usuario . "', '" . $nombre_usuario . "', '" . $contra_usuario . "', '"  . $email_usuario . "', '" . $tipo_usuario . "');";
             $exec = mysqli_query($connect, $query);
             // $exec es true si la consulta fue exitosa, se evalúa en el siguiente if
             if( $exec ){

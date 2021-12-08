@@ -16,7 +16,7 @@
             //$connect = $db->conectar();
             //$usuario = $connect->login($ema, password_hash($contr, PASSWORD_BCRYPT));
             $usuario = $db->login($ema);
-            print_r( $usuario );
+            //print_r( $usuario );
             //if( isset( $usuario ) && password_verify( $contr, $usuario['contraUsuario'] ) )
             if( isset( $usuario ) && strcmp( $contr, $usuario['contraUsuario'] ) == 0 )
             {
@@ -84,7 +84,7 @@
                                         <button class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2"
                                             type="submit">Entrar</button>
                                         <div class="text-center">
-                                            <a class="small" href="registrarCuenta.html">No tienes una cuenta? Haz una!</a>
+                                            <a class="small" href="registrarCuenta.php">No tienes una cuenta? Haz una!</a>
                                         </div>
                                     </div>
                                 </form>
