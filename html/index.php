@@ -67,7 +67,7 @@
                             <a class="nav-link" href="./ofertas.html">Ofertas</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Vender</a>
+                            <a class="nav-link" href="./ser-vendedor.html">Vender</a>
                         </li>
                     </ul>
 
