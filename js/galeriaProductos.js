@@ -3,18 +3,14 @@ document.addEventListener("DOMContentLoaded", function(){
 
     function clicImagenIndexProducto()
     {
-        //VARIABLES LOCALES DE FUNCION
-        var urlSet = this.parentNode.parentNode.parentNode.childNodes[1].getAttribute("data-setbg");
-
         //GUARDAR EN EL LOCAL STORAGE
-
-        localStorage.setItem("urlIMG", urlSet);
         //console.log(this.innerHTML);
        // console.log(typeof(this.innerHTML));
-        localStorage.setItem("modelo",this.innerHTML);
+        localStorage.setItem("id",this.id);
     }
     for(f=0; f<galeriaProducInd.length; f++)
     {
         galeriaProducInd[f].addEventListener("click",clicImagenIndexProducto);
+        galeriaProducInd[f].setAttribute("id", (100+f));
     }
 });

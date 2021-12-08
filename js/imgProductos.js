@@ -2,27 +2,25 @@ document.addEventListener("DOMContentLoaded", function(){
     var imagenes = document.getElementsByClassName("agregaImg");
     var tituloProduc = document.getElementById("marca-modelo");
     var datosAJAX = document.getElementById("datosRecibidos");
-    var urlImagenes = localStorage["urlIMG"];
-    var modeloProduc = localStorage["modelo"];
+    var idProduc = localStorage["id"];
 
-    imagenesProducto();
     peticionDatosAjax();
 
-    function imagenesProducto()
+    function imagenesProducto(urlIMAGEN)
     {
         for(i=0; i<imagenes.length; i++)
         {
             var nodoImg = document.createElement("img");
-            nodoImg.setAttribute("src",urlImagenes);
+            nodoImg.setAttribute("src",urlIMAGEN);
             imagenes[i].appendChild(nodoImg);
         }
-        imagenes[imagenes.length-1].setAttribute("href", urlImagenes);
+        imagenes[imagenes.length-1].setAttribute("href", urlIMAGEN);
     }
     function peticionDatosAjax()
     {
         var datos = new FormData();
         var xhr = new XMLHttpRequest();
-        datos.append("modelo",modeloProduc);
+        datos.append("idProducto",idProduc);
         datosAJAX.style.display = "none";
         tituloProduc.parentNode.childNodes[3].display = "none";
         xhr.open("POST","../class/ajaxIndex.php", true);
@@ -35,15 +33,18 @@ document.addEventListener("DOMContentLoaded", function(){
                 var datos = JSON.parse(datosAJAX.innerHTML);
                 datosAJAX.innerHTML = "";
                 tituloProduc.innerHTML = datos["marca"]+" "+datos["modelo"];
-                tituloProduc.parentNode.childNodes[5].innerHTML = datos["caracteristicas"];
-                if(datos["oferta"] == "si")
-                {
-                    tituloProduc.parentNode.childNodes[3].display = "block";
-                    tituloProduc.parentNode.childNodes[3].innerHTML = "OFERTA";
-                }
+                tituloProduc.parentNode.childNodes[8].innerHTML = datos["caracteristicas"];
+                imagenesProducto(datos['urlImg']);
+                tituloProduc.parentNode.childNodes[5].innerHTML = "$"+datos['precio'];
             }
         }
         datosAJAX.innerHTML = "";
         xhr.send(datos);
+
+
+        //QUITAR SCROLL A IMAGENES
+        lightbox.option({
+            'disableScrolling': true
+          })
     }
 });

@@ -388,6 +388,25 @@ rfc, oferta, urlImg) VALUES
 
 
 
+INSERT INTO producto(caracteristicas, idCategoria, idProducto, marca, modelo, precio, rfc, oferta, urlImg) 
+VALUES ( 'BLUSA AMARILLA DE MUJER', 1, 100, 'Buttons', 'tweed blazer', 59.00, 'CAGB980704SV8', 'no', 
+'../assets/images/productos/product-1.jpg' ), ( 'CAMISA HOMBRE', 2, 101, 'Flowy', 'striped skirt', 49.00, 
+'CAGB980704SV8', 'no', '../assets/images/productos/product-2.jpg' ), ( 'BLUSA NARANJA MUJER', 1, 102, 
+'Cotton', 'T-Shirt', 59.00, 'CAGB980704SV8', 'no', '../assets/images/productos/product-3.jpg' ), 
+( 'CAMISA 2 HOMBRE', 2, 103, 'Slim', 'striped pocket shirt', 59.00, 'CAGB980704SV8', 'no', 
+'../assets/images/productos/product-4.jpg' ), ( 'CAMISA 3 HOMBRE', 2, 104, 'Fit micro', 'corduroy shirt', 
+59.00, 'CAGB980704SV8', 'no', '../assets/images/productos/product-5.jpg' ), ( 'BLUSA 3 HOMBRE', 1, 105, 
+'Tropical', 'Kimono', 49.00, 'CAGB980704SV8', 'si', '../assets/images/productos/product-6.jpg' ),
+( 'BLUSA 5 HOMBRE', 1, 106, 'Contrasting', 
+'sunglasses', 59.00, 'CAGB980704SV8', 'no', 
+'../assets/images/productos/product-7.jpg' ),
+( 'CAMISA 66 HOMBRE', 2, 107, 'Water', 
+'resistant backpack', 49.00, 'CAGB980704SV8', 'si', 
+'../assets/images/productos/product-8.jpg' );
+
+
+
+
 
 
 
