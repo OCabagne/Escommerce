@@ -26,9 +26,9 @@
 class database
 {
     private $server = "localhost";
-    private $user = "user";
-    private $pass = "password";
-    private $dbName = "database";
+    private $user = "escommerce";
+    private $pass = "12345";
+    private $dbName = "escommerce";
     
     private function conectar()
     {  
@@ -82,6 +82,20 @@ class database
 
             $cnx->desconectar($connect);   // Desconexión de DB
             return $row[0]; // Regresamos la primer colúmna de la busqueda (debería ser solo una, pero por precaución se especifica)
+        }
+    }
+    public function galeriaProducto($campo, $id_producto)
+    {
+        $cnx = new database();  // Conexión con DB
+        $connect = $cnx->conectar();
+        if($connect != false)
+        {
+            $query = "SELECT * FROM producto WHERE ".$campo." = '" . $id_producto . "' ;";
+            $exec = mysqli_query($connect, $query); // Ejecución del query
+            $row = mysqli_fetch_array($exec); // Obtenemos las columnas resultantes de la consulta
+
+            $cnx->desconectar($connect);   // Desconexión de DB
+            return $row;
         }
     }
 

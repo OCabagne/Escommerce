@@ -53,3 +53,17 @@ foreign key(idProducto) references producto(idProducto) on delete cascade on upd
 create table pregRes (uniqueId bigint, idRespuesta bigint, primary key(uniqueId, idRespuesta),
 foreign key(uniqueId) references preguntas(uniqueId) on delete cascade on update cascade,
 foreign key(idRespuesta) references preguntas(uniqueId) on delete cascade on update cascade);
+
+insert into categoria(nomCategoria) VALUES (
+	'ropaMujer', 1
+);
+
+insert into usuario VALUES (
+	'brandon', 'prueba1', 'ejemplo@hotmail.com', 'vendedor', 'CAGB980704SV8'
+);
+
+INSERT INTO producto(caracteristicas, idCategoria, idProducto, marca, modelo, precio, 
+rfc, oferta, urlImg) VALUES 
+( 'LORENT INSUT XD XD XD', 1, 1, 'Buttons tweed', 
+'blazer', 0.0, 'CAGB980704SV8', 'si', 
+'https://img.icons8.com/windows/32/000000/add-shopping-cart.png' );
