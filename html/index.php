@@ -1,3 +1,12 @@
+<?php
+    session_start();
+    require $_SERVER['DOCUMENT_ROOT'].'/Escommerce/class/db.php';
+    $nombre = '';
+    if( isset( $_SESSION['user_id'] ) ){
+        $db = new database();
+        $nombre = $db->buscarUsuario( "nombreUsuario", $_SESSION['user_id'] )['nombreUsuario'];
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -61,15 +70,36 @@
                         </li>
                     </ul>
 
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 nav-borde nav-ul">
-                        <li class="nav-item">
-                            <!--<a class="nav-link" href="/Escommerce/pages/registro.php">Crea tu cuenta</a>-->
-                            <a class="nav-link" href="registrarCuenta.html">Crea tu cuenta</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="login.html">Ingresa</a>
-                        </li>
-                    </ul>
+                    <?php
+                        if( isset( $_SESSION['user_id'] ) ){
+                    ?>
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0 nav-borde nav-ul">
+                                <li class="nav-item">
+                                    <!--<a class="nav-link" href="/Escommerce/pages/registro.php">Crea tu cuenta</a>-->
+                                    <?php
+                                        echo "<p>" . $nombre . "</p>"
+                                        //print_r( $nombre )
+                                    ?>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="logout.php">Salir</a>
+                                </li>
+                            </ul>
+                    <?php
+                        }else{
+                    ?>
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0 nav-borde nav-ul">
+                                <li class="nav-item">
+                                    <!--<a class="nav-link" href="/Escommerce/pages/registro.php">Crea tu cuenta</a>-->
+                                    <a class="nav-link" href="registrarCuenta.php">Crea tu cuenta</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="login.php">Ingresa</a>
+                                </li>
+                            </ul>
+                    <?php  
+                        }
+                    ?>
 
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">

@@ -26,8 +26,8 @@
 class database
 {
     private $server = "localhost";
-    private $user = "escommerce";
-    private $pass = "12345";
+    private $user = "root";
+    private $pass = "";
     private $dbName = "escommerce";
     
     private function conectar()
@@ -208,12 +208,16 @@ class database
         $connect = $cnx->conectar();
         if($connect != false)
         {
-            $query = "SELECT " . $campo . " FROM usuario WHERE rfc = " . $id_usuario . ";";
+            $query = "SELECT " . $campo . " FROM usuario WHERE rfc = '" . $id_usuario . "';";
             $exec = mysqli_query($connect, $query); // Ejecución del query
-            $row = mysqli_fetch_array($exec); // Obtenemos las columnas resultantes de la consulta
+            $row = mysqli_fetch_array($exec, MYSQLI_ASSOC); // Obtenemos las columnas resultantes de la consulta
 
             $cnx->desconectar($connect);   // Desconexión de DB
-            return $row[0]; // Regresamos la primer colúmna de la busqueda (debería ser solo una, pero por precaución se especifica)
+            if( !empty( $row ) ){
+                return $row; // Regresamos la primer colúmna de la busqueda (debería ser solo una, pero por precaución se especifica)
+            }else{
+                return "Error";
+            }
         }
     }
 
@@ -223,12 +227,14 @@ class database
         $connect = $cnx->conectar();
         if($connect != false)
         {
-            $query = "SELECT * FROM usuario WHERE email = " . $email_usuario . ";";
-            $exec = mysqli_query( $connect, $query);
-            $row = mysqli_fetch_array($exec); // Obtenemos las columnas resultantes de la consulta
+            $query = "SELECT * FROM usuario WHERE correo = '" . $email_usuario . "';";
+            $exec = mysqli_query( $connect, $query );
+            $row = mysqli_fetch_array($exec, MYSQLI_ASSOC); // Obtenemos las columnas resultantes de la consulta
     
             $cnx->desconectar($connect);
             return $row;
+        }else{
+            return 0;
         }
     }
 
