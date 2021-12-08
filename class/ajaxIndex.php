@@ -1,9 +1,4 @@
 <?php
-/*function peticionAJax()
-{
-    return isset($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH'] == 'XMLHttpRequest';
-    return true;
-}*/
     require $_SERVER['DOCUMENT_ROOT'].'/Escommerce/class/db.php';
     $modelo = htmlspecialchars($_POST['modelo']);
     $dataBase = new database();
@@ -12,7 +7,8 @@
         "precio" => $conLightbox['precio'],
         "marca" => $conLightbox['marca'],
         "modelo" => $conLightbox['modelo'],
-        "caracteristicas" => $conLightbox['caracteristicas']
+        "caracteristicas" => $conLightbox['caracteristicas'],
+        "oferta" => $conLightbox['oferta']
     );
     $retorna = json_encode($retorno);
     echo $retorna;

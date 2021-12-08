@@ -26,8 +26,8 @@
 class database
 {
     private $server = "localhost";
-    private $user = "escommerce";
-    private $pass = "12345";
+    private $user = "root";
+    private $pass = "";
     private $dbName = "escommerce";
     
     private function conectar()
@@ -208,12 +208,16 @@ class database
         $connect = $cnx->conectar();
         if($connect != false)
         {
-            $query = "SELECT " . $campo . " FROM usuario WHERE rfc = " . $id_usuario . ";";
+            $query = "SELECT " . $campo . " FROM usuario WHERE rfc = '" . $id_usuario . "';";
             $exec = mysqli_query($connect, $query); // Ejecución del query
-            $row = mysqli_fetch_array($exec); // Obtenemos las columnas resultantes de la consulta
+            $row = mysqli_fetch_array($exec, MYSQLI_ASSOC); // Obtenemos las columnas resultantes de la consulta
 
             $cnx->desconectar($connect);   // Desconexión de DB
-            return $row[0]; // Regresamos la primer colúmna de la busqueda (debería ser solo una, pero por precaución se especifica)
+            if( !empty( $row ) ){
+                return $row; // Regresamos la primer colúmna de la busqueda (debería ser solo una, pero por precaución se especifica)
+            }else{
+                return "Error";
+            }
         }
     }
 
@@ -223,22 +227,24 @@ class database
         $connect = $cnx->conectar();
         if($connect != false)
         {
-            $query = "SELECT * FROM usuario WHERE email = " . $email_usuario . ";";
-            $exec = mysqli_query( $connect, $query);
-            $row = mysqli_fetch_array($exec); // Obtenemos las columnas resultantes de la consulta
+            $query = "SELECT * FROM usuario WHERE correo = '" . $email_usuario . "';";
+            $exec = mysqli_query( $connect, $query );
+            $row = mysqli_fetch_array($exec, MYSQLI_ASSOC); // Obtenemos las columnas resultantes de la consulta
     
             $cnx->desconectar($connect);
             return $row;
+        }else{
+            return 0;
         }
     }
 
-    public function signup( $id_usuario, $usuario_usuario, $email_usuario, $contra_usuario, $tipo_usuario ) // Tambien puede ser llamada "crearUsuario"
+    public function signup( $id_usuario, $nombre_usuario, $email_usuario, $contra_usuario, $tipo_usuario ) // Tambien puede ser llamada "crearUsuario"
     {
         $cnx = new database();
         $connect = $cnx->conectar();
         if($connect != false)   // if para cachar el caso de error de conexión.
         {
-            $query = "INSERT INTO usuario ( rfc, nombreUsuario, contraUsuario, correo, tipoUser) VALUES ( " . $id_usuario . ", " . $usuario_usuario . ", " . $contra_usuario . ", "  . $email_usuario . ", " . $tipo_usuario . ");";
+            $query = "INSERT INTO usuario ( rfc, nombreUsuario, contraUsuario, correo, tipoUser) VALUES ( '" . $id_usuario . "', '" . $nombre_usuario . "', '" . $contra_usuario . "', '"  . $email_usuario . "', '" . $tipo_usuario . "');";
             $exec = mysqli_query($connect, $query);
             // $exec es true si la consulta fue exitosa, se evalúa en el siguiente if
             if( $exec ){
