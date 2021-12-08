@@ -7,23 +7,24 @@
     <meta name="keywords" content="Ashion, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Ashion | Template</title>
+    <title>Nombre del producto</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap"
-    rel="stylesheet">
+        rel="stylesheet">
 
     <!-- Css Styles -->
-    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
-    <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
-    <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="css/ashion.css" type="text/css">
-    <link rel="stylesheet" href="sass/main.css" type="text/css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../sass/main.css">
+    <link rel="stylesheet" href="../css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="../css/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="../css/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="../css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="../css/ashion.css" type="text/css">
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/notifications.css">
 </head>
 
 <body>
@@ -32,94 +33,92 @@
         <div class="loader"></div>
     </div>
 
-    <!-- Offcanvas Menu Begin -->
-    <div class="offcanvas-menu-overlay"></div>
-    <div class="offcanvas-menu-wrapper">
-        <div class="offcanvas__close">+</div>
-        <ul class="offcanvas__widget">
-            <li><span class="icon_search search-switch"></span></li>
-            <li><a href="#"><span class="icon_heart_alt"></span>
-                <div class="tip">2</div>
-            </a></li>
-            <li><a href="#"><span class="icon_bag_alt"></span>
-                <div class="tip">2</div>
-            </a></li>
-        </ul>
-        <div class="offcanvas__logo">
-            <a href="./index.html"><img src="img/logo.png" alt=""></a>
+    <!--Inicio de barra de navegacion-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-sombra">
+        <div class="container-md logo">
+            <a href="index.html"><img src="../assets/images/LogoProyecto.png" alt="Logo E-scommerce"></a>
         </div>
-        <div id="mobile-menu-wrap"></div>
-        <div class="offcanvas__auth">
-            <a href="#">Login</a>
-            <a href="#">Register</a>
-        </div>
-    </div>
-    <!-- Offcanvas Menu End -->
 
-    <!-- Header Section Begin -->
-    <header class="header">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-xl-3 col-lg-2">
-                    <div class="header__logo">
-                        <a href="./index.html"><img src="img/logo.png" alt=""></a>
-                    </div>
-                </div>
-                <div class="col-xl-6 col-lg-7">
-                    <nav class="header__menu">
-                        <ul>
-                            <li><a href="./index.html">Home</a></li>
-                            <li><a href="#">Women’s</a></li>
-                            <li><a href="#">Men’s</a></li>
-                            <li class="active"><a href="./shop.html">Shop</a></li>
-                            <li><a href="#">Pages</a>
-                                <ul class="dropdown">
-                                    <li><a href="./product-details.html">Product Details</a></li>
-                                    <li><a href="./shop-cart.html">Shop Cart</a></li>
-                                    <li><a href="./checkout.html">Checkout</a></li>
-                                    <li><a href="./blog-details.html">Blog Details</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="./blog.html">Blog</a></li>
-                            <li><a href="./contact.html">Contact</a></li>
-                        </ul>
-                    </nav>
-                </div>
-                <div class="col-lg-3">
-                    <div class="header__right">
-                        <div class="header__right__auth">
-                            <a href="#">Login</a>
-                            <a href="#">Register</a>
-                        </div>
-                        <ul class="header__right__widget">
-                            <li><span class="icon_search search-switch"></span></li>
-                            <li><a href="#"><span class="icon_heart_alt"></span>
-                                <div class="tip">2</div>
-                            </a></li>
-                            <li><a href="#"><span class="icon_bag_alt"></span>
-                                <div class="tip">2</div>
-                            </a></li>
-                        </ul>
-                    </div>
-                </div>
+        <div class="nav-texto">
+            <div class="container-md nav-busqueda">
+                <form class="flex-fill d-flex busqueda">
+                    <input class="form-control me-2" type="search" placeholder="Buscar productos" aria-label="Search">
+                    <button class="btn btn-outline-principal" type="submit">Buscar</button>
+                    <button class="btn nav-toggle" type="button" aria-label="Abrir menu">
+                        <img src="https://img.icons8.com/ios-glyphs/30/000000/menu--v1.png" />
+                    </button>
+                </form>
             </div>
-            <div class="canvas__open">
-                <i class="fa fa-bars"></i>
+            <div class="container-md nav-colapsada-vertical">
+                <div class="navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 nav-borde nav-ul">
+                        <li class="nav-item">
+                            <a class="nav-link" href="./tienda.html">Categor&iacute;as</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Ofertas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Vender</a>
+                        </li>
+                    </ul>
+
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 nav-borde nav-ul">
+                        <li class="nav-item">
+                            <!--<a class="nav-link" href="/Escommerce/pages/registro.php">Crea tu cuenta</a>-->
+                            <a class="nav-link" href="registrarCuenta.html">Crea tu cuenta</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="login.html">Ingresa</a>
+                        </li>
+                    </ul>
+
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Mis compras</a>
+                        </li>
+                        <li class="nav-item carrito">
+                            <a class="nav-link" href="./carrito.html"><img
+                                    src="https://img.icons8.com/fluency-systems-regular/22/000000/shopping-cart-loaded.png" /><span
+                                    class="badge bg-secundario" id="cantidad-carrito"></span></a>
+                            <div id="carrito">
+                                <table id="lista-carrito"
+                                    class="u-full-width table table-sm .table-responsive-sm .table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Imagen</th>
+                                            <th scope="col">Nombre</th>
+                                            <th scope="col">Precio</th>
+                                            <th scope="col">Cantidad</th>
+                                            <th scope="col">Eliminar</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                                <a href="#" id="vaciar-carrito" class="button u-full-width vacio">Vaciar Carrito</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </header>
-    <!-- Header Section End -->
+    </nav>
+    <!--Fin de barra de navegacion-->
 
     <!-- Breadcrumb Begin -->
     <div class="breadcrumb-option">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="breadcrumb__links">
-                        <a href="./index.html"><i class="fa fa-home"></i> Home</a>
-                        <a href="#">Women’s </a>
-                        <span>Essential structured blazer</span>
-                    </div>
+                    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="./index.html" id="indexBread"><img
+                                        src="https://img.icons8.com/material-sharp/24/000000/home.png" />Inicio</a>
+                            </li>
+                            <li class="breadcrumb-item" aria-current="page">Categor&iacute;as</li>
+                            <li class="breadcrumb-item active" aria-current="page">Detalles del producto</li>
+                        </ol>
+                    </nav>
                 </div>
             </div>
         </div>
@@ -132,26 +131,10 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="product__details__pic">
-                        <div class="product__details__pic__left product__thumb nice-scroll">
-                            <a class="pt active" href="#product-1">
-                                <img src="img/product/details/thumb-1.jpg" alt="">
-                            </a>
-                            <a class="pt" href="#product-2">
-                                <img src="img/product/details/thumb-2.jpg" alt="">
-                            </a>
-                            <a class="pt" href="#product-3">
-                                <img src="img/product/details/thumb-3.jpg" alt="">
-                            </a>
-                            <a class="pt" href="#product-4">
-                                <img src="img/product/details/thumb-4.jpg" alt="">
-                            </a>
-                        </div>
                         <div class="product__details__slider__content">
                             <div class="product__details__pic__slider owl-carousel">
-                                <img data-hash="product-1" class="product__big__img" src="img/product/details/product-1.jpg" alt="">
-                                <img data-hash="product-2" class="product__big__img" src="img/product/details/product-3.jpg" alt="">
-                                <img data-hash="product-3" class="product__big__img" src="img/product/details/product-2.jpg" alt="">
-                                <img data-hash="product-4" class="product__big__img" src="img/product/details/product-4.jpg" alt="">
+                                <img data-hash="product-4" class="product__big__img"
+                                    src="../assets/images/productos/product-4.jpg" alt="">
                             </div>
                         </div>
                     </div>
@@ -168,35 +151,30 @@
                             <span>( 138 reviews )</span>
                         </div>
                         <div class="product__details__price">$ 75.0 <span>$ 83.0</span></div>
-                        <p>Nemo enim ipsam voluptatem quia aspernatur aut odit aut loret fugit, sed quia consequuntur
-                        magni lores eos qui ratione voluptatem sequi nesciunt.</p>
+                        <p>Alguna descripcion bonita del producto, de la base de datos si es que la tiene</p>
                         <div class="product__details__button">
                             <div class="quantity">
-                                <span>Quantity:</span>
+                                <span>Cantidad:</span>
                                 <div class="pro-qty">
                                     <input type="text" value="1">
                                 </div>
                             </div>
-                            <a href="#" class="cart-btn"><span class="icon_bag_alt"></span> Add to cart</a>
-                            <ul>
-                                <li><a href="#"><span class="icon_heart_alt"></span></a></li>
-                                <li><a href="#"><span class="icon_adjust-horiz"></span></a></li>
-                            </ul>
+                            <a href="#" class="cart-btn">Agregar al carrito</a>
                         </div>
                         <div class="product__details__widget">
                             <ul>
                                 <li>
-                                    <span>Availability:</span>
+                                    <span>Disponibilidad:</span>
                                     <div class="stock__checkbox">
                                         <label for="stockin">
-                                            In Stock
+                                            En inventario
                                             <input type="checkbox" id="stockin">
                                             <span class="checkmark"></span>
                                         </label>
                                     </div>
                                 </li>
                                 <li>
-                                    <span>Available color:</span>
+                                    <span>Colores disponibles:</span>
                                     <div class="color__checkbox">
                                         <label for="red">
                                             <input type="radio" name="color__radio" id="red" checked>
@@ -213,7 +191,7 @@
                                     </div>
                                 </li>
                                 <li>
-                                    <span>Available size:</span>
+                                    <span>Tama&ntilde;o disponible:</span>
                                     <div class="size__btn">
                                         <label for="xs-btn" class="active">
                                             <input type="radio" id="xs-btn">
@@ -234,7 +212,7 @@
                                     </div>
                                 </li>
                                 <li>
-                                    <span>Promotions:</span>
+                                    <span>Promoci&oacute;n:</span>
                                     <p>Free shipping</p>
                                 </li>
                             </ul>
@@ -245,54 +223,43 @@
                     <div class="product__details__tab">
                         <ul class="nav nav-tabs" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab">Description</a>
+                                <a class="nav-link active" data-toggle="tab" href="#tabs-1"
+                                    role="tab">Descripci&oacute;n</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab">Specification</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab">Reviews ( 2 )</a>
+                                <a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab">Comentarios ( 2 )</a>
                             </li>
                         </ul>
                         <div class="tab-content">
                             <div class="tab-pane active" id="tabs-1" role="tabpanel">
-                                <h6>Description</h6>
+                                <h6>Descripci&oacute;n</h6>
                                 <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut loret fugit, sed
                                     quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt loret.
                                     Neque porro lorem quisquam est, qui dolorem ipsum quia dolor si. Nemo enim ipsam
                                     voluptatem quia voluptas sit aspernatur aut odit aut loret fugit, sed quia ipsu
                                     consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Nulla
-                                consequat massa quis enim.</p>
+                                    consequat massa quis enim.</p>
                                 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget
                                     dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes,
                                     nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium
-                                quis, sem.</p>
-                            </div>
-                            <div class="tab-pane" id="tabs-2" role="tabpanel">
-                                <h6>Specification</h6>
-                                <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut loret fugit, sed
-                                    quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt loret.
-                                    Neque porro lorem quisquam est, qui dolorem ipsum quia dolor si. Nemo enim ipsam
-                                    voluptatem quia voluptas sit aspernatur aut odit aut loret fugit, sed quia ipsu
-                                    consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Nulla
-                                consequat massa quis enim.</p>
-                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget
-                                    dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes,
-                                    nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium
-                                quis, sem.</p>
+                                    quis, sem.</p>
                             </div>
                             <div class="tab-pane" id="tabs-3" role="tabpanel">
-                                <h6>Reviews ( 2 )</h6>
+                                <h6>Comentarios ( 2 )</h6>
                                 <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut loret fugit, sed
                                     quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt loret.
                                     Neque porro lorem quisquam est, qui dolorem ipsum quia dolor si. Nemo enim ipsam
                                     voluptatem quia voluptas sit aspernatur aut odit aut loret fugit, sed quia ipsu
                                     consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Nulla
-                                consequat massa quis enim.</p>
+                                    consequat massa quis enim.</p>
                                 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget
                                     dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes,
                                     nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium
-                                quis, sem.</p>
+                                    quis, sem.</p>
+                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget
+                                    dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes,
+                                    nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium
+                                    quis, sem.</p>
                             </div>
                         </div>
                     </div>
@@ -301,94 +268,97 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="related__title">
-                        <h5>RELATED PRODUCTS</h5>
+                        <h5>Productos relacionados</h5>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="col-lg-3 col-md-4 col-sm-6 mix men">
                     <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="img/product/related/rp-1.jpg">
-                            <div class="label new">New</div>
+                        <div class="product__item__pic set-bg" data-setbg="../assets/images/productos/product-2.jpg">
+                            <img src="../assets/images/productos/product-2.jpg" class="product__item__pic set-bg">
                             <ul class="product__hover">
-                                <li><a href="img/product/related/rp-1.jpg" class="image-popup"><span class="arrow_expand"></span></a></li>
-                                <li><a href="#"><span class="icon_heart_alt"></span></a></li>
-                                <li><a href="#"><span class="icon_bag_alt"></span></a></li>
-                            </ul>
-                        </div>
-                        <div class="product__item__text">
-                            <h6><a href="#">Buttons tweed blazer</a></h6>
-                            <div class="rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <div class="product__price">$ 59.0</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="img/product/related/rp-2.jpg">
-                            <ul class="product__hover">
-                                <li><a href="img/product/related/rp-2.jpg" class="image-popup"><span class="arrow_expand"></span></a></li>
-                                <li><a href="#"><span class="icon_heart_alt"></span></a></li>
-                                <li><a href="#"><span class="icon_bag_alt"></span></a></li>
+                                <li><a href="#" class="agregar-carrito"><img class="agregar-carrito"
+                                            src="https://img.icons8.com/windows/32/000000/add-shopping-cart.png" /></a>
+                                </li>
                             </ul>
                         </div>
                         <div class="product__item__text">
                             <h6><a href="#">Flowy striped skirt</a></h6>
                             <div class="rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
+                                <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
+                                <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
+                                <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
+                                <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
+                                <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
                             </div>
                             <div class="product__price">$ 49.0</div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="col-lg-3 col-md-4 col-sm-6 mix accessories">
                     <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="img/product/related/rp-3.jpg">
-                            <div class="label stockout">out of stock</div>
+                        <div class="product__item__pic set-bg" data-setbg="../assets/images/productos/product-3.jpg">
+                            <img src="../assets/images/productos/product-3.jpg" class="product__item__pic set-bg">
+                            <div class="label stockout">agotado</div>
                             <ul class="product__hover">
-                                <li><a href="img/product/related/rp-3.jpg" class="image-popup"><span class="arrow_expand"></span></a></li>
-                                <li><a href="#"><span class="icon_heart_alt"></span></a></li>
-                                <li><a href="#"><span class="icon_bag_alt"></span></a></li>
+                                <li><a href="#" class="agregar-carrito"><img class="agregar-carrito"
+                                            src="https://img.icons8.com/windows/32/000000/add-shopping-cart.png" /></a>
+                                </li>
                             </ul>
                         </div>
                         <div class="product__item__text">
                             <h6><a href="#">Cotton T-Shirt</a></h6>
                             <div class="rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
+                                <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
+                                <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
+                                <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
+                                <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
+                                <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
                             </div>
                             <div class="product__price">$ 59.0</div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="col-lg-3 col-md-4 col-sm-6 mix cosmetic">
                     <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="img/product/related/rp-4.jpg">
+                        <div class="product__item__pic set-bg" data-setbg="../assets/images/productos/product-4.jpg">
+                            <img src="../assets/images/productos/product-4.jpg" class="product__item__pic set-bg">
                             <ul class="product__hover">
-                                <li><a href="img/product/related/rp-4.jpg" class="image-popup"><span class="arrow_expand"></span></a></li>
-                                <li><a href="#"><span class="icon_heart_alt"></span></a></li>
-                                <li><a href="#"><span class="icon_bag_alt"></span></a></li>
+                                <li><a href="#" class="agregar-carrito"><img class="agregar-carrito"
+                                            src="https://img.icons8.com/windows/32/000000/add-shopping-cart.png" /></a>
+                                </li>
                             </ul>
                         </div>
                         <div class="product__item__text">
                             <h6><a href="#">Slim striped pocket shirt</a></h6>
                             <div class="rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
+                                <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
+                                <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
+                                <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
+                                <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
+                                <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
+                            </div>
+                            <div class="product__price">$ 59.0</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 mix kid">
+                    <div class="product__item">
+                        <div class="product__item__pic set-bg" data-setbg="../assets/images/productos/product-5.jpg">
+                            <img src="../assets/images/productos/product-5.jpg" class="product__item__pic set-bg">
+                            <ul class="product__hover">
+                                <li><a href="#" class="agregar-carrito"><img class="agregar-carrito"
+                                            src="https://img.icons8.com/windows/32/000000/add-shopping-cart.png" /></a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="product__item__text">
+                            <h6><a href="#">Fit micro corduroy shirt</a></h6>
+                            <div class="rating">
+                                <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
+                                <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
+                                <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
+                                <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
+                                <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
                             </div>
                             <div class="product__price">$ 59.0</div>
                         </div>
@@ -399,157 +369,110 @@
     </section>
     <!-- Product Details Section End -->
 
-    <!-- Instagram Begin -->
+    <!-- Categorias Banner Inicio -->
     <div class="instagram">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-2 col-md-4 col-sm-4 p-0">
-                    <div class="instagram__item set-bg" data-setbg="img/instagram/insta-1.jpg">
+                    <div class="instagram__item set-bg"
+                        data-setbg="../assets/images/categorias/banner-categorias/banner-makeup.jpg">
                         <div class="instagram__text">
-                            <i class="fa fa-instagram"></i>
-                            <a href="#">@ ashion_shop</a>
+                            <a href="#">Maquillaje</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-4 col-sm-4 p-0">
-                    <div class="instagram__item set-bg" data-setbg="img/instagram/insta-2.jpg">
+                    <div class="instagram__item set-bg"
+                        data-setbg="../assets/images/categorias/banner-categorias/banner-skincare.jpg">
                         <div class="instagram__text">
-                            <i class="fa fa-instagram"></i>
-                            <a href="#">@ ashion_shop</a>
+                            <a href="#">Skin Care</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-4 col-sm-4 p-0">
-                    <div class="instagram__item set-bg" data-setbg="img/instagram/insta-3.jpg">
+                    <div class="instagram__item set-bg"
+                        data-setbg="../assets/images/categorias/banner-categorias/banner-ninos.jpg">
                         <div class="instagram__text">
-                            <i class="fa fa-instagram"></i>
-                            <a href="#">@ ashion_shop</a>
+                            <a href="#">Moda para ni&ntilde;os</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-4 col-sm-4 p-0">
-                    <div class="instagram__item set-bg" data-setbg="img/instagram/insta-4.jpg">
+                    <div class="instagram__item set-bg"
+                        data-setbg="../assets/images/categorias/banner-categorias/banner-moda.jpg">
                         <div class="instagram__text">
-                            <i class="fa fa-instagram"></i>
-                            <a href="#">@ ashion_shop</a>
+                            <a href="#">Moda para todos</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-4 col-sm-4 p-0">
-                    <div class="instagram__item set-bg" data-setbg="img/instagram/insta-5.jpg">
+                    <div class="instagram__item set-bg"
+                        data-setbg="../assets/images/categorias/banner-categorias/banner-mascotas.jpg">
                         <div class="instagram__text">
-                            <i class="fa fa-instagram"></i>
-                            <a href="#">@ ashion_shop</a>
+                            <a href="#">Para tu mascota</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-4 col-sm-4 p-0">
-                    <div class="instagram__item set-bg" data-setbg="img/instagram/insta-6.jpg">
+                    <div class="instagram__item set-bg"
+                        data-setbg="../assets/images/categorias/banner-categorias/banner-hogar.jpg">
                         <div class="instagram__text">
-                            <i class="fa fa-instagram"></i>
-                            <a href="#">@ ashion_shop</a>
+                            <a href="#">Decoraci&oacute;n para el hogar</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Instagram End -->
+    <!-- Categorias Banner Fin -->
 
     <!-- Footer Section Begin -->
     <footer class="footer">
         <div class="container">
             <div class="row">
-                <div class="col-lg-4 col-md-6 col-sm-7">
+                <div class="col-sm-8 footPago">
                     <div class="footer__about">
                         <div class="footer__logo">
-                            <a href="./index.html"><img src="img/logo.png" alt=""></a>
+                            <a href="./index.html"><img src="../assets/images/LogoProyecto.png" alt=""></a>
                         </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                        cilisis.</p>
+                        <p>Tenemos los mejores metodos de pago!</p>
                         <div class="footer__payment">
-                            <a href="#"><img src="img/payment/payment-1.png" alt=""></a>
-                            <a href="#"><img src="img/payment/payment-2.png" alt=""></a>
-                            <a href="#"><img src="img/payment/payment-3.png" alt=""></a>
-                            <a href="#"><img src="img/payment/payment-4.png" alt=""></a>
-                            <a href="#"><img src="img/payment/payment-5.png" alt=""></a>
+                            <a href="#"><img src="../assets/images/payment/payment-1.png" alt=""></a>
+                            <a href="#"><img src="../assets/images/payment/payment-2.png" alt=""></a>
+                            <a href="#"><img src="../assets/images/payment/payment-3.png" alt=""></a>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-2 col-md-3 col-sm-5">
+                <div class="col-sm-4 footCuenta">
                     <div class="footer__widget">
-                        <h6>Quick links</h6>
+                        <h6>Mi cuenta</h6>
                         <ul>
-                            <li><a href="#">About</a></li>
-                            <li><a href="#">Blogs</a></li>
-                            <li><a href="#">Contact</a></li>
-                            <li><a href="#">FAQ</a></li>
+                            <li><a href="#">Mi cuenta</a></li>
+                            <li><a href="#">Mis compras</a></li>
+                            <li><a href="#">Carrito</a></li>
                         </ul>
                     </div>
-                </div>
-                <div class="col-lg-2 col-md-3 col-sm-4">
-                    <div class="footer__widget">
-                        <h6>Account</h6>
-                        <ul>
-                            <li><a href="#">My Account</a></li>
-                            <li><a href="#">Orders Tracking</a></li>
-                            <li><a href="#">Checkout</a></li>
-                            <li><a href="#">Wishlist</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-8 col-sm-8">
-                    <div class="footer__newslatter">
-                        <h6>NEWSLETTER</h6>
-                        <form action="#">
-                            <input type="text" placeholder="Email">
-                            <button type="submit" class="site-btn">Subscribe</button>
-                        </form>
-                        <div class="footer__social">
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-youtube-play"></i></a>
-                            <a href="#"><i class="fa fa-instagram"></i></a>
-                            <a href="#"><i class="fa fa-pinterest"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                    <div class="footer__copyright__text">
-                        <p>Copyright &copy; <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a></p>
-                    </div>
-                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                 </div>
             </div>
         </div>
     </footer>
     <!-- Footer Section End -->
 
-    <!-- Search Begin -->
-    <div class="search-model">
-        <div class="h-100 d-flex align-items-center justify-content-center">
-            <div class="search-close-switch">+</div>
-            <form class="search-model-form">
-                <input type="text" id="search-input" placeholder="Search here.....">
-            </form>
-        </div>
-    </div>
-    <!-- Search End -->
-
     <!-- Js Plugins -->
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.magnific-popup.min.js"></script>
-    <script src="js/jquery-ui.min.js"></script>
-    <script src="js/mixitup.min.js"></script>
-    <script src="js/jquery.countdown.min.js"></script>
-    <script src="js/jquery.slicknav.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/jquery.nicescroll.min.js"></script>
-    <script src="js/main.js"></script>
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery.magnific-popup.min.js"></script>
+    <script src="../js/jquery-ui.min.js"></script>
+    <script src="../js/mixitup.min.js"></script>
+    <script src="../js/jquery.countdown.min.js"></script>
+    <script src="../js/jquery.slicknav.js"></script>
+    <script src="../js/owl.carousel.min.js"></script>
+    <script src="../js/jquery.nicescroll.min.js"></script>
+    <script src="../js/bootstrap.js"></script>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/app.js"></script>
+    <script src="../js/notifications.js"></script>
 </body>
 
 </html>
