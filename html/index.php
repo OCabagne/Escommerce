@@ -729,7 +729,7 @@
                     <div class="footer__widget">
                         <h6>Mi cuenta</h6>
                         <ul>
-                            <li><a href="#">Mi cuenta</a></li>
+                            <li><a href="./mi-cuenta.html">Mi cuenta</a></li>
                             <li><a href="#">Mis compras</a></li>
                             <li><a href="#">Carrito</a></li>
                         </ul>
