@@ -31,6 +31,7 @@
     <link rel="stylesheet" href="../css/ashion.css" type="text/css">
     <link rel="stylesheet" href="../css/bootstrap.css">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/notifications.css">
 </head>
 
 <body>
@@ -754,6 +755,7 @@
 
     <script src="../js/main.js"></script>
     <script src="../js/app.js"></script>
+    <script src="../js/notifications.js"></script>
 </body>
 
 </html>
