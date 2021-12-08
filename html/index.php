@@ -44,7 +44,7 @@
     <!--Inicio de barra de navegacion-->
     <nav class="navbar navbar-expand-lg navbar-light bg-sombra">
         <div class="container-md logo">
-            <a href="index.html"><img src="../assets/images/LogoProyecto.png" alt="Logo E-scommerce"></a>
+            <a href="index.php"><img src="../assets/images/LogoProyecto.png" alt="Logo E-scommerce"></a>
         </div>
 
         <div class="nav-texto">
@@ -78,7 +78,7 @@
                                 <li class="nav-item">
                                     <!--<a class="nav-link" href="/Escommerce/pages/registro.php">Crea tu cuenta</a>-->
                                     <?php
-                                        echo "<p>" . $nombre . "</p>"
+                                        echo "<p>" . $nombre . "</p>";
                                         //print_r( $nombre )
                                     ?>
                                 </li>
