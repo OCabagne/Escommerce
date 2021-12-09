@@ -1,7 +1,7 @@
 <?php
     //require '\Escommerce\class\db.php';
     require $_SERVER['DOCUMENT_ROOT'].'/Escommerce/class/db.php';
-
+    error_reporting(E_ALL ^ E_NOTICE);
     if( isset( $_SESSION['user_id'] ) ){
         header( "Location: ./index.php" );
     }
@@ -14,13 +14,32 @@
         $password = htmlspecialchars($_POST['contraUsuario']);
         $pass = htmlspecialchars( $_POST['confContra'] );
         $tipo = $_POST['tipo'];
-        $msg = "";
-        if( strcmp( $pass, $password ) == 0 ){
-            $db = new database();
-            $msg = $db->signup( $rfc, $usuario, $email, $password, $tipo );    
-        }else{
-            $msg = "Contraseñas no coinciden";
+        $errors = array();
+        
+        $db = new database();
+
+        if( strcmp( $pass, $password ) != 0 ){
+	        $errors []= "Contraseñas no coinciden <br>";     
         }
+ 
+	    if(($db->buscarRFC($rfc))!=0){//Si hay rfcs iguales
+	        $errors []= "El RFC ya ha sido registrado <br>";
+	    }
+
+	    if(($db->buscarCorreo($email))!=0){//Si hay correos iguales
+	        $errors []= "El correo ya ha sido registrado <br>";
+  	    }
+        
+        if(!$errors){
+	        $db->signup( $rfc, $usuario, $email, $password, $tipo );//Aqui haria falta comprobar que no hubo errores al conectar con la bd en la funcion sigup
+	
+	        $response['status']="sucess";
+	        $response['msg']="Registro exitoso";
+	    }else{	
+	        $response['status']="error";
+    	    $response['msg']="Los siguientes errores sucedieron: ";
+    	    $response['errors']=$errors;
+	    }
         //echo $rfc;
         //$connect = $db->conectar();       // El método conectar únicamente se usa dentro de db por seguridad de acceso. Los demás métodos son los que van a llamarlo de forma interna.
         //echo $db->signup( $rfc, $nombre, $usuario, $email, password_hash( $password, PASSWORD_BCRYPT ), $tipo );
@@ -62,11 +81,23 @@
                                     src="https://img.icons8.com/windows/32/000000/long-arrow-left.png" /></a>
                         </button>
                         <h5 class="card-title text-center mb-5 fw-light fs-5">Registro</h5>
-                        <?php 
-                            if( $_POST ){
-                                echo $msg;
-                            }
-                        ?>
+                        
+                        <!--Aqui inicia el cambio de como se reportan los errores (en forma de lista)-->
+			            <?php if(isset($response)): ?>
+      			        <!--El dive recibe la clase de auerdo al response status -->
+      				        <div class="<?php echo $response['status']; ?>">
+
+      					        <p><?php echo $response['msg']; ?></p>
+      					        <!--Si hay errores -->
+      					            <?php if(isset($response['errors'])); ?>
+      					                <ul>
+        					                <?php foreach ((array)$response['errors'] as $error): ?>
+        						                <li><?php echo $error; ?></li>
+      						                <?php endforeach ?>
+      					                </ul>
+    				        </div>
+    			        <?php endif ?>
+                        
                         <form action="registrarCuenta.php" method="post">
                             <!--<div class="form-floating mb-3">
                                 <input type="text" name="nombreUsuario" class="form-control" id="inputNombreUsuario"
