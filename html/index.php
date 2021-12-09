@@ -715,7 +715,7 @@
                 <div class="col-sm-8 footPago">
                     <div class="footer__about">
                         <div class="footer__logo">
-                            <a href="./index.html"><img src="../assets/images/LogoProyecto.png" alt=""></a>
+                            <a href="./index.php"><img src="../assets/images/LogoProyecto.png" alt=""></a>
                         </div>
                         <p>Tenemos los mejores metodos de pago!</p>
                         <div class="footer__payment">
@@ -729,7 +729,7 @@
                     <div class="footer__widget">
                         <h6>Mi cuenta</h6>
                         <ul>
-                            <li><a href="#">Mi cuenta</a></li>
+                            <li><a href="mi-cuenta.php">Mi cuenta</a></li>
                             <li><a href="#">Mis compras</a></li>
                             <li><a href="#">Carrito</a></li>
                         </ul>
