@@ -217,7 +217,7 @@
                             </ul>
                         </div>
                         <div class="product__item__text">
-                            <h6><a href="#">Buttons tweed blazer</a></h6>
+                            <h6><a href="detalles-producto.html">Buttons tweed blazer</a></h6>
                             <div class="rating">
                                 <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
                                 <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
@@ -241,7 +241,7 @@
                             </ul>
                         </div>
                         <div class="product__item__text">
-                            <h6><a href="#">Flowy striped skirt</a></h6>
+                            <h6><a href="detalles-producto.html">Flowy striped skirt</a></h6>
                             <div class="rating">
                                 <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
                                 <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
@@ -265,7 +265,7 @@
                             </ul>
                         </div>
                         <div class="product__item__text">
-                            <h6><a href="#">Cotton T-Shirt</a></h6>
+                            <h6><a href="detalles-producto.html">Cotton T-Shirt</a></h6>
                             <div class="rating">
                                 <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
                                 <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
@@ -288,7 +288,7 @@
                             </ul>
                         </div>
                         <div class="product__item__text">
-                            <h6><a href="#">Slim striped pocket shirt</a></h6>
+                            <h6><a href="detalles-producto.html">Slim striped pocket shirt</a></h6>
                             <div class="rating">
                                 <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
                                 <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
@@ -311,7 +311,7 @@
                             </ul>
                         </div>
                         <div class="product__item__text">
-                            <h6><a href="#">Fit micro corduroy shirt</a></h6>
+                            <h6><a href="detalles-producto.html">Fit micro corduroy shirt</a></h6>
                             <div class="rating">
                                 <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
                                 <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
@@ -329,7 +329,7 @@
                             <img src="../assets/images/productos/product-6.jpg" class="product__item__pic set-bg">
                             <div class="label sale">Oferta</div>
                             <ul class="product__hover">
-                                <li><a href="#" class="agregar-carrito"><img class="agregar-carrito"
+                                <li><a href="detalles-producto.html" class="agregar-carrito"><img class="agregar-carrito"
                                             src="https://img.icons8.com/windows/32/000000/add-shopping-cart.png" /></a>
                                 </li>
                             </ul>
@@ -358,7 +358,7 @@
                             </ul>
                         </div>
                         <div class="product__item__text">
-                            <h6><a href="#">Contrasting sunglasses</a></h6>
+                            <h6><a href="detalles-producto.html">Contrasting sunglasses</a></h6>
                             <div class="rating">
                                 <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
                                 <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
@@ -382,7 +382,7 @@
                             </ul>
                         </div>
                         <div class="product__item__text">
-                            <h6><a href="#">Water resistant backpack</a></h6>
+                            <h6><a href="detalles-producto.html">Water resistant backpack</a></h6>
                             <div class="rating">
                                 <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
                                 <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
