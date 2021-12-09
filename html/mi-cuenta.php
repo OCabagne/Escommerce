@@ -1,3 +1,29 @@
+<?php
+    session_start();
+    require $_SERVER['DOCUMENT_ROOT'].'/Escommerce/class/db.php';
+    if( isset( $_SESSION['user_id'] ) ){
+        $db = new database();
+        $usuario = $db->buscarUsuario( "*", $_SESSION['user_id'] );
+    }else{
+        header( 'Location: ./login.php' );
+    }
+
+    if( $_POST ){
+        $contra = $_POST['password'];
+        $contr = $_POST['pass'];
+        if( strcmp( $contra, $contr ) == 0 ){
+            $res = $db->cambiarContrasena( $_SESSION['user_id'], $contra );
+            if( $res ){
+                $msg = "Contraseña cambiada";
+            }else{
+                $msg = "Algo salió mal";
+            }
+        }else{
+            $msg = "Contraseñas no coinciden";
+        }
+    }
+
+?>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -63,16 +89,36 @@
                         </li>
                     </ul>
 
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 nav-borde nav-ul">
-                        <li class="nav-item">
-                            <!--<a class="nav-link" href="/Escommerce/pages/registro.php">Crea tu cuenta</a>-->
-                            <a class="nav-link" href="registrarCuenta.html">Crea tu cuenta</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="login.html">Ingresa</a>
-                        </li>
-                    </ul>
-
+                    <?php
+                        if( isset( $_SESSION['user_id'] ) ){
+                    ?>
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0 nav-borde nav-ul">
+                                <li class="nav-item">
+                                    <!--<a class="nav-link" href="/Escommerce/pages/registro.php">Crea tu cuenta</a>-->
+                                    <?php
+                                        echo "<p>" . $usuario['nombreUsuario'] . "</p>";
+                                        //print_r( $nombre )
+                                    ?>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="logout.php">Salir</a>
+                                </li>
+                            </ul>
+                    <?php
+                        }else{
+                    ?>
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0 nav-borde nav-ul">
+                                <li class="nav-item">
+                                    <!--<a class="nav-link" href="/Escommerce/pages/registro.php">Crea tu cuenta</a>-->
+                                    <a class="nav-link" href="registrarCuenta.php">Crea tu cuenta</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="login.php">Ingresa</a>
+                                </li>
+                            </ul>
+                    <?php  
+                        }
+                    ?>
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
                             <a class="nav-link" href="#">Mis compras</a>
@@ -127,37 +173,43 @@
     <!-- Checkout Section Begin -->
     <section class="checkout spad">
         <div class="container">
-            <form action="#" class="checkout__form">
+            <form action="mi-cuenta.php" class="checkout__form" method="post">
                 <div class="row">
                     <div class="col-lg-8">
                         <h5>Datos de mi cuenta</h5>
+                        <?php
+                            if( $_POST ){
+                                echo $msg;
+                                //echo $res;
+                            }
+                        ?>
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="checkout__form__input">
                                     <p>Nombre:</p>
-                                    <input type="text" disabled value="Nombre completo">
+                                    <input type="text" disabled value="<?php echo $usuario['nombreUsuario'] ?>">
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6">
                                 <div class="checkout__form__input">
                                     <p>Email:</p>
-                                    <input type="text" disabled value="Email">
+                                    <input type="text" disabled value="<?php echo $usuario['correo'] ?>">
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6">
                                 <div class="checkout__form__input">
                                     <p>RFC:</p>
-                                    <input type="text" disabled value="RFC">
+                                    <input type="text" disabled value="<?php echo $usuario['rfc'] ?>">
                                 </div>
                             </div>
                             <div class="col-lg-12">
                                 <div class="checkout__form__input">
                                     <p>Contrase&ntilde;a nueva</p>
-                                    <input type="text">
+                                    <input type="password" name="password">
                                 </div>
                                 <div class="checkout__form__input">
                                     <p>Confirmar contrase&ntilde;a</p>
-                                    <input type="text">
+                                    <input type="password" name="pass">
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6">
@@ -260,7 +312,7 @@
                 <div class="col-sm-8 footPago">
                     <div class="footer__about">
                         <div class="footer__logo">
-                            <a href="./index.html"><img src="../assets/images/LogoProyecto.png" alt=""></a>
+                            <a href="./index.php"><img src="../assets/images/LogoProyecto.png" alt=""></a>
                         </div>
                         <p>Tenemos los mejores metodos de pago!</p>
                         <div class="footer__payment">
@@ -274,7 +326,7 @@
                     <div class="footer__widget">
                         <h6>Mi cuenta</h6>
                         <ul>
-                            <li><a href="#">Mi cuenta</a></li>
+                            <li><a href="mi-cuenta.php">Mi cuenta</a></li>
                             <li><a href="#">Mis compras</a></li>
                             <li><a href="#">Carrito</a></li>
                         </ul>

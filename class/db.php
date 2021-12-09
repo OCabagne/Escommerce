@@ -292,7 +292,7 @@ class database
         $connect = $cnx->conectar();    // Nos conectamos a la base de datos y guardamos el objeto mysqli retornado en connect.
         if($connect != false)   // if para cachar el caso de error de conexión.
         {
-            $query = "UPDATE usuario SET contraUsuario = '".$pass."' WHERE rfc = ".$rfc.";";
+            $query = "UPDATE usuario SET contraUsuario = '".$pass."' WHERE rfc = '".$rfc."';";
             $exec = mysqli_query($connect, $query); // Ejecución del query
 
             $cnx->desconectar($connect);   // Desconexión de DB
@@ -350,6 +350,48 @@ class database
             return false;   // Si la búsqueda regresa vacía
         }
     }
+            
+    public function buscarRFC($rfc) //  Funcion para ver si ya existe un rfc
+    {
+        $cnx = new database();  // Conexión con DB
+        $connect = $cnx->conectar();
+        if($connect != false)
+        {
+            $query = "SELECT * FROM usuario WHERE rfc = '".$rfc."';";    // Busca coincidencias de rfc                                                                                 
+            $exec = mysqli_query($connect, $query); // Ejecución del query
+            		
+            $row = mysqli_fetch_array($exec); // Obtenemos las columnas resultantes de la consulta
+	$count = mysqli_num_rows($exec); //Contamos los resultados (con 1 basta, no deberia haber mas de 1)
+            $cnx->desconectar($connect);   // Desconexión de DB
+            return $count; // Regresamos el resultado de la consulta
+            		
+
+            		
+        }
+    }
+
+
+
+    public function buscarCorreo($correo) //  Funcion para ver si ya existe un correo electronico
+    {
+        	$cnx = new database();  // Conexión con DB
+        	$connect = $cnx->conectar();
+        	if($connect != false)
+        	{
+                        $query = "SELECT * FROM usuario WHERE correo = '".$correo."';";    // Busca coincidencias del correo                                                                                
+            	$exec = mysqli_query($connect, $query); // Ejecución del query
+            		
+                	$row = mysqli_fetch_array($exec); // Obtenemos las columnas resultantes de la consulta
+		$count = mysqli_num_rows($exec); //Contamos los resultados (con 1 basta, no deberia haber mas de 1)
+                	$cnx->desconectar($connect);   // Desconexión de DB
+                	return $count; // Regresamos el resultado de la consulta
+            		
+
+            		
+        	}
+    }       
+            
+            
 }
 
 ?>
