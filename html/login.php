@@ -1,7 +1,8 @@
 <?php
         session_start();
         require $_SERVER['DOCUMENT_ROOT'].'/Escommerce/class/db.php';
-        $message = '';
+        error_reporting(E_ALL ^ E_NOTICE);
+        $errors = array();
 
         if( isset( $_SESSION['user_id'] ) )
         {
@@ -21,11 +22,14 @@
             if( isset( $usuario ) && strcmp( $contr, $usuario['contraUsuario'] ) == 0 )
             {
                 $_SESSION['user_id'] = $usuario['rfc'];
-                $message = "Bienvenido ". $usuario['nombreUsuario'];
+		$response['status']="sucess";
+	    	$response['msg']="Bienvenido". $usuario['nombreUsuario'];
                 header( 'Location: ../html/index.php' );
             }else{
-                $message = "Error de credenciales";
-                //header( 'Location: ./login.php' );
+		$errors []= "Error de credenciales <br> revise su correo/contraseña";
+                $response['status']="error";
+    	    	$response['msg']="Ocurrió un error";
+    	    	$response['errors']=$errors;
             }
 
         }
@@ -63,11 +67,23 @@
                                     <a href="index.php"><img src="https://img.icons8.com/windows/32/000000/long-arrow-left.png"/></a>
                                 </button>
                                 <h3 class="login-heading mb-4">Bienvenido de regreso!</h3>
-                                <?php 
-                                    if( $_POST ){
-                                        echo $message; 
-                                    }
-                                ?>
+                                    
+                                <!--Aqui inicia el cambio de como se reportan los errores -->
+                                <?php if(isset($response)): ?>
+      				<!--El dive recibe la clase de auerdo al response status -->
+      					<div class="<?php echo $response['status']; ?>">
+
+      						<p><?php echo $response['msg']; ?></p>
+      						<!--Si hay errores -->
+      						<?php if(isset($response['errors'])); ?>
+      						<ul>
+        						<?php foreach ((array)$response['errors'] as $error): ?>
+        							<li><?php echo $error; ?></li>
+      							<?php endforeach ?>
+      						</ul>
+    					</div>
+    				<?php endif ?>
+                                    
                                 <!-- Sign In Form -->
                                 <form action="login.php" method="POST">
                                     <div class="form-floating mb-3">
