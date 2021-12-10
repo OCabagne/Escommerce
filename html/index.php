@@ -106,7 +106,7 @@
                             <a class="nav-link" href="#">Mis compras</a>
                         </li>
                         <li class="nav-item carrito">
-                            <a class="nav-link" href="./carrito.html"><img
+                            <a class="nav-link" href="./carrito.php"><img
                                     src="https://img.icons8.com/fluency-systems-regular/22/000000/shopping-cart-loaded.png" /><span
                                     class="badge bg-secundario" id="cantidad-carrito"></span></a>
                             <div id="carrito">

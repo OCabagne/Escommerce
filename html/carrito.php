@@ -1,3 +1,11 @@
+<?php
+    session_start();
+    if( isset( $_SESSION['carrito'] ) ){
+        $mgs = "Hay carrito";
+    }else{
+        $msg = "No hay carrito";
+    }
+?>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -123,6 +131,10 @@
         </div>
     </div>
     <!-- Breadcrumb End -->
+
+    <?php
+        echo $msg;
+    ?>
 
     <!-- Shop Cart Section Begin -->
     <section class="shop-cart spad">

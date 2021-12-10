@@ -17,6 +17,7 @@
             //$connect = $db->conectar();
             //$usuario = $connect->login($ema, password_hash($contr, PASSWORD_BCRYPT));
             $usuario = $db->login($ema);
+            //$actual = new Usuario( $usuario['nombreUsuario'], $usuario['rfc'], $usuario['correo'] );
             //print_r( $usuario );
             //if( isset( $usuario ) && password_verify( $contr, $usuario['contraUsuario'] ) )
             if( isset( $usuario ) && strcmp( $contr, $usuario['contraUsuario'] ) == 0 )

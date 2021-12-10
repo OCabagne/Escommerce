@@ -9,12 +9,12 @@ class Usuario
     private $correo;
     private $tipo;
 
-    public function __construct($usuario, $rfc, $correo)
+    public function __construct($usuario, $rfc, $correo, $tipo)
     {
         $this->usuario = $usuario;
         $this->rfc = $rfc;
         $this->correo = $correo;
-        $this->tipo = "Cliente";
+        $this->tipo = $tipo; // Agregue tipo porque se pregunta en el registro si quiere vender
     }
 
     public function verProducto($id_producto)   // Consultar los datos de un producto de acuerdo a su id
@@ -46,8 +46,8 @@ class Usuario
             $tipo = $db->buscarUsuario("tipo", $rfc);
             //$calificacion = $db->buscarProducto("nombreProducto", $id_producto); // Dónde quedó la calificacion?
 
-            $usuario = new Usuario($nombre, $rfc, $correo);
-            $usuario->tipo = $tipo;
+            $usuario = new Usuario($nombre, $rfc, $correo, $tipo);
+            //$usuario->tipo = $tipo;
 
             return json_encode($usuario);  // Regresa el objeto producto en formato JSON
         }
