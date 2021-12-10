@@ -1,6 +1,6 @@
 <?php
     session_start();
-    require $_SERVER['DOCUMENT_ROOT'].'/Escommerce/class/db.php';
+    require_once $_SERVER['DOCUMENT_ROOT'].'/Escommerce/class/db.php';
     if( isset( $_SESSION['user_id'] ) ){
         $db = new database();
         $usuario = $db->buscarUsuario( "*", $_SESSION['user_id'] );

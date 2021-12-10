@@ -1,6 +1,6 @@
 <?php
-require("db.php");
-require("Producto.php");
+require_once("db.php");
+require_once("Producto.php");
 
 class Usuario
 {

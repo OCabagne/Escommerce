@@ -1,6 +1,6 @@
 <?php
         session_start();
-        require $_SERVER['DOCUMENT_ROOT'].'/Escommerce/class/db.php';
+        require_once $_SERVER['DOCUMENT_ROOT'].'/Escommerce/class/db.php';
         error_reporting(E_ALL ^ E_NOTICE);
         $errors = array();
 

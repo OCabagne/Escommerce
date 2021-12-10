@@ -1,6 +1,6 @@
 <?php
     //require '\Escommerce\class\db.php';
-    require $_SERVER['DOCUMENT_ROOT'].'/Escommerce/class/db.php';
+    require_once $_SERVER['DOCUMENT_ROOT'].'/Escommerce/class/db.php';
     error_reporting(E_ALL ^ E_NOTICE);
     if( isset( $_SESSION['user_id'] ) ){
         header( "Location: ./index.php" );
