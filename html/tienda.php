@@ -4,12 +4,23 @@
     if( isset( $_SESSION['user_id'] ) ){
         $db = new database();
         $usuario = $db->buscarUsuario( "*", $_SESSION['user_id'] );
-    }else{
-        header( 'Location: ./login.php' );
     }
+    /*else{
+        header( 'Location: ./tienda.php' );
+    }*/
+    /*PARA LOS LISNKS DE CATEGORIAS CADA VEZ QUE SE DEN CLIC, SE AGREGA UN ID "seleccionado" PARA 
+    IDENTIFICAR A EL QUE ESTA SELECCIONADO TAMBIEN EN EL BOTON FILTRAR PASARA LO MISMO QUE ESTA SELECCIONADO
+    LOS VALORES DE FILTRO SE ECUENTRAR EN LOS IMPUT TEXT "maxamount" PARA E TOPE MAXIMO Y
+    "minamount" para el tope minimo con el atributo value se accede a los precios tope en cada input
+    PARA LOS CHECKBOXES CUANDO LO MARCAS SE AGREGA EL ATRIBUTO CHECKED O SE QUITA SI VUELVES A SELECCIONAR EL MISMO
+    
+    PARA QUE FNCIONE SE DEBE DE PONER LA CLASE "categorias" A LOS LINKS DE CATEGORIAS QUE SE AGREGUEN
+    CON EL MISMO FORMATO Y DIVS QUE LOS ENVUELVEN
+    PARA LOS CHECK SE DEBDE DE PONER LA CLASE ""checkboxesMarcados" en los span que estan justo arriba del check
+    revisar el codigo para ver los ejemplos de ambos*/
 ?>
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -43,7 +54,6 @@
     <div id="preloder">
         <div class="loader"></div>
     </div>
-
     <!--Inicio de barra de navegacion-->
     <nav class="navbar navbar-expand-lg navbar-light bg-sombra">
         <div class="container-md logo">
@@ -73,7 +83,6 @@
                             <a class="nav-link" href="#">Vender</a>
                         </li>
                     </ul>
-
                     <?php
                         if( isset( $_SESSION['user_id'] ) ){
                     ?>
@@ -175,11 +184,11 @@
                                         <div id="collapseOne" class="collapse show" data-parent="#accordionExample">
                                             <div class="card-body">
                                                 <ul>
-                                                    <li><a href="#">Mujeres</a></li>
-                                                    <li><a href="#">Hombres</a></li>
-                                                    <li><a href="#">Ni&ntilde;os</a></li>
-                                                    <li><a href="#">Ni&ntilde;as</a></li>
-                                                    <li><a href="#">Beb&eacute;s</a></li>
+                                                    <li><a href="#" class="categorias">Mujeres</a></li>
+                                                    <li><a href="#" class="categorias">Hombres</a></li>
+                                                    <li><a href="#" class="categorias">Ni&ntilde;os</a></li>
+                                                    <li><a href="#" class="categorias">Ni&ntilde;as</a></li>
+                                                    <li><a href="#" class="categorias">Beb&eacute;s</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -191,11 +200,11 @@
                                         <div id="collapseTwo" class="collapse" data-parent="#accordionExample">
                                             <div class="card-body">
                                                 <ul>
-                                                    <li><a href="#">Celulares</a></li>
-                                                    <li><a href="#">Aud&iacute;fonos</a></li>
-                                                    <li><a href="#">Monitores</a></li>
-                                                    <li><a href="#">Teclados</a></li>
-                                                    <li><a href="#">Ratones</a></li>
+                                                    <li><a href="#" class="categorias">Celulares</a></li>
+                                                    <li><a href="#" class="categorias">Aud&iacute;fonos</a></li>
+                                                    <li><a href="#" class="categorias">Monitores</a></li>
+                                                    <li><a href="#" class="categorias">Teclados</a></li>
+                                                    <li><a href="#" class="categorias">Ratones</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -207,9 +216,9 @@
                                         <div id="collapseThree" class="collapse" data-parent="#accordionExample">
                                             <div class="card-body">
                                                 <ul>
-                                                    <li><a href="#">Jard&iacute;n</a></li>
-                                                    <li><a href="#">Muebles</a></li>
-                                                    <li><a href="#">Electrodom&eacute;sticos</a></li>
+                                                    <li><a href="#" class="categorias">Jard&iacute;n</a></li>
+                                                    <li><a href="#" class="categorias">Muebles</a></li>
+                                                    <li><a href="#" class="categorias">Electrodom&eacute;sticos</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -221,11 +230,11 @@
                                         <div id="collapseFour" class="collapse" data-parent="#accordionExample">
                                             <div class="card-body">
                                                 <ul>
-                                                    <li><a href="#">Maquillaje</a></li>
-                                                    <li><a href="#">Skin Care</a></li>
-                                                    <li><a href="#">Cremas corporales</a></li>
-                                                    <li><a href="#">Shampoo</a></li>
-                                                    <li><a href="#">Jabones</a></li>
+                                                    <li><a href="#" class="categorias">Maquillaje</a></li>
+                                                    <li><a href="#" class="categorias">Skin Care</a></li>
+                                                    <li><a href="#" class="categorias">Cremas corporales</a></li>
+                                                    <li><a href="#" class="categorias">Shampoo</a></li>
+                                                    <li><a href="#" class="categorias">Jabones</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -248,7 +257,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <a href="#">Filtrar</a>
+                            <a href="#" class="categorias">Filtrar</a>
                         </div>
                         <div class="sidebar__sizes">
                             <div class="section-title">
@@ -257,43 +266,43 @@
                             <div class="size__list">
                                 <label for="xxs">
                                     Por
-                                    <input type="checkbox" id="xxs">
-                                    <span class="checkmark"></span>
+                                    <input type="checkbox" id="xxs" name="marca1" >
+                                    <span class="checkmark checkboxesMarcados"></span>
                                 </label>
                                 <label for="xs">
                                     favor
-                                    <input type="checkbox" id="xs">
-                                    <span class="checkmark"></span>
+                                    <input type="checkbox" id="xs" name="marca2" >
+                                    <span class="checkmark checkboxesMarcados"></span>
                                 </label>
                                 <label for="xss">
                                     pon
-                                    <input type="checkbox" id="xss">
-                                    <span class="checkmark"></span>
+                                    <input type="checkbox" id="xss" name="marca3" >
+                                    <span class="checkmark checkboxesMarcados"></span>
                                 </label>
                                 <label for="s">
                                     las
-                                    <input type="checkbox" id="s">
-                                    <span class="checkmark"></span>
+                                    <input type="checkbox" id="s" name="marca4" >
+                                    <span class="checkmark checkboxesMarcados"></span>
                                 </label>
                                 <label for="m">
                                     marcas
-                                    <input type="checkbox" id="m">
-                                    <span class="checkmark"></span>
+                                    <input type="checkbox" id="m" name="marca5" >
+                                    <span class="checkmark checkboxesMarcados"></span>
                                 </label>
                                 <label for="ml">
                                     gracias
-                                    <input type="checkbox" id="ml">
-                                    <span class="checkmark"></span>
+                                    <input type="checkbox" id="ml" name="marca6" >
+                                    <span class="checkmark checkboxesMarcados"></span>
                                 </label>
                                 <label for="l">
                                     ja
-                                    <input type="checkbox" id="l">
-                                    <span class="checkmark"></span>
+                                    <input type="checkbox" id="l" name="marca7" >
+                                    <span class="checkmark checkboxesMarcados"></span>
                                 </label>
                                 <label for="xl">
                                     ja
-                                    <input type="checkbox" id="xl">
-                                    <span class="checkmark"></span>
+                                    <input type="checkbox" id="xl" name="marca8" >
+                                    <span class="checkmark checkboxesMarcados"></span>
                                 </label>
                             </div>
                         </div>
@@ -304,43 +313,43 @@
                             <div class="size__list color__list">
                                 <label for="black">
                                     y
-                                    <input type="checkbox" id="black">
-                                    <span class="checkmark"></span>
+                                    <input type="checkbox" id="black" name="modelo1" >
+                                    <span class="checkmark checkboxesMarcados"></span>
                                 </label>
                                 <label for="whites">
                                     tambien
-                                    <input type="checkbox" id="whites">
-                                    <span class="checkmark"></span>
+                                    <input type="checkbox" id="whites" name="modelo2" >
+                                    <span class="checkmark checkboxesMarcados"></span>
                                 </label>
                                 <label for="reds">
                                     los
-                                    <input type="checkbox" id="reds">
-                                    <span class="checkmark"></span>
+                                    <input type="checkbox" id="reds" name="modelo3" >
+                                    <span class="checkmark checkboxesMarcados"></span>
                                 </label>
                                 <label for="greys">
                                     modelos
-                                    <input type="checkbox" id="greys">
-                                    <span class="checkmark"></span>
+                                    <input type="checkbox" id="greys" name="modelo4" >
+                                    <span class="checkmark checkboxesMarcados"></span>
                                 </label>
                                 <label for="blues">
                                     por
-                                    <input type="checkbox" id="blues">
-                                    <span class="checkmark"></span>
+                                    <input type="checkbox" id="blues" name="modelo5" >
+                                    <span class="checkmark checkboxesMarcados"></span>
                                 </label>
                                 <label for="beige">
                                     fis
-                                    <input type="checkbox" id="beige">
-                                    <span class="checkmark"></span>
+                                    <input type="checkbox" id="beige" name="modelo6" >
+                                    <span class="checkmark checkboxesMarcados"></span>
                                 </label>
                                 <label for="greens">
                                     Greens
-                                    <input type="checkbox" id="greens">
-                                    <span class="checkmark"></span>
+                                    <input type="checkbox" id="greens" name="modelo7" >
+                                    <span class="checkmark checkboxesMarcados"></span>
                                 </label>
                                 <label for="yellows">
                                     Yellows
-                                    <input type="checkbox" id="yellows">
-                                    <span class="checkmark"></span>
+                                    <input type="checkbox" id="yellows" name="modelo8" >
+                                    <span class="checkmark checkboxesMarcados"></span>
                                 </label>
                             </div>
                         </div>
@@ -701,6 +710,7 @@
     <script src="../js/main.js"></script>
     <script src="../js/app.js"></script>
     <script src="../js/notifications.js"></script>
+    <script src="../js/tienda.js"></script>
 </body>
 
 </html>
