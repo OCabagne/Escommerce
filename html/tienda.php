@@ -1,7 +1,7 @@
 <?php
-    require $_SERVER['DOCUMENT_ROOT'].'/Escommerce/class/db.php';
-    require $_SERVER['DOCUMENT_ROOT'].'/Escommerce/class/Vendedor.php';
-    require $_SERVER['DOCUMENT_ROOT'].'/Escommerce/class/Cliente.php';
+    require_once $_SERVER['DOCUMENT_ROOT'].'/Escommerce/class/db.php';
+    require_once $_SERVER['DOCUMENT_ROOT'].'/Escommerce/class/Vendedor.php';
+    require_once $_SERVER['DOCUMENT_ROOT'].'/Escommerce/class/Cliente.php';
     session_start();
     if( isset( $_SESSION['user'] ) ){
         $db = new database();

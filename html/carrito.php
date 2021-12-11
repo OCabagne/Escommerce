@@ -1,5 +1,13 @@
 <?php
+    require_once $_SERVER['DOCUMENT_ROOT'].'/Escommerce/class/Vendedor.php';
+    require_once $_SERVER['DOCUMENT_ROOT'].'/Escommerce/class/Cliente.php';
     session_start();
+
+    if( isset( $_SESSION['user'] ) ){
+        //$db = new database();
+        $actual = unserialize( $_SESSION['user'] );
+    }
+
     if( isset( $_SESSION['carrito'] ) ){
         $mgs = "Hay carrito";
     }else{
@@ -141,7 +149,7 @@
                 <div class="col-lg-12">
                     <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="./index.html" id="indexBread"><img
+                            <li class="breadcrumb-item"><a href="./index.php" id="indexBread"><img
                                         src="https://img.icons8.com/material-sharp/24/000000/home.png" />Inicio</a>
                             </li>
                             <li class="breadcrumb-item active" aria-current="page">Carrito</li>
@@ -174,23 +182,31 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td class="cart__product__item">
-                                        <img src="../assets/images/categorias/display-categorias/f-2.jpg" alt="">
-                                        <div class="cart__product__item__title">
-                                            <h6>Chain bucket bag</h6>
-                                        </div>
-                                    </td>
-                                    <td class="cart__price">$ 150.0</td>
-                                    <td class="cart__quantity">
-                                        <div class="pro-qty">
-                                            <input type="text" value="1">
-                                        </div>
-                                    </td>
-                                    <td class="cart__total">$ 300.0</td>
-                                    <td class="cart__close"><img src="https://img.icons8.com/ios-glyphs/20/000000/delete-sign.png"/></td>
-                                </tr>
-                                <tr>
+                                
+                                <?php
+                                    if( isset( $_SESSION['carrito'] ) ){
+                                ?>
+                                        <tr>
+                                            <td class="cart__product__item">
+                                                <img src="../assets/images/categorias/display-categorias/f-1.jpg" alt="">
+                                                <div class="cart__product__item__title">
+                                                    <h6>Zip-pockets pebbled tote briefcase</h6>
+                                                </div>
+                                            </td>
+                                            <td class="cart__price">$ 170.0</td>
+                                            <td class="cart__quantity">
+                                                <div class="pro-qty">
+                                                    <input type="text" value="1">
+                                                </div>
+                                            </td>
+                                            <td class="cart__total">$ 170.0</td>
+                                            <td class="cart__close"><img src="https://img.icons8.com/ios-glyphs/20/000000/delete-sign.png"/></td>
+                                        </tr>
+                                <?php
+                                    }
+                                ?>
+
+                                <!-- <tr>
                                     <td class="cart__product__item">
                                         <img src="../assets/images/categorias/display-categorias/f-1.jpg" alt="">
                                         <div class="cart__product__item__title">
@@ -237,7 +253,7 @@
                                     </td>
                                     <td class="cart__total">$ 110.0</td>
                                     <td class="cart__close"><img src="https://img.icons8.com/ios-glyphs/20/000000/delete-sign.png"/></td>
-                                </tr>
+                                </tr> -->
                             </tbody>
                         </table>
                     </div>
