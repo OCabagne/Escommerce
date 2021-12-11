@@ -17,6 +17,14 @@ class Usuario
         $this->tipo = $tipo; // Agregue tipo porque se pregunta en el registro si quiere vender
     }
 
+    public function getCorreo(){
+        return $this->correo;
+    }
+
+    public function getTipo(){
+        return $this->tipo;
+    }
+
     public function verProducto($id_producto)   // Consultar los datos de un producto de acuerdo a su id
     {
         $db = new database();

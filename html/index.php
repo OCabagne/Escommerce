@@ -1,10 +1,12 @@
 <?php
-    session_start();
     require_once $_SERVER['DOCUMENT_ROOT'].'/Escommerce/class/db.php';
-    $nombre = '';
-    if( isset( $_SESSION['user_id'] ) ){
+    require_once $_SERVER['DOCUMENT_ROOT'].'/Escommerce/class/Cliente.php';
+    require_once $_SERVER['DOCUMENT_ROOT'].'/Escommerce/class/Vendedor.php';
+    session_start();
+    $actual = '';
+    if( isset( $_SESSION['user'] ) ){
         $db = new database();
-        $nombre = $db->buscarUsuario( "nombreUsuario", $_SESSION['user_id'] )['nombreUsuario'];
+        $actual = unserialize( $_SESSION['user'] );
     }
 ?>
 <!DOCTYPE html>
@@ -71,13 +73,13 @@
                     </ul>
 
                     <?php
-                        if( isset( $_SESSION['user_id'] ) ){
+                        if( isset( $_SESSION['user'] ) ){
                     ?>
                             <ul class="navbar-nav me-auto mb-2 mb-lg-0 nav-borde nav-ul">
                                 <li class="nav-item">
                                     <!--<a class="nav-link" href="/Escommerce/pages/registro.php">Crea tu cuenta</a>-->
                                     <?php
-                                        echo "<p>" . $nombre . "</p>";
+                                        echo "<p>" . $actual->usuario . "</p>";
                                         //print_r( $nombre )
                                     ?>
                                 </li>

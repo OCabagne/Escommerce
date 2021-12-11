@@ -1,9 +1,11 @@
 <?php
-    session_start();
     require_once $_SERVER['DOCUMENT_ROOT'].'/Escommerce/class/db.php';
-    if( isset( $_SESSION['user_id'] ) ){
+    require_once $_SERVER['DOCUMENT_ROOT'].'/Escommerce/class/Vendedor.php';
+    require_once $_SERVER['DOCUMENT_ROOT'].'/Escommerce/class/Cliente.php';
+    session_start();
+    if( isset( $_SESSION['user'] ) ){
         $db = new database();
-        $usuario = $db->buscarUsuario( "*", $_SESSION['user_id'] );
+        $actual = unserialize( $_SESSION['user'] );
     }else{
         header( 'Location: ./login.php' );
     }
@@ -12,7 +14,7 @@
         $contra = $_POST['password'];
         $contr = $_POST['pass'];
         if( strcmp( $contra, $contr ) == 0 ){
-            $res = $db->cambiarContrasena( $_SESSION['user_id'], $contra );
+            $res = $db->cambiarContrasena( $actual->rfc, $contra );
             if( $res ){
                 $msg = "Contraseña cambiada";
             }else{
@@ -96,7 +98,7 @@
                                 <li class="nav-item">
                                     <!--<a class="nav-link" href="/Escommerce/pages/registro.php">Crea tu cuenta</a>-->
                                     <?php
-                                        echo "<p>" . $usuario['nombreUsuario'] . "</p>";
+                                        echo "<p>" . $actual->usuario . "</p>";
                                         //print_r( $nombre )
                                     ?>
                                 </li>
@@ -187,19 +189,19 @@
                             <div class="col-lg-12">
                                 <div class="checkout__form__input">
                                     <p>Nombre:</p>
-                                    <input type="text" disabled value="<?php echo $usuario['nombreUsuario'] ?>">
+                                    <input type="text" disabled value="<?php echo $actual->usuario ?>">
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6">
                                 <div class="checkout__form__input">
                                     <p>Email:</p>
-                                    <input type="text" disabled value="<?php echo $usuario['correo'] ?>">
+                                    <input type="text" disabled value="<?php echo $actual->getCorreo() ?>">
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6">
                                 <div class="checkout__form__input">
                                     <p>RFC:</p>
-                                    <input type="text" disabled value="<?php echo $usuario['rfc'] ?>">
+                                    <input type="text" disabled value="<?php echo $actual->rfc ?>">
                                 </div>
                             </div>
                             <div class="col-lg-12">

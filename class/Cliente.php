@@ -1,12 +1,13 @@
 <?php
 
 require_once("db.php");
+require_once("Usuario.php");
 // hola
 //modificación de Somebody
 
 class Cliente extends Usuario
 {
-    private $dataBase = new database();
+    //private $dataBase = new database();
 
     /*public function __construct()
     {

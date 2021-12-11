@@ -1,14 +1,15 @@
 <?php
 require_once("db.php");
+require_once("Usuario.php");
 
 class Vendedor extends Usuario
 {
     private $calificacion;
 
-    public function __construct()
+    /*public function __construct()
     {
         $this->tipo = "Vendedor";
-    }
+    }*/
 
     private function publicarProducto($productoJson) // Registrar nuevo producto
     {

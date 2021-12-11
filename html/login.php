@@ -1,10 +1,12 @@
 <?php
-        session_start();
         require_once $_SERVER['DOCUMENT_ROOT'].'/Escommerce/class/db.php';
+        require_once $_SERVER['DOCUMENT_ROOT'].'/Escommerce/class/Cliente.php';
+        require_once $_SERVER['DOCUMENT_ROOT'].'/Escommerce/class/Vendedor.php';
+        session_start();
         error_reporting(E_ALL ^ E_NOTICE);
         $errors = array();
 
-        if( isset( $_SESSION['user_id'] ) )
+        if( isset( $_SESSION['user'] ) )
         {
             header( 'Location: ../html/index.php' );
         }
@@ -20,14 +22,19 @@
             //$actual = new Usuario( $usuario['nombreUsuario'], $usuario['rfc'], $usuario['correo'] );
             //print_r( $usuario );
             //if( isset( $usuario ) && password_verify( $contr, $usuario['contraUsuario'] ) )
-            if( isset( $usuario ) && strcmp( $contr, $usuario['contraUsuario'] ) == 0 )
+            if( strcmp( $usuario['tipoUser'], "vendedor" ) == 0 ){
+                $actual = new Vendedor( $usuario['nombreUsuario'], $usuario['rfc'], $usuario['correo'], $usuario['tipoUser'] );
+            }else{
+                $actual = new Cliente( $usuario['nombreUsuario'], $usuario['rfc'], $usuario['correo'], $usuario['tipoUser'] );
+            }
+            if( isset( $actual ) && strcmp( $contr, $usuario['contraUsuario'] ) == 0 )
             {
-                $_SESSION['user_id'] = $usuario['rfc'];
-		$response['status']="sucess";
-	    	$response['msg']="Bienvenido". $usuario['nombreUsuario'];
+                $_SESSION['user'] = serialize( $actual );
+		        $response['status']="sucess";
+	    	    $response['msg']="Bienvenido". $usuario['nombreUsuario'];
                 header( 'Location: ../html/index.php' );
             }else{
-		$errors []= "Error de credenciales <br> revise su correo/contraseña";
+		        $errors []= "Error de credenciales <br> revise su correo/contraseña";
                 $response['status']="error";
     	    	$response['msg']="Ocurrió un error";
     	    	$response['errors']=$errors;
