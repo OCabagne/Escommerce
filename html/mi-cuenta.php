@@ -92,7 +92,7 @@
                     </ul>
 
                     <?php
-                        if( isset( $_SESSION['user_id'] ) ){
+                        if( isset( $_SESSION['user'] ) ){
                     ?>
                             <ul class="navbar-nav me-auto mb-2 mb-lg-0 nav-borde nav-ul">
                                 <li class="nav-item">

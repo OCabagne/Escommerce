@@ -22,13 +22,13 @@
             //$actual = new Usuario( $usuario['nombreUsuario'], $usuario['rfc'], $usuario['correo'] );
             //print_r( $usuario );
             //if( isset( $usuario ) && password_verify( $contr, $usuario['contraUsuario'] ) )
-            if( strcmp( $usuario['tipoUser'], "vendedor" ) == 0 ){
-                $actual = new Vendedor( $usuario['nombreUsuario'], $usuario['rfc'], $usuario['correo'], $usuario['tipoUser'] );
-            }else{
-                $actual = new Cliente( $usuario['nombreUsuario'], $usuario['rfc'], $usuario['correo'], $usuario['tipoUser'] );
-            }
-            if( isset( $actual ) && strcmp( $contr, $usuario['contraUsuario'] ) == 0 )
+            if( isset( $usuario ) && strcmp( $contr, $usuario['contraUsuario'] ) == 0 )
             {
+                if( strcmp( $usuario['tipoUser'], "vendedor" ) == 0 ){
+                    $actual = new Vendedor( $usuario['nombreUsuario'], $usuario['rfc'], $usuario['correo'], $usuario['tipoUser'] );
+                }else{
+                    $actual = new Cliente( $usuario['nombreUsuario'], $usuario['rfc'], $usuario['correo'], $usuario['tipoUser'] );
+                }
                 $_SESSION['user'] = serialize( $actual );
 		        $response['status']="sucess";
 	    	    $response['msg']="Bienvenido". $usuario['nombreUsuario'];

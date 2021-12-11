@@ -1,9 +1,11 @@
 <?php
-    session_start();
     require $_SERVER['DOCUMENT_ROOT'].'/Escommerce/class/db.php';
-    if( isset( $_SESSION['user_id'] ) ){
+    require $_SERVER['DOCUMENT_ROOT'].'/Escommerce/class/Vendedor.php';
+    require $_SERVER['DOCUMENT_ROOT'].'/Escommerce/class/Cliente.php';
+    session_start();
+    if( isset( $_SESSION['user'] ) ){
         $db = new database();
-        $usuario = $db->buscarUsuario( "*", $_SESSION['user_id'] );
+        $actual = unserialize( $_SESSION['user'] );
     }
     /*else{
         header( 'Location: ./tienda.php' );
@@ -90,7 +92,7 @@
                                 <li class="nav-item">
                                     <!--<a class="nav-link" href="/Escommerce/pages/registro.php">Crea tu cuenta</a>-->
                                     <?php
-                                        echo "<p>" . $usuario['nombreUsuario'] . "</p>";
+                                        echo "<p>" . $actual->usuario . "</p>";
                                         //print_r( $nombre )
                                     ?>
                                 </li>
