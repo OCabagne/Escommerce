@@ -61,7 +61,7 @@
                 <div class="navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 nav-borde nav-ul">
                         <li class="nav-item">
-                            <a class="nav-link" href="./tienda.html">Categor&iacute;as</a>
+                            <a class="nav-link" href="./tienda.php">Categor&iacute;as</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Ofertas</a>
@@ -71,15 +71,36 @@
                         </li>
                     </ul>
 
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 nav-borde nav-ul">
-                        <li class="nav-item">
-                            <!--<a class="nav-link" href="/Escommerce/pages/registro.php">Crea tu cuenta</a>-->
-                            <a class="nav-link" href="registrarCuenta.html">Crea tu cuenta</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="login.html">Ingresa</a>
-                        </li>
-                    </ul>
+                    <?php
+                        if( isset( $_SESSION['user'] ) ){
+                    ?>
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0 nav-borde nav-ul">
+                                <li class="nav-item">
+                                    <!--<a class="nav-link" href="/Escommerce/pages/registro.php">Crea tu cuenta</a>-->
+                                    <?php
+                                        echo "<p>" . $actual->usuario . "</p>";
+                                        //print_r( $nombre )
+                                    ?>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="logout.php">Salir</a>
+                                </li>
+                            </ul>
+                    <?php
+                        }else{
+                    ?>
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0 nav-borde nav-ul">
+                                <li class="nav-item">
+                                    <!--<a class="nav-link" href="/Escommerce/pages/registro.php">Crea tu cuenta</a>-->
+                                    <a class="nav-link" href="registrarCuenta.php">Crea tu cuenta</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="login.php">Ingresa</a>
+                                </li>
+                            </ul>
+                    <?php  
+                        }
+                    ?>
 
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
@@ -309,7 +330,7 @@
                 <div class="col-sm-8 footPago">
                     <div class="footer__about">
                         <div class="footer__logo">
-                            <a href="./index.html"><img src="../assets/images/LogoProyecto.png" alt=""></a>
+                            <a href="./index.php"><img src="../assets/images/LogoProyecto.png" alt=""></a>
                         </div>
                         <p>Tenemos los mejores metodos de pago!</p>
                         <div class="footer__payment">

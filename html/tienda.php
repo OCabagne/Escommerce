@@ -76,7 +76,7 @@
                 <div class="navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 nav-borde nav-ul">
                         <li class="nav-item">
-                            <a class="nav-link" href="./tienda.html">Categor&iacute;as</a>
+                            <a class="nav-link" href="./tienda.php">Categor&iacute;as</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Ofertas</a>
@@ -86,7 +86,7 @@
                         </li>
                     </ul>
                     <?php
-                        if( isset( $_SESSION['user_id'] ) ){
+                        if( isset( $_SESSION['user'] ) ){
                     ?>
                             <ul class="navbar-nav me-auto mb-2 mb-lg-0 nav-borde nav-ul">
                                 <li class="nav-item">
@@ -121,7 +121,7 @@
                             <a class="nav-link" href="#">Mis compras</a>
                         </li>
                         <li class="nav-item carrito">
-                            <a class="nav-link" href="./carrito.html"><img
+                            <a class="nav-link" href="./carrito.php"><img
                                     src="https://img.icons8.com/fluency-systems-regular/22/000000/shopping-cart-loaded.png" /><span
                                     class="badge bg-secundario" id="cantidad-carrito"></span></a>
                             <div id="carrito">
@@ -155,7 +155,7 @@
                 <div class="col-lg-12">
                     <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="./index.html" id="indexBread"><img
+                            <li class="breadcrumb-item"><a href="./index.php" id="indexBread"><img
                                         src="https://img.icons8.com/material-sharp/24/000000/home.png" />Inicio</a>
                             </li>
                             <li class="breadcrumb-item active" aria-current="page">Categorias</li>
