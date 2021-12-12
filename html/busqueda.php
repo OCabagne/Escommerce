@@ -14,6 +14,17 @@
     <title>Document</title>
 </head>
 <body>
-    <?php print_r( $resultados ); ?>
+    <?php
+        if( mysqli_num_rows( $resultados ) > 0 ){
+            while( $row = mysqli_fetch_array( $resultados, MYSQLI_ASSOC ) ){
+                print_r( $row );
+                echo "<br />";
+    ?>
+                <!-- Aquí va el HTML para mostrar los resultados de la busqueda -->
+    <?php
+            }
+        }
+
+    ?>
 </body>
 </html>
