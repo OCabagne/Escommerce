@@ -52,13 +52,13 @@
     <!--Inicio de barra de navegacion-->
     <nav class="navbar navbar-expand-lg navbar-light bg-sombra">
         <div class="container-md logo">
-            <a href="index.html"><img src="../assets/images/LogoProyecto.png" alt="Logo E-scommerce"></a>
+            <a href="index.php"><img src="../assets/images/LogoProyecto.png" alt="Logo E-scommerce"></a>
         </div>
 
         <div class="nav-texto">
             <div class="container-md nav-busqueda">
-                <form class="flex-fill d-flex busqueda">
-                    <input class="form-control me-2" type="search" placeholder="Buscar productos" aria-label="Search">
+                <form class="flex-fill d-flex busqueda" method="get" action="busqueda.php" >
+                    <input name="busqueda" class="form-control me-2" type="search" placeholder="Buscar productos" aria-label="Search">
                     <button class="btn btn-outline-principal" type="submit">Buscar</button>
                     <button class="btn nav-toggle" type="button" aria-label="Abrir menu">
                         <img src="https://img.icons8.com/ios-glyphs/30/000000/menu--v1.png" />

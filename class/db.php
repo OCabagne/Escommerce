@@ -84,6 +84,19 @@ class database
             return $row[0]; // Regresamos la primer colúmna de la busqueda (debería ser solo una, pero por precaución se especifica)
         }
     }
+
+    public function buscadorProductos( $valor ){ // Para la barra de búsqueda
+        $cnx = new database();
+        $connect = $cnx->conectar();
+        if( $connect != false ){
+            $query = "SELECT * FROM producto WHERE marca LIKE '" . $valor . "' OR modelo LIKE '" . $valor . "';";
+            $exec = mysqli_query( $connect, $query );
+            $row = mysqli_fetch_array( $exec );
+            $cnx->desconectar( $connect );
+            return $row;
+        }
+    }
+
     public function galeriaProducto($campo, $id_producto)
     {
         $cnx = new database();  // Conexión con DB
