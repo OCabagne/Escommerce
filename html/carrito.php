@@ -18,13 +18,13 @@
             $producto = new Producto( $res['idProducto'], $res['marca'] . " " . $res['modelo'], $res['precio'], $res['caracteristicas'], $res['idCategoria'], $res['urlImg'] );
             $productos []= $producto;
         }
-        if( isset( $res ) ){
+        /*if( isset( $res ) ){
             $msg = $res;
             $producto = new Producto( $res['idProducto'], $res['marca'] . " " . $res['modelo'], $res['precio'], $res['caracteristicas'], $res['idCategoria'], $res['urlImg'] );
         }else{
             //$msg = "Algo salió mal en la consulta";
             $msg = $_SESSION['carrito'];
-        }
+        }*/
     }else{
         $msg = "No hay carrito";
     }
