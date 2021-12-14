@@ -1,3 +1,35 @@
+<?php
+    require_once $_SERVER['DOCUMENT_ROOT'].'/Escommerce/class/Vendedor.php';
+    require_once $_SERVER['DOCUMENT_ROOT'].'/Escommerce/class/Cliente.php';
+    require_once $_SERVER['DOCUMENT_ROOT'].'/Escommerce/class/Producto.php';
+    session_start();
+
+    if( isset( $_SESSION['user'] ) ){
+        //$db = new database();
+        $actual = unserialize( $_SESSION['user'] );
+    }
+
+    if( isset( $_SESSION['carrito'] ) ){
+        $productos = array();
+        $msg = $_SESSION['carrito'];
+        $db = new database();
+        foreach( $_SESSION['carrito'] as $id ){
+            $res = $db->buscarProducto( "*", $id ); // Hay que iterar
+            $producto = new Producto( $res['idProducto'], $res['marca'] . " " . $res['modelo'], $res['precio'], $res['caracteristicas'], $res['idCategoria'], $res['urlImg'] );
+            $productos []= $producto;
+        }
+        /*if( isset( $res ) ){
+            $msg = $res;
+            $producto = new Producto( $res['idProducto'], $res['marca'] . " " . $res['modelo'], $res['precio'], $res['caracteristicas'], $res['idCategoria'], $res['urlImg'] );
+        }else{
+            //$msg = "Algo salió mal en la consulta";
+            $msg = $_SESSION['carrito'];
+        }*/
+    }else{
+        $msg = "No hay carrito";
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -36,7 +68,7 @@
     <!--Inicio de barra de navegacion-->
     <nav class="navbar navbar-expand-lg navbar-light bg-sombra">
         <div class="container-md logo">
-            <a href="index.html"><img src="../assets/images/LogoProyecto.png" alt="Logo E-scommerce"></a>
+            <a href="index.php"><img src="../assets/images/LogoProyecto.png" alt="Logo E-scommerce"></a>
         </div>
 
         <div class="nav-texto">
@@ -53,7 +85,7 @@
                 <div class="navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 nav-borde nav-ul">
                         <li class="nav-item">
-                            <a class="nav-link" href="./tienda.html">Categor&iacute;as</a>
+                            <a class="nav-link" href="./tienda.php">Categor&iacute;as</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Ofertas</a>
@@ -66,10 +98,10 @@
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 nav-borde nav-ul">
                         <li class="nav-item">
                             <!--<a class="nav-link" href="/Escommerce/pages/registro.php">Crea tu cuenta</a>-->
-                            <a class="nav-link" href="registrarCuenta.html">Crea tu cuenta</a>
+                            <a class="nav-link" href="registrarCuenta.php">Crea tu cuenta</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="login.html">Ingresa</a>
+                            <a class="nav-link" href="login.php">Ingresa</a>
                         </li>
                     </ul>
 
@@ -78,7 +110,7 @@
                             <a class="nav-link" href="#">Mis compras</a>
                         </li>
                         <li class="nav-item carrito">
-                            <a class="nav-link" href="./carrito.html"><img
+                            <a class="nav-link" href="./carrito.php"><img
                                     src="https://img.icons8.com/fluency-systems-regular/22/000000/shopping-cart-loaded.png" /><span
                                     class="badge bg-secundario" id="cantidad-carrito"></span></a>
                             <div id="carrito">
@@ -112,7 +144,7 @@
                 <div class="col-lg-12">
                     <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="./index.html" id="indexBread"><img
+                            <li class="breadcrumb-item"><a href="./index.php" id="indexBread"><img
                                         src="https://img.icons8.com/material-sharp/24/000000/home.png" />Inicio</a>
                             </li>
                             <li class="breadcrumb-item" aria-current="page">Carrito</li>
@@ -191,16 +223,23 @@
                                         <span class="top__text">Productos</span>
                                         <span class="top__text__right">Total</span>
                                     </li>
-                                    <li>01. Chain buck bag <span>$ 300.0</span></li>
-                                    <li>02. Zip-pockets pebbled<br /> tote briefcase <span>$ 170.0</span></li>
-                                    <li>03. Black jean <span>$ 170.0</span></li>
-                                    <li>04. Cotton shirt <span>$ 110.0</span></li>
+                                    <?php
+                                        $total = 0;
+                                        foreach( $productos as $producto ){
+                                        if( isset( $producto ) ){
+                                            $total += $producto->getPrecio();
+                                    ?>
+                                    <li><?php echo $producto->Nombre; ?><span>$ <?php echo $producto->getPrecio(); ?></span></li>
+                                    <?php
+                                        }}
+                                    ?>
                                 </ul>
                             </div>
                             <div class="checkout__order__total">
                                 <ul>
-                                    <li>Subtotal <span>$ 750.0</span></li>
-                                    <li>Total <span>$ 750.0</span></li>
+                                    <li>Subtotal <span><?php echo $total; ?></span></li>
+                                    <li>Envio <span>!Free</span></li>
+                                    <li>Total <span><?php echo $total; ?></span></li>
                                 </ul>
                             </div>
                             <div class="checkout__order__widget">
@@ -288,7 +327,7 @@
                 <div class="col-sm-8 footPago">
                     <div class="footer__about">
                         <div class="footer__logo">
-                            <a href="./index.html"><img src="../assets/images/LogoProyecto.png" alt=""></a>
+                            <a href="./index.php"><img src="../assets/images/LogoProyecto.png" alt=""></a>
                         </div>
                         <p>Tenemos los mejores metodos de pago!</p>
                         <div class="footer__payment">

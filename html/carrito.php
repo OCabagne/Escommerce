@@ -199,8 +199,10 @@
                             <tbody>
                                 
                                 <?php
-                                    if( isset( $producto ) ){
+                                    $total = 0;
+                                    if( isset( $productos ) ){
                                     foreach( $productos as $producto ){
+                                        $total+=$producto->getPrecio();
                                 ?>
                                         <tr>
                                             <td class="cart__product__item">
@@ -215,7 +217,7 @@
                                                     <input type="text" value="1">
                                                 </div>
                                             </td>
-                                            <td class="cart__total">$ 170.0</td>
+                                            <!-- <td class="cart__total">$ <?php echo $total+=$producto->getPrecio(); ?></td> -->
                                             <td class="cart__close"><img src="https://img.icons8.com/ios-glyphs/20/000000/delete-sign.png"/></td>
                                         </tr>
                                 <?php
@@ -287,10 +289,11 @@
                     <div class="cart__total__procced">
                         <h6>Total:</h6>
                         <ul>
-                            <li>Subtotal <span>$ 750.0</span></li>
-                            <li>Total <span>$ 750.0</span></li>
+                            <li>Subtotal <span><?php echo $total/2; ?></span></li>
+                            <li>Envio <span> !Free </span><li>
+                            <li>Total <span><?php echo $total/2;?></span></li>
                         </ul>
-                        <a href="./checkout.html" class="primary-btn">Proceder al pago</a>
+                        <a href="./checkout.php" class="primary-btn">Proceder al pago</a>
                     </div>
                 </div>
             </div>
