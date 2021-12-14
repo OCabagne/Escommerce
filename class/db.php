@@ -97,6 +97,19 @@ class database
         }
     }
 
+    public function buscarPorPrecio($min, $max) // Filtro SLIDER en tienda.php
+    {
+        $cnx = new database();
+        $connect = $cnx->conectar();
+        if( $connect != false ){
+            $query = "SELECT * FROM producto WHERE precio > '" . $min . "' AND precio < '" . $max . "';";
+            $exec = mysqli_query( $connect, $query );
+            $row = mysqli_fetch_array( $exec, MYSQLI_ASSOC );
+            $cnx->desconectar( $connect );
+            return $row;
+        }
+    }
+
     public function ultimosProductos(){ // Para la barra de búsqueda
         $cnx = new database();
         $connect = $cnx->conectar();
