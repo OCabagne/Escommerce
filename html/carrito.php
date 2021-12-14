@@ -293,7 +293,7 @@
                             <li>Envio <span> !Free </span><li>
                             <li>Total <span><?php echo $total/2;?></span></li>
                         </ul>
-                        <a href="./checkout.html" class="primary-btn">Proceder al pago</a>
+                        <a href="./checkout.php" class="primary-btn">Proceder al pago</a>
                     </div>
                 </div>
             </div>
