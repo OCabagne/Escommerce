@@ -3,10 +3,17 @@
     require_once $_SERVER['DOCUMENT_ROOT'].'/Escommerce/class/Vendedor.php';
     require_once $_SERVER['DOCUMENT_ROOT'].'/Escommerce/class/Cliente.php';
     session_start();
+    $db = new database();
     if( isset( $_SESSION['user'] ) ){
-        $db = new database();
         $actual = unserialize( $_SESSION['user'] );
     }
+    if( $_GET ){
+        $productos = $db->buscadorProductos( $_GET['busqueda'] );
+    }else{
+        $productos = $db->ultimosProductos();
+    }
+
+
     /*else{
         header( 'Location: ./tienda.php' );
     }*/
@@ -357,15 +364,26 @@
                         </div>
                     </div>
                 </div>
+
+
                 <div class="col-lg-9 col-md-9">
                     <div class="row">
+                        <?php
+//                            foreach( $producto as $productos ){
+                        //if( $_GET ){
+                        if( mysqli_num_rows( $productos ) > 0 ){
+                            while( $row = mysqli_fetch_array( $productos, MYSQLI_ASSOC ) ){
+                                //print_r( $row )
+                        ?>
+
                         <div class="col-lg-4 col-md-6">
                             <div class="product__item sale">
                                 <div class="product__item__pic set-bg"
-                                    data-setbg="../assets/images/productos/product-4.jpg">
-                                    <img src="../assets/images/productos/product-4.jpg"
+                                    data-setbg=<?php echo '"' . $row['urlImg'] . '"'; ?>>
+                                    <!-- <img src="../assets/images/productos/product-4.jpg" -->
+                                    <img src=<?php echo '"' . $row['urlImg'] . '"'; ?>
                                         class="product__item__pic set-bg">
-                                    <div class="label">Sale</div>
+                                    <div class="label"><?php if( strcmp( $row['oferta'], "si" ) == 0 ){ echo "OFERTA"; }else{ echo "VENTA"; } ?></div>
                                     <ul class="product__hover">
                                         <li><a href="#" class="agregar-carrito"><img class="agregar-carrito"
                                                     src="https://img.icons8.com/windows/32/000000/add-shopping-cart.png" /></a>
@@ -373,7 +391,7 @@
                                     </ul>
                                 </div>
                                 <div class="product__item__text">
-                                    <h6><a href="detalles-producto.html">Slim striped pocket shirt</a></h6>
+                                    <h6><a href="detalles-producto.html"><?php echo $row['marca'] . " " . $row['modelo']; ?></a></h6>
                                     <div class="rating">
                                         <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
                                         <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
@@ -381,37 +399,13 @@
                                         <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
                                         <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
                                     </div>
-                                    <div class="product__price">$ 49.0 <span>$ 59.0</span></div>
+                                    <div class="product__price"><?php echo $row['precio']; ?> <span>$ 59.0</span></div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="product__item sale">
-                                <div class="product__item__pic set-bg"
-                                    data-setbg="../assets/images/productos/product-4.jpg">
-                                    <img src="../assets/images/productos/product-4.jpg"
-                                        class="product__item__pic set-bg">
-                                    <div class="label">Sale</div>
-                                    <ul class="product__hover">
-                                        <li><a href="#" class="agregar-carrito"><img class="agregar-carrito"
-                                                    src="https://img.icons8.com/windows/32/000000/add-shopping-cart.png" /></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="product__item__text">
-                                    <h6><a href="#">Slim striped pocket shirt</a></h6>
-                                    <div class="rating">
-                                        <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                        <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                        <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                        <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                        <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                    </div>
-                                    <div class="product__price">$ 49.0 <span>$ 59.0</span></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
+                        <?php }}/*}*/  ?>
+
+                        <!-- <div class="col-lg-4 col-md-6">
                             <div class="product__item sale">
                                 <div class="product__item__pic set-bg"
                                     data-setbg="../assets/images/productos/product-4.jpg">
@@ -593,6 +587,32 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="product__item sale">
+                                <div class="product__item__pic set-bg"
+                                    data-setbg="../assets/images/productos/product-4.jpg">
+                                    <img src="../assets/images/productos/product-4.jpg"
+                                        class="product__item__pic set-bg">
+                                    <div class="label">Sale</div>
+                                    <ul class="product__hover">
+                                        <li><a href="#" class="agregar-carrito"><img class="agregar-carrito"
+                                                    src="https://img.icons8.com/windows/32/000000/add-shopping-cart.png" /></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="product__item__text">
+                                    <h6><a href="#">Slim striped pocket shirt</a></h6>
+                                    <div class="rating">
+                                        <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
+                                        <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
+                                        <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
+                                        <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
+                                        <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
+                                    </div>
+                                    <div class="product__price">$ 49.0 <span>$ 59.0</span></div>
+                                </div>
+                            </div>
+                        </div> -->
                         <div class="col-lg-12 text-center">
                             <div class="pagination__option">
                                 <a href="#">1</a>

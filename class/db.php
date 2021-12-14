@@ -97,6 +97,18 @@ class database
         }
     }
 
+    public function ultimosProductos(){ // Para la barra de búsqueda
+        $cnx = new database();
+        $connect = $cnx->conectar();
+        if( $connect != false ){
+            $query = "SELECT * FROM producto;";
+            $exec = mysqli_query( $connect, $query );
+            //$row = mysqli_fetch_array( $exec, MYSQLI_ASSOC );
+            $cnx->desconectar( $connect );
+            return $exec;
+        }
+    }
+
     public function galeriaProducto($campo, $id_producto)
     {
         $cnx = new database();  // Conexión con DB

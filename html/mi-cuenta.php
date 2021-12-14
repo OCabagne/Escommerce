@@ -81,7 +81,7 @@
                 <div class="navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 nav-borde nav-ul">
                         <li class="nav-item">
-                            <a class="nav-link" href="./tienda.html">Categor&iacute;as</a>
+                            <a class="nav-link" href="./tienda.php">Categor&iacute;as</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Ofertas</a>
