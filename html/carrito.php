@@ -199,8 +199,8 @@
                             <tbody>
                                 
                                 <?php
-                                    foreach( $productos as $producto ){
                                     if( isset( $producto ) ){
+                                    foreach( $productos as $producto ){
                                 ?>
                                         <tr>
                                             <td class="cart__product__item">
