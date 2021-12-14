@@ -9,10 +9,6 @@
         $actual = unserialize( $_SESSION['user'] );
     }
 
-    if( $_GET ){
-        $busqueda = $_GET['busqueda'];
-        header( 'Location: tienda.php?busqueda=' . $busqueda );
-    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -55,7 +51,7 @@
 
         <div class="nav-texto">
             <div class="container-md nav-busqueda">
-                <form class="flex-fill d-flex busqueda" method="get" action="index.php">
+                <form class="flex-fill d-flex busqueda" method="get" action="tienda.php">
                     <input class="form-control me-2" name="busqueda" type="search" placeholder="Buscar productos" aria-label="Search">
                     <button class="btn btn-outline-principal" type="submit">Buscar</button>
                     <button class="btn nav-toggle" type="button" aria-label="Abrir menu">

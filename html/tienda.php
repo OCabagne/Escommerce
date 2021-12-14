@@ -4,15 +4,18 @@
     require_once $_SERVER['DOCUMENT_ROOT'].'/Escommerce/class/Cliente.php';
     session_start();
     $db = new database();
+
     if( isset( $_SESSION['user'] ) ){
         $actual = unserialize( $_SESSION['user'] );
     }
-    if( $_GET ){
+
+    if( isset( $_GET['busqueda'] ) ){
         $productos = $db->buscadorProductos( $_GET['busqueda'] );
     }else{
         $productos = $db->ultimosProductos();
     }
 
+    //unset( $_SESSION['carrito'] );
 
     /*else{
         header( 'Location: ./tienda.php' );
@@ -71,8 +74,8 @@
 
         <div class="nav-texto">
             <div class="container-md nav-busqueda">
-                <form class="flex-fill d-flex busqueda">
-                    <input class="form-control me-2" type="search" placeholder="Buscar productos" aria-label="Search">
+                <form class="flex-fill d-flex busqueda" method="get", action="tienda.php">
+                    <input class="form-control me-2" name="busqueda" type="search" placeholder="Buscar productos" aria-label="Search">
                     <button class="btn btn-outline-principal" type="submit">Buscar</button>
                     <button class="btn nav-toggle" type="button" aria-label="Abrir menu">
                         <img src="https://img.icons8.com/ios-glyphs/30/000000/menu--v1.png" />
@@ -173,6 +176,8 @@
         </div>
     </div>
     <!-- Breadcrumb End -->
+
+    <?php if( $_POST ){ print_r( $m ); } ?>
 
     <!-- Shop Section Begin -->
     <section class="shop spad" id="lista-productos">
@@ -388,6 +393,8 @@
                                         <li><a href="#" class="agregar-carrito"><img class="agregar-carrito"
                                                     src="https://img.icons8.com/windows/32/000000/add-shopping-cart.png" /></a>
                                         </li>
+                                        <p class="pid" style="display: none"><?php echo $row['idProducto'] ?></p>
+                                        <p class="pod" style="display: none"></p>
                                     </ul>
                                 </div>
                                 <div class="product__item__text">

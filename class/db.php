@@ -76,12 +76,12 @@ class database
         $connect = $cnx->conectar();
         if($connect != false)
         {
-            $query = "SELECT " . $campo . " FROM producto WHERE idProducto = " . $id_producto . ";";
+            $query = "SELECT " . $campo . " FROM producto WHERE idProducto = '" . $id_producto . "';";
             $exec = mysqli_query($connect, $query); // Ejecución del query
-            $row = mysqli_fetch_array($exec); // Obtenemos las columnas resultantes de la consulta
+            $row = mysqli_fetch_array( $exec, MYSQLI_ASSOC ); // Obtenemos las columnas resultantes de la consulta
 
             $cnx->desconectar($connect);   // Desconexión de DB
-            return $row[0]; // Regresamos la primer colúmna de la busqueda (debería ser solo una, pero por precaución se especifica)
+            return $row; // Regresamos la primer colúmna de la busqueda (debería ser solo una, pero por precaución se especifica)
         }
     }
 

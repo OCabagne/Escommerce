@@ -17,12 +17,14 @@ class Cliente extends Usuario
     private function agregarProducto($id_producto)  // Agregar AL CARRITO
     {
         $flag = false;
-        $db = new database();
+        /*$db = new database();
         if($db->confirmarProducto($id_producto))  // Verificar que existe
         {
             //Existe. Seguro quieres eliminar?
             
-        }
+        }*/
+
+        
 
         return $flag;
     }

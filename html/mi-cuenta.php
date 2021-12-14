@@ -3,6 +3,7 @@
     require_once $_SERVER['DOCUMENT_ROOT'].'/Escommerce/class/Vendedor.php';
     require_once $_SERVER['DOCUMENT_ROOT'].'/Escommerce/class/Cliente.php';
     session_start();
+
     if( isset( $_SESSION['user'] ) ){
         $db = new database();
         $actual = unserialize( $_SESSION['user'] );
@@ -69,8 +70,8 @@
 
         <div class="nav-texto">
             <div class="container-md nav-busqueda">
-                <form class="flex-fill d-flex busqueda">
-                    <input class="form-control me-2" type="search" placeholder="Buscar productos" aria-label="Search">
+                <form class="flex-fill d-flex busqueda" method="get" action="tienda.php">
+                    <input class="form-control me-2" name="busqueda" type="search" placeholder="Buscar productos" aria-label="Search">
                     <button class="btn btn-outline-principal" type="submit">Buscar</button>
                     <button class="btn nav-toggle" type="button" aria-label="Abrir menu">
                         <img src="https://img.icons8.com/ios-glyphs/30/000000/menu--v1.png" />

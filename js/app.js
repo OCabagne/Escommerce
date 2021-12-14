@@ -50,6 +50,14 @@
            // Enviamos el curso seleccionado para tomar sus datos
            leerDatosProducto(producto);
 
+           $.ajax({
+               method: "POST",
+               url: "../html/wrap.php",
+               data: { agregar: $(".pid").text() }
+           }).done( function( response ){
+               $( ".pod" ).html( response );
+           } );
+
            window.createNotification({
                // close on click
                closeOnClick: true,

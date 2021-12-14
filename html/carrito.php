@@ -1,6 +1,7 @@
 <?php
     require_once $_SERVER['DOCUMENT_ROOT'].'/Escommerce/class/Vendedor.php';
     require_once $_SERVER['DOCUMENT_ROOT'].'/Escommerce/class/Cliente.php';
+    require_once $_SERVER['DOCUMENT_ROOT'].'/Escommerce/class/Producto.php';
     session_start();
 
     if( isset( $_SESSION['user'] ) ){
@@ -9,7 +10,14 @@
     }
 
     if( isset( $_SESSION['carrito'] ) ){
-        $mgs = "Hay carrito";
+        //$msg = $_SESSION['carrito'];
+        $db = new database();
+        $res = $db->buscarProducto( "*", $_SESSION['carrito'] );
+        if( isset( $res ) ){
+            $producto = new Producto( $res['idProducto'], $res['marca'] . " " . $res['modelo'], $res['precio'], $res['caracteristicas'], $res['idCategoria'], $res['urlImg'] );
+        }else{
+            $mgs = "Algo salió mal en la consulta";
+        }
     }else{
         $msg = "No hay carrito";
     }
@@ -57,7 +65,7 @@
 
         <div class="nav-texto">
             <div class="container-md nav-busqueda">
-                <form class="flex-fill d-flex busqueda" method="get" action="busqueda.php" >
+                <form class="flex-fill d-flex busqueda" method="get" action="tienda.php" >
                     <input name="busqueda" class="form-control me-2" type="search" placeholder="Buscar productos" aria-label="Search">
                     <button class="btn btn-outline-principal" type="submit">Buscar</button>
                     <button class="btn nav-toggle" type="button" aria-label="Abrir menu">
@@ -115,7 +123,7 @@
                             <a class="nav-link" href="#">Mis compras</a>
                         </li>
                         <li class="nav-item carrito">
-                            <a class="nav-link" href="./carrito.html"><img
+                            <a class="nav-link" href="./carrito.php"><img
                                     src="https://img.icons8.com/fluency-systems-regular/22/000000/shopping-cart-loaded.png" /><span
                                     class="badge bg-secundario" id="cantidad-carrito"></span></a>
                             <div id="carrito">
@@ -161,8 +169,12 @@
     </div>
     <!-- Breadcrumb End -->
 
-    <?php
-        echo $msg;
+    <?php 
+        /*if( isset( $msg ) ){
+            print_r( $msg );
+        }else{
+            print_r( $producto->getImg() );
+        }*/
     ?>
 
     <!-- Shop Cart Section Begin -->
@@ -188,12 +200,12 @@
                                 ?>
                                         <tr>
                                             <td class="cart__product__item">
-                                                <img src="../assets/images/categorias/display-categorias/f-1.jpg" alt="">
+                                                <img src=<?php echo '"' . $producto->getImg() . '"' ?> alt="">
                                                 <div class="cart__product__item__title">
-                                                    <h6>Zip-pockets pebbled tote briefcase</h6>
+                                                    <h6><?php echo $producto->Nombre; ?></h6>
                                                 </div>
                                             </td>
-                                            <td class="cart__price">$ 170.0</td>
+                                            <td class="cart__price">$ <?php echo $producto->getPrecio(); ?></td>
                                             <td class="cart__quantity">
                                                 <div class="pro-qty">
                                                     <input type="text" value="1">
