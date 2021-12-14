@@ -10,13 +10,20 @@
     }
 
     if( isset( $_SESSION['carrito'] ) ){
-        //$msg = $_SESSION['carrito'];
+        $productos = array();
+        $msg = $_SESSION['carrito'];
         $db = new database();
-        $res = $db->buscarProducto( "*", $_SESSION['carrito'] );
+        foreach( $_SESSION['carrito'] as $id ){
+            $res = $db->buscarProducto( "*", $id ); // Hay que iterar
+            $producto = new Producto( $res['idProducto'], $res['marca'] . " " . $res['modelo'], $res['precio'], $res['caracteristicas'], $res['idCategoria'], $res['urlImg'] );
+            $productos []= $producto;
+        }
         if( isset( $res ) ){
+            $msg = $res;
             $producto = new Producto( $res['idProducto'], $res['marca'] . " " . $res['modelo'], $res['precio'], $res['caracteristicas'], $res['idCategoria'], $res['urlImg'] );
         }else{
-            $mgs = "Algo salió mal en la consulta";
+            //$msg = "Algo salió mal en la consulta";
+            $msg = $_SESSION['carrito'];
         }
     }else{
         $msg = "No hay carrito";
@@ -170,11 +177,7 @@
     <!-- Breadcrumb End -->
 
     <?php 
-        /*if( isset( $msg ) ){
-            print_r( $msg );
-        }else{
-            print_r( $producto->getImg() );
-        }*/
+        print_r( $msg );
     ?>
 
     <!-- Shop Cart Section Begin -->
@@ -196,7 +199,8 @@
                             <tbody>
                                 
                                 <?php
-                                    if( isset( $_SESSION['carrito'] ) ){
+                                    foreach( $productos as $producto ){
+                                    if( isset( $producto ) ){
                                 ?>
                                         <tr>
                                             <td class="cart__product__item">
@@ -215,7 +219,7 @@
                                             <td class="cart__close"><img src="https://img.icons8.com/ios-glyphs/20/000000/delete-sign.png"/></td>
                                         </tr>
                                 <?php
-                                    }
+                                    }}
                                 ?>
 
                                 <!-- <tr>

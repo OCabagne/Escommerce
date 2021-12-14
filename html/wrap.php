@@ -3,7 +3,14 @@
     
     if( isset( $_POST['agregar'] ) ){
         //$actual->agregarProducto( $_GET['agregar'] );
-        $_SESSION['carrito'] = $_POST['agregar'];
-        $m = $_POST['agregar'];
+        if( isset( $_SESSION['carrito'] ) ){
+            // Ya hay carrito
+            $cant = count( $_SESSION['carrito'] );
+            $_SESSION['carrito'][$cant] = $_POST['agregar'];
+
+        }else{
+            $_SESSION['carrito'][0] = $_POST['agregar'];
+        }
+        header( 'Location: tienda.php' );
     }
 ?>

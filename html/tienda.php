@@ -177,7 +177,7 @@
     </div>
     <!-- Breadcrumb End -->
 
-    <?php if( $_POST ){ print_r( $m ); } ?>
+    <?php print_r( $_SESSION['carrito'] ) ?>
 
     <!-- Shop Section Begin -->
     <section class="shop spad" id="lista-productos">
@@ -390,11 +390,11 @@
                                         class="product__item__pic set-bg">
                                     <div class="label"><?php if( strcmp( $row['oferta'], "si" ) == 0 ){ echo "OFERTA"; }else{ echo "VENTA"; } ?></div>
                                     <ul class="product__hover">
-                                        <li><a href="#" class="agregar-carrito"><img class="agregar-carrito"
+                                        <li><a href="#" onclick="agregarCarrito( <?php echo $row['idProducto'] ?> )" class="agregar-carrito"><img class="agregar-carrito"
                                                     src="https://img.icons8.com/windows/32/000000/add-shopping-cart.png" /></a>
                                         </li>
-                                        <p class="pid" style="display: none"><?php echo $row['idProducto'] ?></p>
-                                        <p class="pod" style="display: none"></p>
+                                        <!-- <p class="pid" style="display: none"></p>
+                                        <p class="pod" style="display: none"></p> -->
                                     </ul>
                                 </div>
                                 <div class="product__item__text">
@@ -406,220 +406,12 @@
                                         <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
                                         <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
                                     </div>
-                                    <div class="product__price"><?php echo $row['precio']; ?> <span>$ 59.0</span></div>
+                                    <div class="product__price">$ <?php echo $row['precio']; ?> <span>$ 59.0</span></div>
                                 </div>
                             </div>
                         </div>
                         <?php }}/*}*/  ?>
 
-                        <!-- <div class="col-lg-4 col-md-6">
-                            <div class="product__item sale">
-                                <div class="product__item__pic set-bg"
-                                    data-setbg="../assets/images/productos/product-4.jpg">
-                                    <img src="../assets/images/productos/product-4.jpg"
-                                        class="product__item__pic set-bg">
-                                    <div class="label">Sale</div>
-                                    <ul class="product__hover">
-                                        <li><a href="#" class="agregar-carrito"><img class="agregar-carrito"
-                                                    src="https://img.icons8.com/windows/32/000000/add-shopping-cart.png" /></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="product__item__text">
-                                    <h6><a href="#">Slim striped pocket shirt</a></h6>
-                                    <div class="rating">
-                                        <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                        <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                        <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                        <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                        <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                    </div>
-                                    <div class="product__price">$ 49.0 <span>$ 59.0</span></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="product__item sale">
-                                <div class="product__item__pic set-bg"
-                                    data-setbg="../assets/images/productos/product-4.jpg">
-                                    <img src="../assets/images/productos/product-4.jpg"
-                                        class="product__item__pic set-bg">
-                                    <div class="label">Sale</div>
-                                    <ul class="product__hover">
-                                        <li><a href="#" class="agregar-carrito"><img class="agregar-carrito"
-                                                    src="https://img.icons8.com/windows/32/000000/add-shopping-cart.png" /></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="product__item__text">
-                                    <h6><a href="#">Slim striped pocket shirt</a></h6>
-                                    <div class="rating">
-                                        <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                        <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                        <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                        <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                        <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                    </div>
-                                    <div class="product__price">$ 49.0 <span>$ 59.0</span></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="product__item sale">
-                                <div class="product__item__pic set-bg"
-                                    data-setbg="../assets/images/productos/product-4.jpg">
-                                    <img src="../assets/images/productos/product-4.jpg"
-                                        class="product__item__pic set-bg">
-                                    <div class="label">Sale</div>
-                                    <ul class="product__hover">
-                                        <li><a href="#" class="agregar-carrito"><img class="agregar-carrito"
-                                                    src="https://img.icons8.com/windows/32/000000/add-shopping-cart.png" /></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="product__item__text">
-                                    <h6><a href="#">Slim striped pocket shirt</a></h6>
-                                    <div class="rating">
-                                        <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                        <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                        <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                        <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                        <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                    </div>
-                                    <div class="product__price">$ 49.0 <span>$ 59.0</span></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="product__item sale">
-                                <div class="product__item__pic set-bg"
-                                    data-setbg="../assets/images/productos/product-4.jpg">
-                                    <img src="../assets/images/productos/product-4.jpg"
-                                        class="product__item__pic set-bg">
-                                    <div class="label">Sale</div>
-                                    <ul class="product__hover">
-                                        <li><a href="#" class="agregar-carrito"><img class="agregar-carrito"
-                                                    src="https://img.icons8.com/windows/32/000000/add-shopping-cart.png" /></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="product__item__text">
-                                    <h6><a href="#">Slim striped pocket shirt</a></h6>
-                                    <div class="rating">
-                                        <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                        <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                        <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                        <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                        <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                    </div>
-                                    <div class="product__price">$ 49.0 <span>$ 59.0</span></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="product__item sale">
-                                <div class="product__item__pic set-bg"
-                                    data-setbg="../assets/images/productos/product-4.jpg">
-                                    <img src="../assets/images/productos/product-4.jpg"
-                                        class="product__item__pic set-bg">
-                                    <div class="label">Sale</div>
-                                    <ul class="product__hover">
-                                        <li><a href="#" class="agregar-carrito"><img class="agregar-carrito"
-                                                    src="https://img.icons8.com/windows/32/000000/add-shopping-cart.png" /></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="product__item__text">
-                                    <h6><a href="#">Slim striped pocket shirt</a></h6>
-                                    <div class="rating">
-                                        <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                        <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                        <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                        <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                        <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                    </div>
-                                    <div class="product__price">$ 49.0 <span>$ 59.0</span></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="product__item sale">
-                                <div class="product__item__pic set-bg"
-                                    data-setbg="../assets/images/productos/product-4.jpg">
-                                    <img src="../assets/images/productos/product-4.jpg"
-                                        class="product__item__pic set-bg">
-                                    <div class="label">Sale</div>
-                                    <ul class="product__hover">
-                                        <li><a href="#" class="agregar-carrito"><img class="agregar-carrito"
-                                                    src="https://img.icons8.com/windows/32/000000/add-shopping-cart.png" /></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="product__item__text">
-                                    <h6><a href="#">Slim striped pocket shirt</a></h6>
-                                    <div class="rating">
-                                        <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                        <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                        <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                        <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                        <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                    </div>
-                                    <div class="product__price">$ 49.0 <span>$ 59.0</span></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="product__item sale">
-                                <div class="product__item__pic set-bg"
-                                    data-setbg="../assets/images/productos/product-4.jpg">
-                                    <img src="../assets/images/productos/product-4.jpg"
-                                        class="product__item__pic set-bg">
-                                    <div class="label">Sale</div>
-                                    <ul class="product__hover">
-                                        <li><a href="#" class="agregar-carrito"><img class="agregar-carrito"
-                                                    src="https://img.icons8.com/windows/32/000000/add-shopping-cart.png" /></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="product__item__text">
-                                    <h6><a href="#">Slim striped pocket shirt</a></h6>
-                                    <div class="rating">
-                                        <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                        <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                        <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                        <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                        <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                    </div>
-                                    <div class="product__price">$ 49.0 <span>$ 59.0</span></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="product__item sale">
-                                <div class="product__item__pic set-bg"
-                                    data-setbg="../assets/images/productos/product-4.jpg">
-                                    <img src="../assets/images/productos/product-4.jpg"
-                                        class="product__item__pic set-bg">
-                                    <div class="label">Sale</div>
-                                    <ul class="product__hover">
-                                        <li><a href="#" class="agregar-carrito"><img class="agregar-carrito"
-                                                    src="https://img.icons8.com/windows/32/000000/add-shopping-cart.png" /></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="product__item__text">
-                                    <h6><a href="#">Slim striped pocket shirt</a></h6>
-                                    <div class="rating">
-                                        <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                        <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                        <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                        <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                        <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                    </div>
-                                    <div class="product__price">$ 49.0 <span>$ 59.0</span></div>
-                                </div>
-                            </div>
-                        </div> -->
                         <div class="col-lg-12 text-center">
                             <div class="pagination__option">
                                 <a href="#">1</a>
@@ -725,6 +517,17 @@
     <!-- Footer Section End -->
 
     <!-- Js Plugins -->
+    <script>
+        function agregarCarrito( id ){
+            //alert( typeof id );
+            $.ajax({
+               method: "POST",
+               url: "wrap.php",
+               data: { agregar: String( id ) }
+           })
+        }
+    </script>
+
     <script src="../js/jquery-3.3.1.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/jquery.magnific-popup.min.js"></script>
