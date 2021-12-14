@@ -134,18 +134,25 @@ class database
         $cnx->desconectar($connect);
     }
 
-    public function agregarProducto($idCategoria, $precio, $marca, $modelo, $caract)
+    public function agregarProducto($rfc, $idCategoria, $precio, $marca, $modelo, $caracteristicas, $urlImg, $oferta)
     {
         $cnx = new database();  // Conexión con DB
         $connect = $cnx->conectar();
         if($connect != false)
         {
-            $query = "INSERT INTO producto(idCategoria, precio, marca, modelo, caracteristicas) VALUES (".$idCategoria.",".$precio.",".$marca.",".$modelo.",".$caract.");";
+            $query = "INSERT INTO producto(rfc, idCategoria, precio, marca, modelo, caracteristicas, urlImg, oferta) VALUES ('".$rfc."','".$idCategoria."','".$precio."','".$marca."','".$modelo."','".$caracteristicas."','".
+
+$urlImg."','".$oferta."');";
             $exec = mysqli_query($connect, $query); // Ejecución del query
-            $row = mysqli_fetch_array($exec); // Obtenemos las columnas resultantes de la consulta
+	    if( $exec ){
+                $msg = "Creado con éxito";
+            }else{
+                $msg = "Error al crear";
+            }
+            
 
             $cnx->desconectar($connect);   // Desconexión de DB
-            return $row; // Regresamos Row. Es false si no se pudo ejecutar
+            return $msg; // Regresamos Row. Es false si no se pudo ejecutar
         }
     }
 
