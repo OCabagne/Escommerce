@@ -151,7 +151,7 @@
                                     <li><a href="./historial.html">Mis pedidos <span></span></a></li>
                                     <li><a href="./carrito.php">Mi carrito <span></span></a></li>
 				                    <?php if($actual->getTipo()=="cliente"){ ?>
-                                    <li><a href="#">Vender<span></span></a></li>
+                                    <li><a href="./ser-vendedor.php">Vender<span></span></a></li>
 				                    <?php } ?>
 				                    <?php if($actual->getTipo()=="vendedor"){ ?>
                                     <li><a href="./ser-vendedor.php">Agregar producto al inventario<span></span></a></li>
