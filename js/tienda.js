@@ -17,9 +17,9 @@ var cargaPagina = document.addEventListener("DOMContentLoaded",()=>{
     }
     function agregaChecked()
     {
-        if(this.parentNode.childNodes[1].getAttribute("checked") == "" || this.parentNode.childNodes[1].getAttribute("checked") == null)
+        /*if(this.parentNode.childNodes[1].getAttribute("checked") == "" || this.parentNode.childNodes[1].getAttribute("checked") == null)
             this.parentNode.childNodes[1].setAttribute("checked","true");
         else
-            this.parentNode.childNodes[1].removeAttribute("checked");
+            this.parentNode.childNodes[1].removeAttribute("checked");*/
     }
 });

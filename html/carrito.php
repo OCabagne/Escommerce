@@ -66,7 +66,7 @@
 
     <!--Inicio de barra de navegacion-->
     <?php
-        require_once "cabeza.php";
+        require_once "./cabeza.php";
     ?>
     <!--Fin de barra de navegacion-->
 
@@ -273,7 +273,7 @@
 
     <!-- Footer Section Begin -->
     <?php
-        require_once "pie.php";
+        require_once "./pie.php";
     ?>
     <!-- Footer Section End -->
 

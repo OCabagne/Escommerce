@@ -68,7 +68,7 @@
     </div>
     <!--Inicio de barra de navegacion-->
     <?php
-        require_once "cabeza.php";
+        require_once "./cabeza.php";
     ?>
     <!--Fin de barra de navegacion-->
 
@@ -192,45 +192,45 @@
                                 <h4>Filtrar por marca</h4>
                             </div>
                             <div class="size__list">
-                                <label for="xxs">
+                                <label for="xxs" class="checkboxesMarcados">
                                     Por
                                     <input type="checkbox" id="xxs" name="marca1" >
-                                    <span class="checkmark checkboxesMarcados"></span>
+                                    <span class="checkmark"></span>
                                 </label>
-                                <label for="xs">
+                                <label for="xs" class="checkboxesMarcados">
                                     favor
                                     <input type="checkbox" id="xs" name="marca2" >
-                                    <span class="checkmark checkboxesMarcados"></span>
+                                    <span class="checkmark"></span>
                                 </label>
-                                <label for="xss">
+                                <label for="xss" class="checkboxesMarcados">
                                     pon
                                     <input type="checkbox" id="xss" name="marca3" >
-                                    <span class="checkmark checkboxesMarcados"></span>
+                                    <span class="checkmark"></span>
                                 </label>
-                                <label for="s">
+                                <label for="s" class="checkboxesMarcados">
                                     las
                                     <input type="checkbox" id="s" name="marca4" >
-                                    <span class="checkmark checkboxesMarcados"></span>
+                                    <span class="checkmark"></span>
                                 </label>
-                                <label for="m">
+                                <label for="m" class="checkboxesMarcados">
                                     marcas
                                     <input type="checkbox" id="m" name="marca5" >
-                                    <span class="checkmark checkboxesMarcados"></span>
+                                    <span class="checkmark"></span>
                                 </label>
-                                <label for="ml">
+                                <label for="ml" class="checkboxesMarcados">
                                     gracias
                                     <input type="checkbox" id="ml" name="marca6" >
-                                    <span class="checkmark checkboxesMarcados"></span>
+                                    <span class="checkmark"></span>
                                 </label>
-                                <label for="l">
+                                <label for="l" class="checkboxesMarcados">
                                     ja
                                     <input type="checkbox" id="l" name="marca7" >
-                                    <span class="checkmark checkboxesMarcados"></span>
+                                    <span class="checkmark"></span>
                                 </label>
-                                <label for="xl">
+                                <label for="xl" class="checkboxesMarcados">
                                     ja
                                     <input type="checkbox" id="xl" name="marca8" >
-                                    <span class="checkmark checkboxesMarcados"></span>
+                                    <span class="checkmark"></span>
                                 </label>
                             </div>
                         </div>
@@ -239,45 +239,45 @@
                                 <h4>Filtrar por modelo</h4>
                             </div>
                             <div class="size__list color__list">
-                                <label for="black">
+                                <label for="black" class="checkboxesMarcados">
                                     y
                                     <input type="checkbox" id="black" name="modelo1" >
-                                    <span class="checkmark checkboxesMarcados"></span>
+                                    <span class="checkmark"></span>
                                 </label>
-                                <label for="whites">
+                                <label for="whites" class="checkboxesMarcados">
                                     tambien
                                     <input type="checkbox" id="whites" name="modelo2" >
-                                    <span class="checkmark checkboxesMarcados"></span>
+                                    <span class="checkmark"></span>
                                 </label>
-                                <label for="reds">
+                                <label for="reds" class="checkboxesMarcados">
                                     los
                                     <input type="checkbox" id="reds" name="modelo3" >
-                                    <span class="checkmark checkboxesMarcados"></span>
+                                    <span class="checkmark"></span>
                                 </label>
-                                <label for="greys">
+                                <label for="greys" class="checkboxesMarcados">
                                     modelos
                                     <input type="checkbox" id="greys" name="modelo4" >
-                                    <span class="checkmark checkboxesMarcados"></span>
+                                    <span class="checkmark"></span>
                                 </label>
-                                <label for="blues">
+                                <label for="blues" class="checkboxesMarcados">
                                     por
                                     <input type="checkbox" id="blues" name="modelo5" >
-                                    <span class="checkmark checkboxesMarcados"></span>
+                                    <span class="checkmark"></span>
                                 </label>
-                                <label for="beige">
+                                <label for="beige" class="checkboxesMarcados">
                                     fis
                                     <input type="checkbox" id="beige" name="modelo6" >
-                                    <span class="checkmark checkboxesMarcados"></span>
+                                    <span class="checkmark"></span>
                                 </label>
-                                <label for="greens">
+                                <label for="greens" class="checkboxesMarcados">
                                     Greens
                                     <input type="checkbox" id="greens" name="modelo7" >
-                                    <span class="checkmark checkboxesMarcados"></span>
+                                    <span class="checkmark"></span>
                                 </label>
-                                <label for="yellows">
+                                <label for="yellows" class="checkboxesMarcados">
                                     Yellows
                                     <input type="checkbox" id="yellows" name="modelo8" >
-                                    <span class="checkmark checkboxesMarcados"></span>
+                                    <span class="checkmark"></span>
                                 </label>
                             </div>
                         </div>
@@ -400,7 +400,7 @@
 
     <!-- Footer Section Begin -->
     <?php
-        require_once "pie.php";
+        require_once "./pie.php";
     ?>
     <!-- Footer Section End -->
 
