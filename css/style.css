@@ -349,3 +349,21 @@ th {
     background: none;
     box-shadow: rgba(0, 118, 186, 0.20) 0px 3px 10px, rgba(235, 59, 90, 0.30) 0px 3px 3px;
 }
+
+.section-title h5 {
+	color: #111111;
+	font-weight: 600;
+	text-transform: uppercase;
+	position: relative;
+	display: inline-block;
+}
+
+.section-title h5:after {
+	position: absolute;
+	left: 0;
+	bottom: -4px;
+	height: 2px;
+	width: 70px;
+	background: #57B1E6;
+	content: "";
+}
