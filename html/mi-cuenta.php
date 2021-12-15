@@ -148,9 +148,9 @@
                                     <h4>M&aacute;s informaci&oacute;n</h4>
                                 </div>
                                 <ul>
-                                    <li><a href="#">Mis pedidos <span></span></a></li>
-                                    <li><a href="#">Mi carrito <span></span></a></li>
-                                    <li><a href="#">Vender <span></span></a></li>
+                                    <li><a href="./historial.html">Mis pedidos <span></span></a></li>
+                                    <li><a href="./carrito.php">Mi carrito <span></span></a></li>
+                                    <li><a href="./ser-vendedor.html">Vender <span></span></a></li>
                                     <li><a href="#">Inventario <span></span></a></li>
                                     <!--!! Esto solo en caso de que la cuenta -->
                                     <!--!! sea de un vendedor -->

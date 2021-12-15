@@ -203,7 +203,7 @@
                         <h6>Total:</h6>
                         <ul>
                             <li>Subtotal <span><?php echo $total/2; ?></span></li>
-                            <li>Envio <span> !Free </span><li>
+                            <li>Envio <span> Free! </span><li>
                             <li>Total <span><?php echo $total/2;?></span></li>
                         </ul>
                         <a href="./checkout.php" class="primary-btn">Proceder al pago</a>

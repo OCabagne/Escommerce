@@ -22,7 +22,7 @@
                         <h6>Mi cuenta</h6>
                         <ul>
                             <li><a href="mi-cuenta.php">Mi cuenta</a></li>
-                            <li><a href="#">Mis compras</a></li>
+                            <li><a href="./historial.html">Mis compras</a></li>
                             <li><a href="carrito.php">Carrito</a></li>
                         </ul>
                     </div>

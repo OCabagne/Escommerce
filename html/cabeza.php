@@ -23,7 +23,7 @@
                             <a class="nav-link" href="./ofertas.html">Ofertas</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./ser-vendedor.html">Vender</a>
+                            <a class="nav-link" href="./ser-vendedor.php">Vender</a>
                         </li>
                     </ul>
 
@@ -33,10 +33,9 @@
                             <ul class="navbar-nav me-auto mb-2 mb-lg-0 nav-borde nav-ul">
                                 <li class="nav-item">
                                     <!--<a class="nav-link" href="/Escommerce/pages/registro.php">Crea tu cuenta</a>-->
-                                    <?php
-                                        echo "<p>" . $actual->usuario . "</p>";
-                                        //print_r( $nombre )
-                                    ?>
+
+                                    <a class="nav-link" href="./mi-cuenta.php"><?php echo $actual->usuario; ?></a>
+
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="logout.php">Salir</a>
@@ -63,7 +62,7 @@
 
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Mis compras</a>
+                            <a class="nav-link" href="./historial.php">Mis compras</a>
                         </li>
                         <li class="nav-item carrito">
                             <a class="nav-link" href="./carrito.php"><img

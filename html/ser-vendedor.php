@@ -71,46 +71,47 @@ if( $_POST )
     <main class="container-fluid">
         <form class="clearfix" action="ser-vendedor.php" method="post">
             <section class="w-50 h-100 float-start max-"><!--SECCION IZQUIERDA MARCA MODELO ETC-->
-                
-                <div class="w-75 calcular d-inline-flex">
-                    <input class="form-control text-center" type="text" name="urlImg" maxlength="300" placeholder="URL de la imágen" required>
-                </div>
-                <div class="w-75 calcular d-inline-flex">
-                    <input class="form-control text-center" type="text" name="marca" maxlength="100" placeholder="Marca de producto" required>
-                </div>
-                <div class="w-75 calcular d-inline-flex">
-                    <input class="form-control text-center" type="text" name="modelo" maxlength="100" placeholder="Modelo de producto" required>
-                </div>
-                <div class="w-75 calcular d-inline-flex">
-                    <input class="form-control text-center" type="number" name="precio" placeholder="Precio de producto" required>
-                </div>
-                <div class="calcular d-inline-flex w-50">
-                    <select class="text-center w-100" name="categoria" required>
-                        <option value="0">Ropa mujer</option>
-                        <option value="1">Ropa hombre</option>
-                        <option value="2">Ropa niño</option>
-                        <option value="3">Ropa niña</option>
-                        <option value="4">Ropa bebé</option>
-                        <option value="5">Celular</option>
-                        <option value="6">Audífonos</option>
-                        <option value="7">Monitores</option>
-                        <option value="8">Teclados</option>
-                        <option value="9">Ratones</option>
-                        <option value="10">Jardín</option>
-                        <option value="11">Muebes</option>
-                        <option value="12">Electrodomésticos</option>
-                        <option value="13">Maquillaje</option>
-                        <option value="14">Skincare</option>
-                        <option value="15">Cremas</option>
-                        <option value="16">Shampoo</option>
-                        <option value="17">Jabones</option>
-                    </select>
-                </div>
-            </section><!--SECCION IZQUIERDA MARCA MODELO ETC-->
+                    <div class="form-control w-75 calcular custom-file" style="position: relative; overflow: hidden;">
+                        <label for="file-subir" id="file-subir-label" class="text-center"><img style="max-width: 40%; max-height: 40%; position: absolute; top: 25%; left: 32%;" src="../assets/images/upload.png"></label>
+                        <input id="file-subir" name="urlImg" type="file" class="h-100" style="display: none;" accept=".png, .jpg, .jpeg, .gif" required>
+                        <img src="#" id="imagenSubir" style="display: none; width: 100%; height: 100%;">
+                    </div>
+                    <div class="w-75 calcular d-inline-flex">
+                        <input class="form-control text-center" type="text" name="marca" maxlength="100" placeholder="Marca de producto" required>
+                    </div>
+                    <div class="w-75 calcular d-inline-flex">
+                        <input class="form-control text-center" type="text" name="modelo" maxlength="100" placeholder="Modelo de producto" required>
+                    </div>
+                    <div class="w-75 calcular d-inline-flex">
+                        <input class="form-control text-center" type="number" name="precio" placeholder="Precio de producto" required>
+                    </div>
+                    <div class="calcular d-inline-flex w-50">
+                        <select class="text-center w-100" name="categoria" required>
+                            <option value="0">Ropa mujer</option>
+                            <option value="1">Ropa hombre</option>
+                            <option value="2">Ropa ni&ntilde;o</option>
+                            <option value="3">Ropa ni&ntilde;a</option>
+                            <option value="4">Ropa beb&eacute;</option>
+                            <option value="5">Celular</option>
+                            <option value="6">Aud&iacute;fonos</option>
+                            <option value="7">Monitores</option>
+                            <option value="8">Teclados</option>
+                            <option value="9">Ratones</option>
+                            <option value="10">Jard&iacute;n</option>
+                            <option value="11">Muebes</option>
+                            <option value="12">Electrodom&eacute;sticos</option>
+                            <option value="13">Maquillaje</option>
+                            <option value="14">Skincare</option>
+                            <option value="15">Cremas</option>
+                            <option value="16">Shampoo</option>
+                            <option value="17">Jabones</option>
+                        </select>
+                    </div>
+                </section><!--SECCION IZQUIERDA MARCA MODELO ETC-->
 
             <section class="w-50 float-end"><!--SECCION DEECHA CARACTERISTICAS-->
                 <div class=" w-75 calcular">
-                    <label for="caracteristicas" class="form-label h1 text-center m-auto d-block">Características</label>
+                    <label for="caracteristicas" class="form-label h1 text-center m-auto d-block">Caracter&iacute;sticas</label>
                     <textarea class="form-control" name="caracteristicas" id="caracteristicas" rows="25" cols="20" maxlength="500" required></textarea>
                 </div>
                 <div class="calcular">
