@@ -19,9 +19,18 @@ if( $_POST )
         $caracteristicas = htmlspecialchars( $_POST['caracteristicas'] );
         $urlImg = htmlspecialchars( $_POST['urlImg'] );
         $oferta="no";
+        $tipo = $actual->getTipo();
         $db = new database();
 	$msg=$db->agregarProducto($rfc, $idCategoria, $precio, $marca, $modelo, $caracteristicas, $urlImg, $oferta);
-
+	
+	if($tipo!="vendedor"){
+		echo ("ENTRA EN LA FUNCION");
+		$exec=$db->cambiarTipo($rfc,"vendedor");
+		if($exec){
+			echo ("Se ha cambiado su tipo de usuario a vendedor");
+		}
+		
+	}
 	echo $msg;
 
         
