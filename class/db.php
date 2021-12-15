@@ -100,6 +100,18 @@ class database
         }
     }
 
+    public function buscadorProductosCategoria( $valor ){ // Para la barra de búsqueda
+        $cnx = new database();
+        $connect = $cnx->conectar();
+        if( $connect != false ){
+            $query = "SELECT * FROM producto WHERE idCategoria = '" . $valor . "';";
+            $exec = mysqli_query( $connect, $query );
+            //$row = mysqli_fetch_array( $exec, MYSQLI_ASSOC );
+            $cnx->desconectar( $connect );
+            return $exec;
+        }
+    }
+
     public function buscarPorPrecio($min, $max) // Filtro SLIDER en tienda.php
     {
         $cnx = new database();

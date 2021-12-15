@@ -61,7 +61,7 @@
                             <h1>Ropa para mujeres</h1>
                             <p>Sitamet, consectetur adipiscing elit, sed do eiusmod tempor incidid-unt labore
                                 edolore magna aliquapendisse ultrices gravida.</p>
-                            <a href="#">Comprar ahora</a>
+                            <a href="tienda.php?buscarCategoria=ropaMujer">Comprar ahora</a>
                         </div>
                     </div>
                 </div>
@@ -72,7 +72,7 @@
                                 data-setbg="../assets/images/categorias/categoria-hombres.jpg">
                                 <div class="categories__text">
                                     <h4>Ropa para hombres</h4>
-                                    <a href="#">Comprar ahora</a>
+                                    <a href="tienda.php?buscarCategoria=ropaHombre">Comprar ahora</a>
                                 </div>
                             </div>
                         </div>
@@ -81,7 +81,7 @@
                                 data-setbg="../assets/images/categorias/categoria-niños.jpg">
                                 <div class="categories__text">
                                     <h4>Ropa para ni&ntilde;os</h4>
-                                    <a href="#">Comprar ahora</a>
+                                    <a href="tienda.php?buscarCategoria=ropaNino">Comprar ahora</a>
                                 </div>
                             </div>
                         </div>
@@ -90,7 +90,7 @@
                                 data-setbg="../assets/images/categorias/categoria-cosmeticos.jpg">
                                 <div class="categories__text">
                                     <h4>Cosmeticos</h4>
-                                    <a href="#">Comprar ahora</a>
+                                    <a href="tienda.php?buscarCategoria=cosmeticos">Comprar ahora</a>
                                 </div>
                             </div>
                         </div>

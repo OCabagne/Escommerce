@@ -11,8 +11,18 @@
 
     if( isset( $_GET['busqueda'] ) ){
         $productos = $db->buscadorProductos( $_GET['busqueda'] );
+        $msg = $productos;
     }else{
-        $productos = $db->ultimosProductos( 10 );   
+        if( isset( $_GET['buscarCategoria'] ) ){
+            $ids = $db->idCategoria( $_GET['buscarCategoria'] );
+            $msg = $ids;
+            if( isset( $ids ) ){
+                $id = $ids['idCategoria'];
+                $productos = $db->buscadorProductosCategoria( $id );
+            }
+        }else{
+            $productos = $db->ultimosProductos( 10 ); 
+        }
     }
 
     //unset( $_SESSION['carrito'] );
@@ -90,7 +100,6 @@
         </div>
     </div>
     <!-- Breadcrumb End -->
-
     <!-- Shop Section Begin -->
     <section class="shop spad" id="lista-productos">
         <div class="container">
@@ -288,6 +297,7 @@
                         <?php
 //                            foreach( $producto as $productos ){
                         //if( $_GET ){
+                        if( isset( $productos ) ){
                         if( mysqli_num_rows( $productos ) > 0 ){
                             while( $row = mysqli_fetch_array( $productos, MYSQLI_ASSOC ) ){
                                 //print_r( $row )
@@ -322,16 +332,8 @@
                                 </div>
                             </div>
                         </div>
-                        <?php }}/*}*/  ?>
+                        <?php }}}else{ echo "No hay productos"; }/*}*/  ?>
 
-                        <div class="col-lg-12 text-center">
-                            <div class="pagination__option">
-                                <a href="#">1</a>
-                                <a href="#">2</a>
-                                <a href="#">3</a>
-                                <a href="#"><i class="fa fa-angle-right"></i></a>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -424,7 +426,6 @@
     <script src="../js/owl.carousel.min.js"></script>
     <script src="../js/jquery.nicescroll.min.js"></script>
     <script src="../js/bootstrap.js"></script>
-
     <script src="../js/main.js"></script>
     <script src="../js/app.js"></script>
     <script src="../js/notifications.js"></script>
