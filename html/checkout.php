@@ -172,8 +172,18 @@
                             <div class="checkout__order__total">
                                 <ul>
                                     <li>Subtotal <span><?php echo $total; ?></span></li>
-                                    <li>Envio <span>!Free</span></li>
+                                    <li>Envio <span>Free!</span></li>
                                     <li>Total <span><?php echo $total; ?></span></li>
+                                    <?php 
+                                        if($total <= 0){
+                                            $PHPtext = "Tu carrito está vacío!";
+                                        }
+                                    ?>
+                                    <script>
+                                        var JavaScriptAlert = <?php echo json_encode($PHPtext); ?>;
+                                        alert(JavaScriptAlert);
+                                        window.location.href = "./carrito.php";
+                                    </script>
                                 </ul>
                             </div>
                             <div class="checkout__order__widget">
