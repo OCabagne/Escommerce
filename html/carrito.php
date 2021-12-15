@@ -93,10 +93,6 @@
     </div>
     <!-- Breadcrumb End -->
 
-    <?php 
-        print_r( $msg );
-    ?>
-
     <!-- Shop Cart Section Begin -->
     <section class="shop-cart spad">
         <div class="container">
@@ -123,7 +119,7 @@
                                 ?>
                                         <tr>
                                             <td class="cart__product__item">
-                                                <img src=<?php echo '"' . $producto->getImg() . '"' ?> alt="">
+                                                <img src=<?php echo '"' . $producto->getImg() . '"' ?> alt="" width="150" height="150">
                                                 <div class="cart__product__item__title">
                                                     <h6><?php echo $producto->Nombre; ?></h6>
                                                 </div>

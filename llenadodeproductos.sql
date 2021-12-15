@@ -1,31 +1,31 @@
 INSERT INTO producto(caracteristicas, idCategoria, idProducto, marca, modelo, precio, 
 rfc, oferta, urlImg) VALUES 
-( 'Muy bonito', 0, 2, 'Zara', 
-'falda', 500.00, 'CAGB980704SV7', 'si', 
+( 'Muy bonito', 2, 2, 'Zara', 
+'falda', 500.00, 'CAGB980704SV8', 'si', 
 'https://www.lavanguardia.com/files/content_image_mobile_filter/uploads/2020/06/02/5fa91a5a0acc5.png' );
 
 INSERT INTO producto(caracteristicas, idCategoria, idProducto, marca, modelo, precio, 
 rfc, oferta, urlImg) VALUES 
-( 'Tallas de M-S', 0, 3, 'Zara', 
-'pantalon', 1099.00, 'CAGH980704SV8', 'si', 
+( 'Tallas de M-S', 2, 3, 'Zara', 
+'pantalon', 1099.00, 'CAGB980704SV8', 'si', 
 'https://okdiario.com/look/img/2021/01/01/zara-pantalones-rebajas.jpg' );
 
 
 INSERT INTO producto(caracteristicas, idCategoria, idProducto, marca, modelo, precio, 
 rfc, oferta, urlImg) VALUES 
-( '100% sintético', 0, 4, 'Nine West', 
+( '100% sintï¿½tico', 2, 4, 'Nine West', 
 'camisa', 2100.00, 'CAGB980704SV8', 'no', 
 'https://aws.glamour.es/prod/designs/v1/assets/666x1000/523263.jpg' );
 
 INSERT INTO producto(caracteristicas, idCategoria, idProducto, marca, modelo, precio, 
 rfc, oferta, urlImg) VALUES 
-( 'Solo en color negro', 0, 5, 'SheIn', 
-'vestido', 3000.00, 'MKAG985504SI0', 'no', 
+( 'Solo en color negro', 2, 5, 'SheIn', 
+'vestido', 3000.00, 'CAGB980704SV8', 'no', 
 'https://img.ltwebstatic.com/images3_pi/2020/02/24/1582535538e8483700a04f6712c56ebb083a313fb4_thumbnail_600x.webp' );
 
 INSERT INTO producto(caracteristicas, idCategoria, idProducto, marca, modelo, precio, 
 rfc, oferta, urlImg) VALUES 
-( 'Piel falsa', 0, 6, 'Dawwoti', 
+( 'Piel falsa', 2, 6, 'Dawwoti', 
 'chaqueta', 1149.99, 'CAGB980704SV8', 'si', 
 'https://images-na.ssl-images-amazon.com/images/I/417oQxnhNJL._AC_SL1025_.jpg' );
 
@@ -36,21 +36,21 @@ rfc, oferta, urlImg) VALUES
 INSERT INTO producto(caracteristicas, idCategoria, idProducto, marca, modelo, precio, 
 rfc, oferta, urlImg) VALUES 
 ( 'Hecho de algodon', 1, 7, 'Calvin Klein', 
-'pantalon', 3999.99, 'FJUO126974SV8', 'no', 
+'pantalon', 3999.99, 'CAGB980704SV8', 'no', 
 'https://m.media-amazon.com/images/I/A19U9Q9ggPL._AC_SX425_.jpg' );
 
 
 INSERT INTO producto(caracteristicas, idCategoria, idProducto, marca, modelo, precio, 
 rfc, oferta, urlImg) VALUES 
 ( 'Pantalon ajustado', 1, 8, 'Calvin Klein', 
-'pantalon', 5099.99, 'FJUO126974SV8', 'no', 
+'pantalon', 5099.99, 'CAGB980704SV8', 'no', 
 'https://m.media-amazon.com/images/I/71hTmZ4wK3L._AC_SY550_.jpg' );
 
 
 INSERT INTO producto(caracteristicas, idCategoria, idProducto, marca, modelo, precio, 
 rfc, oferta, urlImg) VALUES 
 ( 'Corbata para infantes', 1, 9, 'Kajeer', 
-'corbata', 259.99, 'FBIO985554SV8', 'si', 
+'corbata', 259.99, 'CAGB980704SV8', 'si', 
 'https://m.media-amazon.com/images/I/61sI7kXpk3L._AC_UX385_.jpg' );
 
 
@@ -90,13 +90,13 @@ rfc, oferta, urlImg) VALUES
 
 INSERT INTO producto(caracteristicas, idCategoria, idProducto, marca, modelo, precio, 
 rfc, oferta, urlImg) VALUES 
-( 'Auténtico y exclusivo de tienda de disney', 3, 14, 'Disney Interactive Studios', 
+( 'Autï¿½ntico y exclusivo de tienda de disney', 3, 14, 'Disney Interactive Studios', 
 'disfraz', 1200.00, 'CADD980994SV4', 'no', 
 'https://m.media-amazon.com/images/I/61JMWI77TRL._AC_UX385_.jpg' );
 
 INSERT INTO producto(caracteristicas, idCategoria, idProducto, marca, modelo, precio, 
 rfc, oferta, urlImg) VALUES 
-( 'Material suave y cálido', 3, 15, 'Weekend', 
+( 'Material suave y cï¿½lido', 3, 15, 'Weekend', 
 'conjunto', 700.00, 'CADD980994SV4', 'no', 
 'https://www.anahidalgo.es/wp-content/uploads/2019/11/19-10644-053-390-2.jpg' );
 
@@ -107,13 +107,13 @@ rfc, oferta, urlImg) VALUES
 
 INSERT INTO producto(caracteristicas, idCategoria, idProducto, marca, modelo, precio, 
 rfc, oferta, urlImg) VALUES 
-( 'Material suave y cálido', 4, 16, 'REDESS', 
+( 'Material suave y cï¿½lido', 4, 16, 'REDESS', 
 'gorro', 499.99, 'ICKK934594SV4', 'no', 
 'https://m.media-amazon.com/images/I/61QHGaxIoSL._AC_UX385_.jpg' );
 
 INSERT INTO producto(caracteristicas, idCategoria, idProducto, marca, modelo, precio, 
 rfc, oferta, urlImg) VALUES 
-( 'Material suave y cálido', 4, 17, 'Little Miracles', 
+( 'Material suave y cï¿½lido', 4, 17, 'Little Miracles', 
 'cobija', 359.00, 'ICKK934594SV4', 'no', 
 'https://www.costco.com.mx/medias/sys_master/products/h21/hd0/69846756622366.jpg' );
 
@@ -124,7 +124,7 @@ rfc, oferta, urlImg) VALUES
 
 INSERT INTO producto(caracteristicas, idCategoria, idProducto, marca, modelo, precio, 
 rfc, oferta, urlImg) VALUES 
-( 'Sólo negro', 5, 18, 'Samsung', 
+( 'Sï¿½lo negro', 5, 18, 'Samsung', 
 'Celular Samsung A217M A21S Color Negro R9', 4849.00, 'ICKK934594SV4', 'no', 
 'https://resources.sears.com.mx/medios-plazavip/fotos/productos_sears1/original/3139387.jpg' );
 
@@ -153,7 +153,7 @@ rfc, oferta, urlImg) VALUES
 INSERT INTO producto(caracteristicas, idCategoria, idProducto, marca, modelo, precio, 
 rfc, oferta, urlImg) VALUES 
 ( 'Calidad-precio', 6, 22, 'Xiaomi', 
-'Audífonos Xiaomi Redmi Airdots', 330.00, 'PNNP89294SV8', 'si', 
+'Audï¿½fonos Xiaomi Redmi Airdots', 330.00, 'PNNP89294SV8', 'si', 
 'https://http2.mlstatic.com/D_NQ_NP_893078-MLA40757319738_022020-O.jpg' );
 
 INSERT INTO producto(caracteristicas, idCategoria, idProducto, marca, modelo, precio, 
@@ -197,7 +197,7 @@ rfc, oferta, urlImg) VALUES
 INSERT INTO producto(caracteristicas, idCategoria, idProducto, marca, modelo, precio, 
 rfc, oferta, urlImg) VALUES 
 ( 'bluetooth', 8, 27, 'Xiaomi', 
-'Teclado inalámbrico multidispositivo Xiaomi', 1300.00, 'PNNP89294SV8', 'no', 
+'Teclado inalï¿½mbrico multidispositivo Xiaomi', 1300.00, 'PNNP89294SV8', 'no', 
 'https://m.media-amazon.com/images/I/61nnawHf9dL._AC_SY450_.jpg' );
 
 
@@ -226,13 +226,13 @@ rfc, oferta, urlImg) VALUES
 INSERT INTO producto(caracteristicas, idCategoria, idProducto, marca, modelo, precio, 
 rfc, oferta, urlImg) VALUES 
 ( 'Alto rendimiento', 10, 30, 'Truper', 
-'Truper JJ-4, Juego de 4 herramientas para jardín', 175.00, 'PNIO11294SV8', 'no', 
+'Truper JJ-4, Juego de 4 herramientas para jardï¿½n', 175.00, 'PNIO11294SV8', 'no', 
 'https://m.media-amazon.com/images/I/71-wTVSCKnS._AC_SY355_.jpg' );
 
 INSERT INTO producto(caracteristicas, idCategoria, idProducto, marca, modelo, precio, 
 rfc, oferta, urlImg) VALUES 
 ( 'Alto rendimiento', 10, 31, 'Truper', 
-'Juego de 4 herramientas de jardín', 300.00, 'PNIO11294SV8', 'no', 
+'Juego de 4 herramientas de jardï¿½n', 300.00, 'PNIO11294SV8', 'no', 
 'https://cdn.homedepot.com.mx/productos/491059/491059-d.jpg' );
 
 INSERT INTO producto(caracteristicas, idCategoria, idProducto, marca, modelo, precio, 
@@ -349,7 +349,7 @@ rfc, oferta, urlImg) VALUES
 
 INSERT INTO producto(caracteristicas, idCategoria, idProducto, marca, modelo, precio, 
 rfc, oferta, urlImg) VALUES 
-( 'niño', 16, 45, 'Moco de Gorila', 
+( 'niï¿½o', 16, 45, 'Moco de Gorila', 
 'Moco de Gorila Liana Nigri salvaje', 100.00, 'PGHJ11294SV8', 'si', 
 'https://m.media-amazon.com/images/I/31PuPi9MyfL._SX425_.jpg' );
 
@@ -362,7 +362,7 @@ rfc, oferta, urlImg) VALUES
 INSERT INTO producto(caracteristicas, idCategoria, idProducto, marca, modelo, precio, 
 rfc, oferta, urlImg) VALUES 
 ( 'shampo+acondicionador', 16, 47, 'Pantene', 
-'Shampoo Pantene Fuerza y Reconstrucción 700ml', 90.00, 'PGHJ11294SV8', 'si', 
+'Shampoo Pantene Fuerza y Reconstrucciï¿½n 700ml', 90.00, 'PGHJ11294SV8', 'si', 
 'https://www.chedraui.com.mx/medias/7500435126755-00-CH515Wx515H?context=bWFzdGVyfHJvb3R8NjQyOTJ8aW1hZ2UvanBlZ3xoMzEvaDViLzExMTAzNzYzMzY1OTE4LmpwZ3xmNGYzMGY3ZjBhNDM1MjlkYzQ2Y2ExZDZjOTUxYjE2MGMwZjlkMGRkNzU4NzliYWY2ZGJlZWY2ODMwODI5MGYy' );
 
 
@@ -374,7 +374,7 @@ rfc, oferta, urlImg) VALUES
 INSERT INTO producto(caracteristicas, idCategoria, idProducto, marca, modelo, precio, 
 rfc, oferta, urlImg) VALUES 
 ( 'antibacterial', 17, 48, 'Escudo', 
-'Escudo Antibacterial, Jabón de Tocador', 30.00, 'PGHJ11294SV8', 'si', 
+'Escudo Antibacterial, Jabï¿½n de Tocador', 30.00, 'PGHJ11294SV8', 'si', 
 'https://m.media-amazon.com/images/I/814H8q30+tL._AC_SL1500_.jpg' );
 
 INSERT INTO producto(caracteristicas, idCategoria, idProducto, marca, modelo, precio, 
