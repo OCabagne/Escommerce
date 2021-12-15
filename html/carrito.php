@@ -116,8 +116,9 @@
                                 <?php
                                     $total = 0;
                                     if( isset( $productos ) ){
+                                        $precio = $producto -> getPrecio();
                                     foreach( $productos as $producto ){
-                                        $total+=$producto->getPrecio();
+                                        $total+=$precio;
                                 ?>
                                         <tr>
                                             <td class="cart__product__item">
@@ -126,13 +127,13 @@
                                                     <h6><?php echo $producto->Nombre; ?></h6>
                                                 </div>
                                             </td>
-                                            <td class="cart__price">$ <?php echo $producto->getPrecio(); ?></td>
+                                            
+                                           <td class="cart__price">$ <?php echo $precio; ?></td>
                                             <td class="cart__quantity">
                                                 <div class="pro-qty">
                                                     <input type="text" value="1">
                                                 </div>
-                                            </td>
-                                            <!-- <td class="cart__total">$ <?php echo $total+=$producto->getPrecio(); ?></td> -->
+                                            <td class="cart__total">$ <?php echo $total; ?></td>
                                             <td class="cart__close"><a href="#" onclick="borrarCarrito( <?php echo $producto->id_producto; ?> )"><img src="https://img.icons8.com/ios-glyphs/20/000000/delete-sign.png"/></a></td>
                                         </tr>
                                 <?php
