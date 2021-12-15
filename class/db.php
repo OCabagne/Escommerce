@@ -25,9 +25,9 @@
 
 class database
 {
-    private $server = "localhost";
-    private $user = "root";
-    private $pass = "";
+    private $server = "127.0.0.1:49511";
+    private $user = "azure";
+    private $pass = "6#vWHD_$";
     private $dbName = "escommerce";
     
     private function conectar()
