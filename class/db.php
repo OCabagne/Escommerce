@@ -338,14 +338,14 @@ $urlImg."','".$oferta."');";
         $connect = $cnx->conectar();    // Nos conectamos a la base de datos y guardamos el objeto mysqli retornado en connect.
         if($connect != false)   // if para cachar el caso de error de conexión.
         {
-            $query = "UPDATE usuario SET tipo = '".$tipo."' WHERE rfc = ".$rfc.";";
+            $query = "UPDATE usuario SET tipoUser = '".$tipo."' WHERE rfc = '".$rfc."';";
             $exec = mysqli_query($connect, $query); // Ejecución del query
 
             $cnx->desconectar($connect);   // Desconexión de DB
             return $exec;
         }
     }
-
+	
     public function cambiarContrasena($rfc, $pass)
     {
         $cnx = new database();  // Instancia de db
