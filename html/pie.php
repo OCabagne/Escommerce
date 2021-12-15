@@ -4,7 +4,7 @@
                 <div class="col-sm-8 footPago">
                     <div class="footer__about">
                         <div class="footer__logo">
-                            <a href="./index.php"><img src="../assets/images/LogoProyecto.png" alt=""></a>
+                            <a href="./index.php"><img src="../assets/images/logoEscommerceBlanco.png" alt=""></a>
                         </div>
                         <p>Tenemos los mejores metodos de pago!</p>
                         <div class="footer__payment">
