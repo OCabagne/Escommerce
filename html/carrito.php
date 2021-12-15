@@ -13,10 +13,14 @@
         $productos = array();
         $msg = $_SESSION['carrito'];
         $db = new database();
+        $added = array();
         foreach( $_SESSION['carrito'] as $id ){
-            $res = $db->buscarProducto( "*", $id ); // Hay que iterar
-            $producto = new Producto( $res['idProducto'], $res['marca'] . " " . $res['modelo'], $res['precio'], $res['caracteristicas'], $res['idCategoria'], $res['urlImg'] );
-            $productos []= $producto;
+            if( !in_array( $id, $added ) ){
+                $res = $db->buscarProducto( "*", $id ); // Hay que iterar
+                $producto = new Producto( $res['idProducto'], $res['marca'] . " " . $res['modelo'], $res['precio'], $res['caracteristicas'], $res['idCategoria'], $res['urlImg'] );
+                $productos []= $producto;
+                $added []= $id;
+            }
         }
         /*if( isset( $res ) ){
             $msg = $res;
