@@ -195,8 +195,9 @@ nav {
     nav {
         height: 60px;
     }
-    .navbar-brand img {
-        width: 60px;
+    .logo a img {
+        max-width: 65px;
+        max-height: 50px;
     }
     .navbar-collapse ul {
         height: fit-content;
@@ -364,7 +365,7 @@ th {
 	bottom: -4px;
 	height: 2px;
 	width: 70px;
-	background: #57B1E6;
+	background: #eb3b5a;
 	content: "";
 }
 
@@ -373,7 +374,7 @@ th {
 }
 
 /*----- Color azul para el vendedor ------*/
-#indexBread, .shop__cart__table tbody tr .colorVendedor{
+.breadcrumb-option .breadcrumb .colorVendedor #indexBread, .shop__cart__table tbody tr .colorVendedor{
     color: #0071B3;
 }
 
@@ -383,5 +384,15 @@ th {
 
 .cart__btn .colorVendedor:hover{
     color: rgb(245, 245, 245);
+}
+
+.shop__cart__table .colorVendedor h5:after {
+	position: absolute;
+	left: 0;
+	bottom: -4px;
+	height: 2px;
+	width: 70px;
+	background: #0071B3;
+	content: "";
 }
 
