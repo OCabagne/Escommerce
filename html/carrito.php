@@ -93,6 +93,8 @@
     </div>
     <!-- Breadcrumb End -->
 
+
+    <?php print_r( $_SESSION['carrito'] ) ?>
     <!-- Shop Cart Section Begin -->
     <section class="shop-cart spad">
         <div class="container">
@@ -131,7 +133,7 @@
                                                 </div>
                                             </td>
                                             <!-- <td class="cart__total">$ <?php echo $total+=$producto->getPrecio(); ?></td> -->
-                                            <td class="cart__close"><img src="https://img.icons8.com/ios-glyphs/20/000000/delete-sign.png"/></td>
+                                            <td class="cart__close"><a href="#" onclick="borrarCarrito( <?php echo $producto->id_producto; ?> )"><img src="https://img.icons8.com/ios-glyphs/20/000000/delete-sign.png"/></a></td>
                                         </tr>
                                 <?php
                                     }}
@@ -278,6 +280,19 @@
     <!-- Footer Section End -->
 
     <!-- Js Plugins -->
+
+    <script>
+        function borrarCarrito( id ){
+            //alert( typeof id );
+            $.ajax({
+               method: "POST",
+               url: "wrap.php",
+               data: { borrar: String( id ) }
+           })
+           location.reload();
+        }
+    </script>
+
     <script src="../js/jquery-3.3.1.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/jquery.magnific-popup.min.js"></script>

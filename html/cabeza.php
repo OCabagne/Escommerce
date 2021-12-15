@@ -32,6 +32,9 @@
                     ?>
                             <ul class="navbar-nav me-auto mb-2 mb-lg-0 nav-borde nav-ul">
                                 <li class="nav-item">
+                                    <a class="nav-link" href="mi-cuenta.php">Mi cuenta</a>
+                                </li>
+                                <li class="nav-item">
                                     <!--<a class="nav-link" href="/Escommerce/pages/registro.php">Crea tu cuenta</a>-->
 
                                     <a class="nav-link" href="./mi-cuenta.php"><?php echo $actual->usuario; ?></a>
@@ -48,9 +51,6 @@
                                 <li class="nav-item">
                                     <!--<a class="nav-link" href="/Escommerce/pages/registro.php">Crea tu cuenta</a>-->
                                     <a class="nav-link" href="registrarCuenta.php">Crea tu cuenta</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="mi-cuenta.php">Mi cuenta</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="login.php">Ingresa</a>

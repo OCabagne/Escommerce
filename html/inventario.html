@@ -244,7 +244,8 @@
                                             <h6>Zip-pockets pebbled tote briefcase</h6>
                                         </div>
                                     </td>
-                                    <td class="cart__price colorVendedor">$ 169.0</td>
+                                    <td class="<-- <?php if($actual->getTipo()=="cliente"){echo ("cart__total");}else{echo ("cart__total colorVendedor");}?> -->cart__price colorVendedor">$ 169.0</td><-- AQUI EXPLICO COMO SE CAMBIA EL COLOR USANDO PHP -->
+                                    <-- El php de arriba deberia poner el color dependiendo del usuario -->
                                     <td class="cart__quantity ">10</td>
                                     <td class="cart__total colorVendedor">17</td>
                                 </tr>

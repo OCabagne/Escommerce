@@ -13,4 +13,11 @@
         }
         header( 'Location: tienda.php' );
     }
+
+    if( isset( $_POST['borrar'] ) ){
+        $idx = array_search( $_POST['borrar'], $_SESSION['carrito'] );
+        unset( $_SESSION['carrito'][$idx] );
+        header( 'Refresh:1' );
+    }
+
 ?>
