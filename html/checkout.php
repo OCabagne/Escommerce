@@ -66,75 +66,9 @@
     </div>
 
     <!--Inicio de barra de navegacion-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-sombra">
-        <div class="container-md logo">
-            <a href="index.php"><img src="../assets/images/LogoProyecto.png" alt="Logo E-scommerce"></a>
-        </div>
-
-        <div class="nav-texto">
-            <div class="container-md nav-busqueda">
-                <form class="flex-fill d-flex busqueda">
-                    <input class="form-control me-2" type="search" placeholder="Buscar productos" aria-label="Search">
-                    <button class="btn btn-outline-principal" type="submit">Buscar</button>
-                    <button class="btn nav-toggle" type="button" aria-label="Abrir menu">
-                        <img src="https://img.icons8.com/ios-glyphs/30/000000/menu--v1.png" />
-                    </button>
-                </form>
-            </div>
-            <div class="container-md nav-colapsada-vertical">
-                <div class="navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 nav-borde nav-ul">
-                        <li class="nav-item">
-                            <a class="nav-link" href="./tienda.php">Categor&iacute;as</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Ofertas</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Vender</a>
-                        </li>
-                    </ul>
-
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 nav-borde nav-ul">
-                        <li class="nav-item">
-                            <!--<a class="nav-link" href="/Escommerce/pages/registro.php">Crea tu cuenta</a>-->
-                            <a class="nav-link" href="registrarCuenta.php">Crea tu cuenta</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="login.php">Ingresa</a>
-                        </li>
-                    </ul>
-
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Mis compras</a>
-                        </li>
-                        <li class="nav-item carrito">
-                            <a class="nav-link" href="./carrito.php"><img
-                                    src="https://img.icons8.com/fluency-systems-regular/22/000000/shopping-cart-loaded.png" /><span
-                                    class="badge bg-secundario" id="cantidad-carrito"></span></a>
-                            <div id="carrito">
-                                <table id="lista-carrito"
-                                    class="u-full-width table table-sm .table-responsive-sm .table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">Imagen</th>
-                                            <th scope="col">Nombre</th>
-                                            <th scope="col">Precio</th>
-                                            <th scope="col">Cantidad</th>
-                                            <th scope="col">Eliminar</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody></tbody>
-                                </table>
-                                <a href="#" id="vaciar-carrito" class="button u-full-width vacio">Vaciar Carrito</a>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </nav>
+    <?php
+        require_once "cabeza.php";
+    ?>
     <!--Fin de barra de navegacion-->
 
     <!-- Breadcrumb Begin -->
@@ -321,35 +255,9 @@
     <!-- Categorias Banner Fin -->
 
     <!-- Footer Section Begin -->
-    <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-8 footPago">
-                    <div class="footer__about">
-                        <div class="footer__logo">
-                            <a href="./index.php"><img src="../assets/images/LogoProyecto.png" alt=""></a>
-                        </div>
-                        <p>Tenemos los mejores metodos de pago!</p>
-                        <div class="footer__payment">
-                            <a href="#"><img src="../assets/images/payment/payment-1.png" alt=""></a>
-                            <a href="#"><img src="../assets/images/payment/payment-2.png" alt=""></a>
-                            <a href="#"><img src="../assets/images/payment/payment-3.png" alt=""></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-4 footCuenta">
-                    <div class="footer__widget">
-                        <h6>Mi cuenta</h6>
-                        <ul>
-                            <li><a href="#">Mi cuenta</a></li>
-                            <li><a href="#">Mis compras</a></li>
-                            <li><a href="#">Carrito</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <?php
+        require_once "pie.php";
+    ?>
     <!-- Footer Section End -->
 
     <!-- Js Plugins -->
