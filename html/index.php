@@ -120,8 +120,8 @@
                 </div>
             </div>
             <div class="row property__gallery">
+                <!---->
                 <div class="col-lg-3 col-md-4 col-sm-6 mix women">
-                    <!---->
                     <div class="product__item">
                         <div class="product__item__pic set-bg" data-setbg="../assets/images/productos/product-1.jpg">
                             <img src="../assets/images/productos/product-1.jpg" class="product__item__pic set-bg">
@@ -144,8 +144,8 @@
                             <div class="product__price">$ 59.0</div>
                         </div>
                     </div>
-                    <!---->
                 </div>
+                <!---->
                 <div class="col-lg-3 col-md-4 col-sm-6 mix men">
                     <div class="product__item">
                         <div class="product__item__pic set-bg" data-setbg="../assets/images/productos/product-2.jpg">
