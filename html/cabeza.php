@@ -20,7 +20,7 @@
                             <a class="nav-link" href="./tienda.php">Categor&iacute;as</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./ofertas.html">Ofertas</a>
+                            <a class="nav-link" href="./ofertas.php">Ofertas</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="./ser-vendedor.php">Vender</a>
