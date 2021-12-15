@@ -134,3 +134,8 @@
            contenedorCarrito.removeChild(contenedorCarrito.firstChild);
        }
    }
+
+   // Direccionamiento para los links
+   function goto(url) {
+       document.location = `${url}.html`;
+   }
