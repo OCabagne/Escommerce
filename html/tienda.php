@@ -312,7 +312,7 @@
                                     </ul>
                                 </div>
                                 <div class="product__item__text">
-                                    <h6><a href="./detalles-producto.html" onclick="goto('detalles-producto')">hola, soy una prueba<?php echo $row['marca'] . " " . $row['modelo']; ?></a></h6>
+                                    <h6><a href="./detalles-producto.html" onclick="goto('detalles-producto')"><?php echo $row['marca'] . " " . $row['modelo']; ?></a></h6>
                                     <div class="rating">
                                         <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
                                         <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
