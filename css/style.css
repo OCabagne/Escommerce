@@ -367,3 +367,21 @@ th {
 	background: #57B1E6;
 	content: "";
 }
+
+#agregarProducto{
+    margin-left: 10px;
+}
+
+/*----- Color azul para el vendedor ------*/
+#indexBread, .shop__cart__table tbody tr .colorVendedor{
+    color: #0071B3;
+}
+
+.cart__btn .colorVendedor{
+    background: rgba(87, 177, 230, 0.90);
+}
+
+.cart__btn .colorVendedor:hover{
+    color: rgb(245, 245, 245);
+}
+
