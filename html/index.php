@@ -79,10 +79,7 @@
                             <ul class="navbar-nav me-auto mb-2 mb-lg-0 nav-borde nav-ul">
                                 <li class="nav-item">
                                     <!--<a class="nav-link" href="/Escommerce/pages/registro.php">Crea tu cuenta</a>-->
-                                    <?php
-                                        echo "<p>" . $actual->usuario . "</p>";
-                                        //print_r( $nombre )
-                                    ?>
+                                    <p><a class="nav-link" href="./mi-cuenta.php"><?php echo $actual->usuario ?></a></p>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="logout.php">Salir</a>
