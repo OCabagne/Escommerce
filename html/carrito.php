@@ -94,7 +94,7 @@
     <!-- Breadcrumb End -->
 
 
-    <?php print_r( $_SESSION['carrito'] ) ?>
+    <?php //print_r( $_SESSION['carrito'] ) ?>
     <!-- Shop Cart Section Begin -->
     <section class="shop-cart spad">
         <div class="container">
