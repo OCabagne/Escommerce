@@ -91,8 +91,6 @@
     </div>
     <!-- Breadcrumb End -->
 
-    <?php print_r( $_SESSION['carrito'] ) ?>
-
     <!-- Shop Section Begin -->
     <section class="shop spad" id="lista-productos">
         <div class="container">
