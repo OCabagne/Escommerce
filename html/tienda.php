@@ -12,7 +12,7 @@
     if( isset( $_GET['busqueda'] ) ){
         $productos = $db->buscadorProductos( $_GET['busqueda'] );
     }else{
-        $productos = $db->ultimosProductos();
+        $productos = $db->ultimosProductos( 10 );   
     }
 
     //unset( $_SESSION['carrito'] );

@@ -4,10 +4,11 @@
     require_once $_SERVER['DOCUMENT_ROOT'].'/Escommerce/class/Vendedor.php';
     session_start();
     $actual = '';
+    $db = new database();
     if( isset( $_SESSION['user'] ) ){
-        $db = new database();
         $actual = unserialize( $_SESSION['user'] );
     }
+    $productos = $db->ultimosProductos( 6 );
 
 ?>
 <!DOCTYPE html>
@@ -120,60 +121,17 @@
                 </div>
             </div>
             <div class="row property__gallery">
-                <!---->
-                <div class="col-lg-3 col-md-4 col-sm-6 mix women">
-                    <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="../assets/images/productos/product-1.jpg">
-                            <img src="../assets/images/productos/product-1.jpg" class="product__item__pic set-bg">
-                            <div class="label new">Nuevo</div>
-                            <ul class="product__hover">
-                                <li><a href="#" class="agregar-carrito"><img class="agregar-carrito"
-                                            src="https://img.icons8.com/windows/32/000000/add-shopping-cart.png" /></a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="product__item__text">
-                            <h6><a class="cargaDetallesProducto" href="detalles-producto.html">Buttons tweed blazer</a></h6>
-                            <div class="rating">
-                                <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                            </div>
-                            <div class="product__price">$ 59.0</div>
-                        </div>
-                    </div>
-                </div>
-                <!---->
-                <div class="col-lg-3 col-md-4 col-sm-6 mix men">
-                    <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="../assets/images/productos/product-2.jpg">
-                            <img src="../assets/images/productos/product-2.jpg" class="product__item__pic set-bg">
-                            <ul class="product__hover">
-                                <li><a href="#" class="agregar-carrito"><img class="agregar-carrito"
-                                            src="https://img.icons8.com/windows/32/000000/add-shopping-cart.png" /></a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="product__item__text">
-                            <h6><a class="cargaDetallesProducto" href="detalles-producto.html">Flowy striped skirt</a></h6>
-                            <div class="rating">
-                                <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                            </div>
-                            <div class="product__price">$ 49.0</div>
-                        </div>
-                    </div>
-                </div>
+                
+                
+                <?php
+                    if( mysqli_num_rows( $productos ) > 0 ){
+                        while( $row = mysqli_fetch_array( $productos, MYSQLI_ASSOC ) ){
+                ?>
                 <div class="col-lg-3 col-md-4 col-sm-6 mix accessories">
                     <div class="product__item">
                         <div class="product__item__pic set-bg" data-setbg="../assets/images/productos/product-3.jpg">
-                            <img src="../assets/images/productos/product-3.jpg" class="product__item__pic set-bg">
-                            <div class="label stockout">agotado</div>
+                            <img src="<?php echo $row['urlImg'] ?>" class="product__item__pic set-bg">
+                            <div class="label stockout">VENTA</div>
                             <ul class="product__hover">
                                 <li><a href="#" class="agregar-carrito"><img class="agregar-carrito"
                                             src="https://img.icons8.com/windows/32/000000/add-shopping-cart.png" /></a>
@@ -181,7 +139,7 @@
                             </ul>
                         </div>
                         <div class="product__item__text">
-                            <h6><a class="cargaDetallesProducto" href="detalles-producto.html">Cotton T-Shirt</a></h6>
+                            <h6><a class="cargaDetallesProducto" href="detalles-producto.html"><?php echo $row['marca'] . " " . $row['modelo'] ?></a></h6>
                             <div class="rating">
                                 <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
                                 <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
@@ -189,127 +147,17 @@
                                 <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
                                 <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
                             </div>
-                            <div class="product__price">$ 59.0</div>
+                            <div class="product__price"><?php echo "$ " . $row['precio'] ?></div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 mix cosmetic">
-                    <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="../assets/images/productos/product-4.jpg">
-                            <img src="../assets/images/productos/product-4.jpg" class="product__item__pic set-bg">
-                            <ul class="product__hover">
-                                <li><a href="#" class="agregar-carrito"><img class="agregar-carrito"
-                                            src="https://img.icons8.com/windows/32/000000/add-shopping-cart.png" /></a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="product__item__text">
-                            <h6><a class="cargaDetallesProducto" href="detalles-producto.html">Slim striped pocket shirt</a></h6>
-                            <div class="rating">
-                                <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                            </div>
-                            <div class="product__price">$ 59.0</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 mix kid">
-                    <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="../assets/images/productos/product-5.jpg">
-                            <img src="../assets/images/productos/product-5.jpg" class="product__item__pic set-bg">
-                            <ul class="product__hover">
-                                <li><a href="#" class="agregar-carrito"><img class="agregar-carrito"
-                                            src="https://img.icons8.com/windows/32/000000/add-shopping-cart.png" /></a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="product__item__text">
-                            <h6><a class="cargaDetallesProducto" href="detalles-producto.html">Fit micro corduroy shirt</a></h6>
-                            <div class="rating">
-                                <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                            </div>
-                            <div class="product__price">$ 59.0</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 mix women men kid accessories cosmetic">
-                    <div class="product__item sale">
-                        <div class="product__item__pic set-bg" data-setbg="../assets/images/productos/product-6.jpg">
-                            <img src="../assets/images/productos/product-6.jpg" class="product__item__pic set-bg">
-                            <div class="label sale">Oferta</div>
-                            <ul class="product__hover">
-                                <li><a href="detalles-producto.html" class="agregar-carrito"><img class="agregar-carrito"
-                                            src="https://img.icons8.com/windows/32/000000/add-shopping-cart.png" /></a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="product__item__text">
-                            <h6><a class="cargaDetallesProducto" href="#">Tropical Kimono</a></h6>
-                            <div class="rating">
-                                <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                            </div>
-                            <div class="product__price">$ 49.0 <span>$ 59.0</span></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 mix women men kid accessories cosmetic">
-                    <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="../assets/images/productos/product-7.jpg">
-                            <img src="../assets/images/productos/product-7.jpg" class="product__item__pic set-bg">
-                            <ul class="product__hover">
-                                <li><a href="#" class="agregar-carrito"><img class="agregar-carrito"
-                                            src="https://img.icons8.com/windows/32/000000/add-shopping-cart.png" /></a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="product__item__text">
-                            <h6><a class="cargaDetallesProducto" href="detalles-producto.html">Contrasting sunglasses</a></h6>
-                            <div class="rating">
-                                <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                            </div>
-                            <div class="product__price">$ 59.0</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 mix women men kid accessories cosmetic">
-                    <div class="product__item sale">
-                        <div class="product__item__pic set-bg" data-setbg="../assets/images/productos/product-8.jpg">
-                            <img src="../assets/images/productos/product-8.jpg" class="product__item__pic set-bg">
-                            <div class="label">Oferta</div>
-                            <ul class="product__hover">
-                                <li><a href="#" class="agregar-carrito"><img class="agregar-carrito"
-                                            src="https://img.icons8.com/windows/32/000000/add-shopping-cart.png" /></a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="product__item__text">
-                            <h6><a class="cargaDetallesProducto" href="detalles-producto.html">Water resistant backpack</a></h6>
-                            <div class="rating">
-                                <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                            </div>
-                            <div class="product__price">$ 49.0 <span>$ 59.0</span></div>
-                        </div>
-                    </div>
-                </div>
+
+                <?php
+                        }
+                    }
+                ?>
+
+                
             </div>
         </div>
     </section>
@@ -381,54 +229,38 @@
                         <div class="section-title">
                             <h4>Del Hogar</h4>
                         </div>
-                        <div class="trend__item">
-                            <div class="trend__item__pic">
-                                <img src="../assets/images/categorias/display-categorias/ht-1.jpg" alt="">
-                            </div>
-                            <div class="trend__item__text">
-                                <h6>Chain bucket bag</h6>
-                                <div class="rating">
-                                    <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                    <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                    <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                    <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                    <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
+
+                        <?php
+                            $id = $db->idCategoria( "hogar" );
+                            if( $id ){
+                                $ids = $id['idCategoria'];
+                                $prods = $db->filtro( $ids );
+                                //print_r( $prods );
+                                if( mysqli_num_rows( $prods ) > 0 ){
+                                    while( $row = mysqli_fetch_array( $prods, MYSQLI_ASSOC ) ){
+                        ?>
+                            <div class="trend__item">
+                                <div class="trend__item__pic">
+                                    <img src="<?php echo $prods['urlImg'] ?>" alt="" width="90" height="90">
                                 </div>
-                                <div class="product__price">$ 59.0</div>
-                            </div>
-                        </div>
-                        <div class="trend__item">
-                            <div class="trend__item__pic">
-                                <img src="../assets/images/categorias/display-categorias/ht-2.jpg" alt="">
-                            </div>
-                            <div class="trend__item__text">
-                                <h6>Pendant earrings</h6>
-                                <div class="rating">
-                                    <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                    <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                    <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                    <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                    <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
+                                <div class="trend__item__text">
+                                    <h6><?php echo $prods['marca'] . " " . $prods['modelo'] ?></h6>
+                                    <div class="rating">
+                                        <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
+                                        <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
+                                        <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
+                                        <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
+                                        <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
+                                    </div>
+                                    <div class="product__price">$ <?php echo $prods['precio'] ?></div>
                                 </div>
-                                <div class="product__price">$ 59.0</div>
                             </div>
-                        </div>
-                        <div class="trend__item">
-                            <div class="trend__item__pic">
-                                <img src="../assets/images/categorias/display-categorias/ht-3.jpg" alt="">
-                            </div>
-                            <div class="trend__item__text">
-                                <h6>Cotton T-Shirt</h6>
-                                <div class="rating">
-                                    <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                    <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                    <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                    <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                    <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                </div>
-                                <div class="product__price">$ 59.0</div>
-                            </div>
-                        </div>
+                        <?php
+                                    }
+                                }
+                            }
+                        ?>
+
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-6">
@@ -436,54 +268,37 @@
                         <div class="section-title">
                             <h4>Electronica</h4>
                         </div>
-                        <div class="trend__item">
-                            <div class="trend__item__pic">
-                                <img src="../assets/images/categorias/display-categorias/bs-1.jpg" alt="">
-                            </div>
-                            <div class="trend__item__text">
-                                <h6>Cotton T-Shirt</h6>
-                                <div class="rating">
-                                    <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                    <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                    <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                    <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                    <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
+                        <?php
+                            $id = $db->idCategoria( "electronica" );
+                            if( $id ){
+                                $ids = $id['idCategoria'];
+                                $prods = $db->filtro( $ids );
+                                //print_r( $prods );
+                                if( mysqli_num_rows( $prods ) > 0 ){
+                                    while( $row = mysqli_fetch_array( $prods, MYSQLI_ASSOC ) ){
+                        ?>
+                            <div class="trend__item">
+                                <div class="trend__item__pic">
+                                    <img src=<?php echo '"' . $prods['urlImg'] . '"' ?> alt="" width="90" height="90">
                                 </div>
-                                <div class="product__price">$ 59.0</div>
-                            </div>
-                        </div>
-                        <div class="trend__item">
-                            <div class="trend__item__pic">
-                                <img src="../assets/images/categorias/display-categorias/bs-2.jpg" alt="">
-                            </div>
-                            <div class="trend__item__text">
-                                <h6>Zip-pockets pebbled tote <br />briefcase</h6>
-                                <div class="rating">
-                                    <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                    <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                    <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                    <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                    <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
+                                <div class="trend__item__text">
+                                    <h6><?php echo $prods['marca'] . " " . $prods['modelo'] ?></h6>
+                                    <div class="rating">
+                                        <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
+                                        <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
+                                        <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
+                                        <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
+                                        <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
+                                    </div>
+                                    <div class="product__price">$ <?php echo $prods['precio'] ?></div>
                                 </div>
-                                <div class="product__price">$ 59.0</div>
                             </div>
-                        </div>
-                        <div class="trend__item">
-                            <div class="trend__item__pic">
-                                <img src="../assets/images/categorias/display-categorias/bs-3.jpg" alt="">
-                            </div>
-                            <div class="trend__item__text">
-                                <h6>Round leather bag</h6>
-                                <div class="rating">
-                                    <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                    <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                    <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                    <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                    <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                </div>
-                                <div class="product__price">$ 59.0</div>
-                            </div>
-                        </div>
+                        <?php
+                                    }
+                                }
+                            }
+                        ?>
+                        
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-6">
@@ -491,54 +306,35 @@
                         <div class="section-title">
                             <h4>Moda</h4>
                         </div>
-                        <div class="trend__item">
-                            <div class="trend__item__pic">
-                                <img src="../assets/images/categorias/display-categorias/f-1.jpg" alt="">
-                            </div>
-                            <div class="trend__item__text">
-                                <h6>Bow wrap skirt</h6>
-                                <div class="rating">
-                                    <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                    <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                    <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                    <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                    <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
+                        <?php
+                            $id = $db->idCategoria( "ropaMujer" );
+                            $ids = $id['idCategoria'];
+                            $prods = $db->filtro( $ids );
+                            //print_r( $prods );
+                            if( mysqli_num_rows( $prods ) > 0 ){
+                                while( $row = mysqli_fetch_array( $prods, MYSQLI_ASSOC ) ){
+                            //while( $prods ){
+                        ?>
+                            <div class="trend__item">
+                                <div class="trend__item__pic">
+                                    <img src="<?php echo $row['urlImg'] ?>" alt="" width="90" height="90">
                                 </div>
-                                <div class="product__price">$ 59.0</div>
-                            </div>
-                        </div>
-                        <div class="trend__item">
-                            <div class="trend__item__pic">
-                                <img src="../assets/images/categorias/display-categorias/f-2.jpg" alt="">
-                            </div>
-                            <div class="trend__item__text">
-                                <h6>Metallic earrings</h6>
-                                <div class="rating">
-                                    <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                    <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                    <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                    <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                    <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
+                                <div class="trend__item__text">
+                                    <h6><?php echo $row['marca'] . " " . $row['modelo'] ?></h6>
+                                    <div class="rating">
+                                        <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
+                                        <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
+                                        <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
+                                        <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
+                                        <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
+                                    </div>
+                                    <div class="product__price">$ <?php echo $row['precio'] ?></div>
                                 </div>
-                                <div class="product__price">$ 59.0</div>
                             </div>
-                        </div>
-                        <div class="trend__item">
-                            <div class="trend__item__pic">
-                                <img src="../assets/images/categorias/display-categorias/f-3.jpg" alt="">
-                            </div>
-                            <div class="trend__item__text">
-                                <h6>Flap cross-body bag</h6>
-                                <div class="rating">
-                                    <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                    <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                    <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                    <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                    <img src="https://img.icons8.com/office/16/000000/filled-star--v1.png" />
-                                </div>
-                                <div class="product__price">$ 59.0</div>
-                            </div>
-                        </div>
+                        <?php
+                                }
+                            }
+                        ?>
                     </div>
                 </div>
             </div>

@@ -25,9 +25,12 @@
 
 class database
 {
-    private $server = "127.0.0.1:49511";
-    private $user = "azure";
-    private $pass = "6#vWHD_$";
+    //private $server = "127.0.0.1:49511";
+    //private $user = "azure";
+    //private $pass = "6#vWHD_$";
+    private $server = "localhost";
+    private $user = "root";
+    private $pass = "";
     private $dbName = "escommerce";
     
     private function conectar()
@@ -110,11 +113,11 @@ class database
         }
     }
 
-    public function ultimosProductos(){ // Para la barra de búsqueda
+    public function ultimosProductos( $num ){ // Para la barra de búsqueda
         $cnx = new database();
         $connect = $cnx->conectar();
         if( $connect != false ){
-            $query = "SELECT * FROM producto;";
+            $query = "SELECT * FROM producto LIMIT " . $num . ";";
             $exec = mysqli_query( $connect, $query );
             //$row = mysqli_fetch_array( $exec, MYSQLI_ASSOC );
             $cnx->desconectar( $connect );
@@ -366,7 +369,21 @@ $urlImg."','".$oferta."');";
         $connect = $cnx->conectar();
         if($connect != false)
         {
-            $query = "SELECT * FROM producto WHERE idCategoria = ".$idCategoria.";";
+            $query = "SELECT * FROM producto WHERE idCategoria = '" . $idCategoria . "';";
+            $exec = mysqli_query($connect, $query); // Ejecución del query
+            //$row = mysqli_fetch_array($exec, MYSQLI_ASSOC); // Obtenemos las columnas resultantes de la consulta
+
+            $cnx->desconectar($connect);   // Desconexión de DB
+            return $exec; // Regresamos el resultado de la consulta
+        }
+    }
+
+    public function idCategoria( $nombre ){
+        $cnx = new database();  // Conexión con DB
+        $connect = $cnx->conectar();
+        if($connect != false)
+        {
+            $query = "SELECT idCategoria FROM categoria WHERE nomCategoria = '".$nombre."';";
             $exec = mysqli_query($connect, $query); // Ejecución del query
             $row = mysqli_fetch_array($exec); // Obtenemos las columnas resultantes de la consulta
 
